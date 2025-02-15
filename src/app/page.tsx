@@ -1,5 +1,10 @@
 import React from "react";
+import Auth from "./auth/page";
 
 export default function Home() {
-  return <div className="colored"><</div>;
+  return (
+    <div>
+      <Auth />
+    </div>
+  );
 }
