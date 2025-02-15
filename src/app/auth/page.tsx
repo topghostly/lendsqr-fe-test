@@ -38,8 +38,40 @@ const Auth: React.FC = () => {
         </div>
         <div className={styles.auth__form}>
           <div className={styles.form}>
-            <h1 className={styles.auth__form_header}>Welcome</h1>
-            <p>Enter details to login.</p>
+            <h1 className={styles.auth__form_header}>Welcome!</h1>
+            <p className={styles.auth__form_subheader}>
+              Enter details to login.
+            </p>
+            <form
+              autoComplete="off"
+              noValidate={true}
+              className={styles.auth__form_inner}
+            >
+              <div className={styles.input_holder}>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete="new-email"
+                  className={styles.form_input}
+                />
+                <label htmlFor="email" className={styles.form_label}>
+                  Email
+                </label>
+              </div>
+              <div className={styles.input_holder}>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  autoComplete="new-password"
+                  className={styles.form_input}
+                />
+                <label htmlFor="password" className={styles.form_label}>
+                  Password
+                </label>
+              </div>
+            </form>
           </div>
         </div>
       </div>
