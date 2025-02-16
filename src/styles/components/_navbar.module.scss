@@ -1,4 +1,5 @@
 @use "../utils/" as u;
+@import "../global/colors";
 
 .navbar {
   display: flex;
@@ -16,14 +17,31 @@
     align-items: center;
   }
   &__form {
-    width: fit-content;
     height: u.rem(40);
 
     &_group {
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      flex: 1;
+      width: u.rem(400);
+      display: grid;
+      grid-template-columns: 1fr u.rem(56);
+    }
+    &_input {
+      position: relative;
+      border: solid 1px $color-subtle;
+      border-top-left-radius: u.rem(8);
+      border-bottom-left-radius: u.rem(8);
     }
   }
+  &__info_holder {
+    position: relative;
+    display: flex;
+    gap: u.rem(10);
+    align-items: center;
+  }
+}
+
+.doc_link {
+  font-family: "Roboto";
+  font-weight: 400;
+  text-decoration: underline;
+  color: $color-primary;
 }

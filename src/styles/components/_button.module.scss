@@ -49,8 +49,10 @@
   &.text {
     background: none;
     color: #007bff;
+    border: none;
     &:hover {
       text-decoration: underline;
+      background-color: none;
     }
   }
 
@@ -58,5 +60,8 @@
     background-color: $color-text-primary;
     border: 2px solid $color-text-primary;
     color: $color-subtle;
+  }
+  &.fw {
+    width: 100%;
   }
 }

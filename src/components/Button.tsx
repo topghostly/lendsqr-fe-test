@@ -16,7 +16,7 @@ const Button: React.FC<BtnProp> = ({
     <button
       className={`${styles.btn} ${styles[variant]} ${styles[color]} ${
         disabled ? styles.disable : ""
-      }`}
+      } ${fullWidth ? styles.fw : ""}`}
       style={{ ...customClass }}
       onClick={() => onClick()}
       type={type}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../styles/components/_navbar.module.scss";
 import Link from "next/link";
 import Button from "./Button";
+import { Search } from "lucide-react";
 
 const Navbar: React.FC<ChildrenLayoutProp> = () => {
   return (
@@ -32,14 +33,33 @@ const Navbar: React.FC<ChildrenLayoutProp> = () => {
             variant="fill"
             color="primary"
             type="button"
-            disabled={true}
             onClick={() => console.log("Clicked")}
-            customClass={{}}
+            customClass={{ borderRadius: "0 0.5rem 0.5rem 0", width: "3.5rem" }}
           >
-            Press
+            <Image
+              src={"/images/search.svg"}
+              alt="search icon"
+              width={14}
+              height={14}
+              priority
+            />
           </Button>
         </div>
       </form>
+      <div className={styles.navbar__info_holder}>
+        <Link href={"#"} className={styles.doc_link}>
+          Docs
+        </Link>
+        <Button type="button" color="primary" variant="text" onClick={() => {}}>
+          <Image
+            src={"/images/notificaion.svg"}
+            alt="search icon"
+            width={26}
+            height={26}
+            priority
+          />
+        </Button>
+      </div>
     </nav>
   );
 };
