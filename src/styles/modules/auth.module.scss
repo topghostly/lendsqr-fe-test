@@ -47,51 +47,73 @@
     }
 
     &_inner {
-      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: u.rem(24);
+      width: u.rem(447);
+      max-width: 100%;
 
-      .input_holder {
-        height: fit-content;
-        position: relative;
+      .input_holder_holder {
         display: flex;
-        justify-content: center;
-        flex: 1;
         flex-direction: column;
+        gap: u.rem(24);
         width: 100%;
 
-        .form_input {
-          height: u.rem(50);
-          border: solid 2px $color-subtle;
-          outline: none;
-          width: u.rem(447);
-          max-width: 100%;
-          border-radius: u.rem(5);
-          -webkit-border-radius: u.rem(5);
-          -moz-border-radius: u.rem(5);
-          -ms-border-radius: u.rem(5);
-          -o-border-radius: u.rem(5);
-          padding: 0px 1rem;
-        }
+        .input_holder {
+          height: fit-content;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          flex: 1;
+          flex-direction: column;
+          width: 100%;
 
-        .form_label {
-          font-family: "Avenir Next";
-          margin: 0;
-          padding: 0;
-          font-weight: 400;
-          font-size: u.rem(14);
-          font-style: normal;
-          color: $color-text-primary;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          -webkit-transform: translateY(-50%);
-          -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
-          left: 1rem;
+          .form_input {
+            height: u.rem(50);
+            border: solid 2px $color-subtle;
+            outline: none;
+            width: 100%;
+            border-radius: u.rem(5);
+            -webkit-border-radius: u.rem(5);
+            -moz-border-radius: u.rem(5);
+            -ms-border-radius: u.rem(5);
+            -o-border-radius: u.rem(5);
+            padding: 0px 1rem;
+          }
+
+          .form_label {
+            font-family: "Avenir Next";
+            font-weight: 400;
+            font-size: u.rem(14);
+            font-style: normal;
+            color: $color-text-primary;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            left: 1rem;
+          }
         }
+      }
+
+      .forgot_link {
+        position: relative;
+        margin: u.rem(24) 0px u.rem(26);
+
+        a {
+          color: $color-secondary;
+          font-family: "Avenir Next";
+          font-weight: 600;
+          font-size: u.rem(12);
+          font-style: normal;
+        }
+      }
+
+      .submit_btn {
+        width: 100%;
+        position: relative;
       }
     }
   }
