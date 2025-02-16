@@ -7,4 +7,23 @@
   flex-wrap: wrap;
   height: u.rem(100);
   padding: 0px u.rem(30);
+
+  &__logo {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__form {
+    width: fit-content;
+    height: u.rem(40);
+
+    &_group {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex: 1;
+    }
+  }
 }

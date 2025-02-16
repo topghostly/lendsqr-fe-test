@@ -10,9 +10,17 @@ const Button: React.FC<BtnProp> = ({
   onClick,
   customClass,
   type,
+  color,
 }) => {
   return (
-    <button className={styles.btn} onClick={() => onClick()} type={type}>
+    <button
+      className={`${styles.btn} ${styles[variant]} ${styles[color]} ${
+        disabled ? styles.disable : ""
+      }`}
+      style={{ ...customClass }}
+      onClick={() => onClick()}
+      type={type}
+    >
       {children}
     </button>
   );

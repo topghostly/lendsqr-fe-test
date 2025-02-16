@@ -29,9 +29,12 @@ const Navbar: React.FC<ChildrenLayoutProp> = () => {
         <div className={styles.navbar__form_group}>
           <input type="text" className={styles.navbar__form_input} />
           <Button
-            variant="primary"
+            variant="fill"
+            color="primary"
             type="button"
+            disabled={true}
             onClick={() => console.log("Clicked")}
+            customClass={{}}
           >
             Press
           </Button>

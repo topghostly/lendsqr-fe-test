@@ -1,35 +1,49 @@
 @use "../utils/" as u;
+@import "../global/colors";
 
 .btn {
   position: relative;
   height: u.rem(40);
   display: grid;
+  border-radius: u.rem(8);
+  -webkit-border-radius: u.rem(8);
+  -moz-border-radius: u.rem(8);
+  -ms-border-radius: u.rem(8);
+  -o-border-radius: u.rem(8);
   place-content: center;
+  padding: 0px 1rem;
 
   &.primary {
-    background-color: #007bff;
-    color: white;
+    background-color: $color-secondary;
+    border: 2px solid $color-secondary;
+    color: $color-secondary;
     &:hover {
-      background-color: darken(#007bff, 10%);
+      background-color: darken(rgba(57, 205, 204, 1), 10%);
     }
   }
 
   &.secondary {
-    background-color: #6c757d;
-    color: white;
+    background-color: $color-text-primary;
+    border: 2px solid $color-text-primary;
+    color: $color-text-primary;
     &:hover {
-      background-color: darken(#6c757d, 10%);
+      background-color: darken(rgba(84, 95, 125, 1), 10%);
     }
   }
 
   &.outline {
     background: none;
-    border: 2px solid #007bff;
-    color: #007bff;
-    &:hover {
-      background: #007bff;
-      color: white;
-    }
+    // &:hover {
+    //   background: #007bff;
+    //   color: white;
+    // }
+  }
+  &.fill {
+    color: white;
+    // &:hover {
+    //   background: #007bff;
+    //   color: white;
+    // }
   }
 
   &.text {
@@ -38,5 +52,11 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &.disable {
+    background-color: $color-text-primary;
+    border: 2px solid $color-text-primary;
+    color: $color-subtle;
   }
 }
