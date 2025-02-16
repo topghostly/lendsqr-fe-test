@@ -52,13 +52,14 @@ const Navbar: React.FC<ChildrenLayoutProp> = () => {
         </Link>
         <Button type="button" color="primary" variant="text" onClick={() => {}}>
           <Image
-            src={"/images/notificaion.svg"}
+            src={"/images/notification.png"}
             alt="search icon"
             width={26}
             height={26}
             priority
           />
         </Button>
+        <div className={styles.user_details}></div>
       </div>
     </nav>
   );
