@@ -1,8 +1,8 @@
-import Navbar from "@/components/navbar";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
 import styles from "@/styles/modules/auth.module.scss";
 import Button from "@/components/Button";
 
@@ -11,11 +11,11 @@ const Auth: React.FC = () => {
     <div className={`${styles.authLayout} container `}>
       {/* LOGO NAVBAR */}
       <div className={styles.authLayout__nav}>
-        <Navbar>
+        <nav className={styles.navbar}>
           <Link
             href={"https://lendsqr.com/"}
             target="_blank"
-            className="navbar__brand"
+            className="nav__brand"
             aria-label="Visit Lendsqr homepage"
           >
             <Image
@@ -26,7 +26,7 @@ const Auth: React.FC = () => {
               priority
             />
           </Link>
-        </Navbar>
+        </nav>
       </div>
       <div className={styles.auth}>
         <div className={styles.auth__illustration}>

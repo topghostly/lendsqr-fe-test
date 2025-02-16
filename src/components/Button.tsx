@@ -1,7 +1,7 @@
 import { BtnProp, ChildrenLayoutProp } from "@/types/layout";
 import React from "react";
 
-const Button: React.FC<BtnProp> = ({ children, btnStyle }) => {
+const Button: React.FC<BtnProp> = ({ children, btnStyle, action }) => {
   return (
     <button
       style={{
@@ -12,6 +12,7 @@ const Button: React.FC<BtnProp> = ({ children, btnStyle }) => {
         borderRadius: "0.3125rem",
         border: "none",
       }}
+      onClick={() => [action()]}
     >
       {children}
     </button>

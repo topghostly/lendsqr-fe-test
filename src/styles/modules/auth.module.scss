@@ -8,6 +8,13 @@
     z-index: 500;
     background-color: #fff;
     padding: 5.5rem 0 0 6.0625rem;
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
   }
 }
 

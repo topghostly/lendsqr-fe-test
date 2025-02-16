@@ -1,6 +1,10 @@
+@use "../utils/" as u;
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  height: u.rem(100);
+  padding: 0px u.rem(30);
 }
