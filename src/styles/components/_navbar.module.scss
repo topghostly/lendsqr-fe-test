@@ -29,12 +29,14 @@
       border: solid 1px $color-subtle;
       border-top-left-radius: u.rem(8);
       border-bottom-left-radius: u.rem(8);
+      color: $color-subtle;
+      padding-left: u.rem(5);
     }
   }
   &__info_holder {
     position: relative;
     display: flex;
-    gap: u.rem(10);
+    gap: u.rem(25);
     align-items: center;
   }
 }
@@ -44,4 +46,25 @@
   font-weight: 400;
   text-decoration: underline;
   color: $color-primary;
+}
+.user__details {
+  display: flex;
+  gap: u.rem(10);
+  &_image {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  &_name {
+    p {
+      font-family: "Work Sans";
+      font-weight: 500;
+      color: $color-primary;
+    }
+    display: flex;
+    gap: u.rem(6);
+    align-items: center;
+  }
 }

@@ -28,7 +28,11 @@ const Navbar: React.FC<ChildrenLayoutProp> = () => {
       </div>
       <form className={styles.navbar__form}>
         <div className={styles.navbar__form_group}>
-          <input type="text" className={styles.navbar__form_input} />
+          <input
+            type="text"
+            className={styles.navbar__form_input}
+            placeholder="Search for anything"
+          />
           <Button
             variant="fill"
             color="primary"
@@ -59,7 +63,27 @@ const Navbar: React.FC<ChildrenLayoutProp> = () => {
             priority
           />
         </Button>
-        <div className={styles.user_details}></div>
+        <div className={styles.user__details}>
+          <Image
+            src={"/images/profile.png"}
+            className={styles.user__details_image}
+            alt="Adedeji profile picture"
+            width={48}
+            height={48}
+            priority
+          />
+          <div className={styles.user__details_name}>
+            <p>Adedeji</p>
+            <Image
+              src={"/images/dropdown.svg"}
+              className={styles.user__details_image}
+              alt="Adedeji profile picture"
+              width={20}
+              height={20}
+              priority
+            />
+          </div>
+        </div>
       </div>
     </nav>
   );
