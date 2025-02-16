@@ -1,21 +1,40 @@
+"use client";
+
 import { ChildrenLayoutProp } from "@/types/layout";
 import Image from "next/image";
+import styles from "../styles/components/_navbar.module.scss";
+import Link from "next/link";
+import Button from "./Button";
 
 const Navbar: React.FC<ChildrenLayoutProp> = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar__logo">
-        <Image
-          src={"/images/logo.svg"}
-          alt="logo"
-          width={145}
-          height={30}
-          priority
-        />
+    <nav className={styles.navbar}>
+      <div className={styles.navbar__logo}>
+        <Link
+          href={"#"}
+          target="_blank"
+          className="nav__brand"
+          aria-label="Visit Lendsqr homepage"
+        >
+          <Image
+            src={"/images/logo.svg"}
+            alt="logo"
+            width={145}
+            height={30}
+            priority
+          />
+        </Link>
       </div>
-      <form className="navbar__form">
-        <div className="navbar__form-group">
-          <input type="text" className="navbar__form-input" />b
+      <form className={styles.navbar__form}>
+        <div className={styles.navbar__form_group}>
+          <input type="text" className={styles.navbar__form_input} />
+          <Button
+            variant="primary"
+            type="button"
+            onClick={() => console.log("Clicked")}
+          >
+            Press
+          </Button>
         </div>
       </form>
     </nav>

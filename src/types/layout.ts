@@ -5,6 +5,11 @@ export interface ChildrenLayoutProp {
 }
 
 export interface BtnProp {
-  children: ReactNode;
-  btnStyle: CSSProperties;
+  children: React.ReactNode;
+  type: "submit" | "reset" | "button" | undefined;
+  variant: "primary" | "secondary" | "outline" | "text";
+  onClick: () => void;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  customClass?: string;
 }

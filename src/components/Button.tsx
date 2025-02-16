@@ -1,19 +1,18 @@
-import { BtnProp, ChildrenLayoutProp } from "@/types/layout";
+import { BtnProp } from "@/types/layout";
 import React from "react";
+import styles from "../styles/components/_button.module.scss";
 
-const Button: React.FC<BtnProp> = ({ children, btnStyle, action }) => {
+const Button: React.FC<BtnProp> = ({
+  children,
+  variant,
+  fullWidth,
+  disabled,
+  onClick,
+  customClass,
+  type,
+}) => {
   return (
-    <button
-      style={{
-        ...btnStyle,
-        display: "grid",
-        placeContent: "center",
-        fontSize: "0.875rem",
-        borderRadius: "0.3125rem",
-        border: "none",
-      }}
-      onClick={() => [action()]}
-    >
+    <button className={styles.btn} onClick={() => onClick()} type={type}>
       {children}
     </button>
   );
