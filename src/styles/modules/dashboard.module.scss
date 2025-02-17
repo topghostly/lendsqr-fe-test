@@ -9,6 +9,7 @@
   grid-template-columns: u.rem(283) 1fr;
   margin-top: u.rem(100);
   height: calc(100vh - u.rem(100));
+  background-color: rgba(251, 251, 251, 1);
 
   &__main {
     width: 100%;

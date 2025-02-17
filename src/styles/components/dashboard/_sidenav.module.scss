@@ -9,6 +9,7 @@
   max-height: calc(100vh - u.rem(100));
   overflow-y: scroll;
   color: $color-primary;
+  background-color: white;
   &::-webkit-scrollbar {
     width: 3px;
   }

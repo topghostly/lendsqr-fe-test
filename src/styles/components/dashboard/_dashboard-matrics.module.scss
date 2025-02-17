@@ -1,0 +1,50 @@
+@use "../../utils/" as u;
+@import "../../global/colors";
+
+.holder {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: u.rem(26);
+  &__card {
+    width: 100%;
+    max-width: u.rem(240);
+    height: u.rem(160);
+    background-color: rgb(255, 255, 255);
+    border-radius: u.rem(4);
+    -webkit-border-radius: u.rem(4);
+    -moz-border-radius: u.rem(4);
+    -ms-border-radius: u.rem(4);
+    -o-border-radius: u.rem(4);
+
+    padding: u.rem(20) u.rem(30);
+
+    &_image {
+      width: u.rem(40);
+      height: u.rem(40);
+      background-color: rgba(224, 24, 255, 0.2);
+      display: grid;
+      place-content: center;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+
+    &_text {
+      font-family: "Work Sans";
+      font-weight: 500;
+      color: $color-text-primary;
+      font-size: u.rem(14);
+      margin-top: u.rem(14);
+    }
+    &_stat {
+      font-family: "Work Sans";
+      font-weight: 600;
+      color: $color-primary;
+      font-size: u.rem(24);
+      margin-top: u.rem(12);
+    }
+  }
+}
