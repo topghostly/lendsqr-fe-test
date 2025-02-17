@@ -4,6 +4,9 @@
 .details {
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(50);
 
   .main_text {
     margin: 0;
@@ -29,12 +32,12 @@
     display: flex;
     flex-direction: column;
     gap: u.rem(51);
+    background-color: white;
 
     &_main {
       display: flex;
       align-items: center;
-      gap: u.rem(30);
-      background-color: white;
+      gap: u.rem(40);
 
       &_user {
         display: flex;
@@ -80,10 +83,62 @@
         }
       }
     }
-  }
 
-  &__categories {
-    width: 100%;
-    background-color: red;
+    // CATEGORIES
+    &_categories {
+      width: 100%;
+      .category_items {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: u.rem(35);
+        height: 100%;
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          height: 3px;
+          display: none;
+        }
+
+        // &::-webkit-scrollbar-track {
+        //   background: #f1f1f1;
+        //   border-radius: 10px;
+        // }
+
+        // &::-webkit-scrollbar-thumb {
+        //   background: #888;
+        //   border-radius: 10px;
+        // }
+
+        // &::-webkit-scrollbar-thumb:hover {
+        //   background: #555;
+        // }
+
+        .category_button {
+          padding: 0px u.rem(25);
+          white-space: nowrap;
+          height: 100%;
+          display: flex;
+          align-self: flex-start;
+          background: none;
+          border: none;
+          outline: none;
+          border-bottom: solid 2px red;
+
+          .category_item {
+            font-size: u.rem(16);
+            font-family: "Work Sans";
+            font-weight: 400;
+            color: $color-secondary;
+          }
+        }
+      }
+      &_list {
+        width: 100%;
+        height: u.rem(33);
+      }
+    }
   }
 }

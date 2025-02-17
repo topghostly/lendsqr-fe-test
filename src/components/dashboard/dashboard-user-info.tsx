@@ -55,29 +55,29 @@ const UserInfo: React.FC = () => {
             <p className={styles.sub_text}>9912345678/Providus Bank</p>
           </div>
         </div>
-      </div>
-      <div className={styles.details__categories}>
-        <div className={styles.category_list}>
-          <ul className={styles.category_items}>
-            <button className={styles.category_button}>
-              <li className={styles.category_item}>General Details</li>
-            </button>
-            <button className={styles.category_button}>
-              <li className={styles.category_item}>Documents</li>
-            </button>
-            <button className={styles.category_button}>
-              <li className={styles.category_item}>Bank Details</li>
-            </button>
-            <button className={styles.category_button}>
-              <li className={styles.category_item}>Loans</li>
-            </button>
-            <button className={styles.category_button}>
-              <li className={styles.category_item}>Savings</li>
-            </button>
-            <button className={styles.category_button}>
-              <li className={styles.category_item}>App and System</li>
-            </button>
-          </ul>
+        <div className={styles.details__head_categories}>
+          <div className={styles.details__head_categories_list}>
+            <ul className={styles.category_items}>
+              <button className={styles.category_button}>
+                <li className={styles.category_item}>General Details</li>
+              </button>
+              <button className={styles.category_button}>
+                <li className={styles.category_item}>Documents</li>
+              </button>
+              <button className={styles.category_button}>
+                <li className={styles.category_item}>Bank Details</li>
+              </button>
+              <button className={styles.category_button}>
+                <li className={styles.category_item}>Loans</li>
+              </button>
+              <button className={styles.category_button}>
+                <li className={styles.category_item}>Savings</li>
+              </button>
+              <button className={styles.category_button}>
+                <li className={styles.category_item}>App and System</li>
+              </button>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
