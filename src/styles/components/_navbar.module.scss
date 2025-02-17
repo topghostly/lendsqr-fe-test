@@ -8,6 +8,10 @@
   flex-wrap: wrap;
   height: u.rem(100);
   padding: 0px u.rem(30);
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
 
   &__logo {
     width: fit-content;
@@ -26,17 +30,21 @@
     }
     &_input {
       position: relative;
-      border: solid 1px $color-subtle;
+      // border: solid 1px $color-primary;
+      border: 2px solid rgb(230, 230, 230);
       border-top-left-radius: u.rem(8);
       border-bottom-left-radius: u.rem(8);
-      color: $color-subtle;
-      padding-left: u.rem(5);
+      color: $color-text-primary;
+      padding-left: u.rem(15);
+      font-family: "Work Sans";
+      font-weight: 400;
+      outline: none;
+      border-right: none;
     }
   }
   &__info_holder {
     position: relative;
     display: flex;
-    gap: u.rem(25);
     align-items: center;
   }
 }
@@ -46,6 +54,7 @@
   font-weight: 400;
   text-decoration: underline;
   color: $color-primary;
+  margin-right: u.rem(47);
 }
 .user__details {
   display: flex;

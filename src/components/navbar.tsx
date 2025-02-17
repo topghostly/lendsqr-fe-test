@@ -5,9 +5,8 @@ import Image from "next/image";
 import styles from "../styles/components/_navbar.module.scss";
 import Link from "next/link";
 import Button from "./Button";
-import { Search } from "lucide-react";
 
-const Navbar: React.FC<ChildrenLayoutProp> = () => {
+const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar__logo}>
