@@ -7,7 +7,7 @@ export interface ChildrenLayoutProp {
 export interface BtnProp {
   children: React.ReactNode;
   type: "submit" | "reset" | "button" | undefined;
-  color: "primary" | "secondary";
+  color?: "primary" | "secondary";
   variant: "fill" | "outline" | "text";
   onClick: () => void;
   fullWidth?: boolean;
