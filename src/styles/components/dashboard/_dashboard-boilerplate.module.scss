@@ -1,0 +1,14 @@
+@use "../../utils/" as u;
+@import "../../global/colors";
+.dashboard {
+  padding: u.rem(60);
+
+  &__title {
+    h2 {
+      font-weight: 500;
+      font-family: "Work Sans";
+      color: $color-primary;
+      font-size: u.rem(24);
+    }
+  }
+}
