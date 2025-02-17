@@ -1,15 +1,17 @@
 import Navbar from "@/components/navbar";
-import Image from "next/image";
-import Link from "next/link";
+import SideNav from "@/components/side-nav";
 import React from "react";
+import DashboardMain from "@/components/dashboard-main";
+import styles from "@/styles/modules/dashboard.module.scss";
 
 const Dashboard: React.FC = () => {
   return (
     <>
-      <div>
-        <Navbar />
+      <Navbar />
+      <div className={styles.dashboard}>
+        <SideNav />
+        <DashboardMain />
       </div>
-
     </>
   );
 };

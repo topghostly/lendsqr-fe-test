@@ -1,0 +1,6 @@
+@use "../../utils/" as u;
+
+.main {
+  position: relative;
+  padding-top: u.rem(60);
+}

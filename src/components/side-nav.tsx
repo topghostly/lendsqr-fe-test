@@ -1,53 +1,54 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "../styles/components/dashboard/_sidenav.module.scss";
 
 const SideNav: React.FC = () => {
   return (
     <aside>
-      <div>
-        <div></div>
-        {/* TOP SECTION */}
-        <div>
-          <span>
-            <Image
-              src={"/images/briefcase.svg"}
-              alt="briefcae icon"
-              width={16}
-              height={16}
-              priority
-            />
-          </span>
-          Switch Organisation
-          <span>
-            <Image
-              src={"/images/dropdown-outline.svg"}
-              alt="briefcae icon"
-              width={14}
-              height={14}
-              priority
-            />
-          </span>
-        </div>
-        <div>
-          <span>
-            <Image
-              src={"/images/home.svg"}
-              alt="briefcae icon"
-              width={16}
-              height={16}
-              priority
-            />
-          </span>
-          Dashboard
+      <div className={styles.sidenav}>
+        <div className={styles.sidenav__action}>
+          <div className={`${styles.sidenav__action_organisation}`}>
+            <span>
+              <Image
+                src={"/images/briefcase.svg"}
+                alt="briefcae icon"
+                width={16}
+                height={16}
+                priority
+              />
+            </span>
+            Switch Organisation
+            <span>
+              <Image
+                src={"/images/dropdown-outline.svg"}
+                alt="briefcae icon"
+                width={14}
+                height={14}
+                priority
+              />
+            </span>
+          </div>
+          <div className={styles.sidenav__action_tab}>
+            <span>
+              <Image
+                src={"/images/home.svg"}
+                alt="briefcae icon"
+                width={16}
+                height={16}
+                priority
+              />
+            </span>
+            Dashboard
+          </div>
         </div>
         {/* LIST SECTION */}
-        <ul>
-          <li>CUSTOMER</li>
+        <ul className={styles.sidenav__nav}>
+          <li className={styles.sidenav__nav_title}>CUSTOMERS</li>
           {/* CUSTOMER SECTION */}
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/user-friends.svg"}
@@ -58,12 +59,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Users
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/guarantors.svg"}
@@ -74,12 +75,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Guarantors
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/loan.svg"}
@@ -90,12 +91,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Loans
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/handshake.svg"}
@@ -106,12 +107,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Decision Models
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/piggy-bank.svg"}
@@ -122,12 +123,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Savings
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -138,12 +139,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Loan Request
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/user-check.svg"}
@@ -154,12 +155,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Whitelist
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/user-times.svg"}
@@ -170,13 +171,13 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Karma
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <li>BUSINESSES</li>
-          <div>
-            <li>
-              <Link href="#">
+          <li className={styles.sidenav__nav_title}>BUSINESSES</li>
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/organisation.svg"}
@@ -187,12 +188,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Organization
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -203,12 +204,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Loan Products
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -219,12 +220,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Savings Products
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -235,12 +236,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Fees and Charges
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -251,12 +252,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Transactions
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -267,12 +268,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Services
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -283,12 +284,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Service Account
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -299,12 +300,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Settlements
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -315,13 +316,13 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Reports
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <li>SETTINGS</li>
-          <div>
-            <li>
-              <Link href="#">
+          <li className={styles.sidenav__nav_title}>SETTINGS</li>
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -332,12 +333,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Preferences
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -348,12 +349,12 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Fees and Pricing
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
-          <div>
-            <li>
-              <Link href="#">
+          <div className={styles.sidenav__nav_tooltip}>
+            <Link href="#">
+              <li>
                 <span>
                   <Image
                     src={"/images/request.svg"}
@@ -364,8 +365,8 @@ const SideNav: React.FC = () => {
                   />
                 </span>
                 Audit Logs
-              </Link>
-            </li>
+              </li>
+            </Link>
           </div>
         </ul>
       </div>
