@@ -1,0 +1,89 @@
+@use "../../utils/" as u;
+@import "../../global/colors";
+
+.details {
+  width: 100%;
+  position: relative;
+
+  .main_text {
+    margin: 0;
+    font-size: u.rem(22);
+    font-family: "Work Sans";
+    font-weight: 500;
+    color: $color-primary;
+  }
+  .sub_text {
+    margin: 0;
+    font-size: u.rem(14);
+    font-family: "Work Sans";
+    font-weight: 400;
+    color: $color-text-primary;
+  }
+  .seperator {
+    width: 1px;
+    height: u.rem(80);
+    background-color: $color-subtle;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(51);
+
+    &_main {
+      display: flex;
+      align-items: center;
+      gap: u.rem(30);
+      background-color: white;
+
+      &_user {
+        display: flex;
+        gap: u.rem(20);
+        align-items: center;
+
+        .profile_pic {
+          display: grid;
+          place-content: center;
+          width: u.rem(100);
+          height: u.rem(100);
+          background-color: rgba(33, 63, 125, 0.2);
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+        }
+
+        .user_info {
+          display: flex;
+          flex-direction: column;
+          gap: u.rem(8);
+        }
+      }
+
+      &_tier,
+      &_balance {
+        display: flex;
+        flex-direction: column;
+        gap: u.rem(8);
+
+        .stars_holder {
+          display: flex;
+          gap: u.rem(4);
+        }
+        .tier_title {
+          margin: 0;
+          font-size: u.rem(14);
+          font-family: "Work Sans";
+          font-weight: 500;
+          color: $color-text-primary;
+        }
+      }
+    }
+  }
+
+  &__categories {
+    width: 100%;
+    background-color: red;
+  }
+}
