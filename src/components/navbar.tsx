@@ -53,15 +53,22 @@ const Navbar: React.FC = () => {
         <Link href={"#"} className={styles.doc_link}>
           Docs
         </Link>
-        <Button type="button" color="primary" variant="text" onClick={() => {}}>
-          <Image
-            src={"/images/notification.png"}
-            alt="search icon"
-            width={26}
-            height={26}
-            priority
-          />
-        </Button>
+        <div className={styles.notification_holder}>
+          <Button
+            type="button"
+            color="primary"
+            variant="text"
+            onClick={() => {}}
+          >
+            <Image
+              src={"/images/notification.png"}
+              alt="search icon"
+              width={26}
+              height={26}
+              priority
+            />
+          </Button>
+        </div>
         <div className={styles.user__details}>
           <Image
             src={"/images/profile.png"}

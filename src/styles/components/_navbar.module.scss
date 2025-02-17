@@ -56,6 +56,10 @@
   color: $color-primary;
   margin-right: u.rem(47);
 }
+.notification_holder {
+  margin-right: u.rem(30);
+}
+
 .user__details {
   display: flex;
   gap: u.rem(10);
