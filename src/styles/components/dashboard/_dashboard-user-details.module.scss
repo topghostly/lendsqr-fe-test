@@ -141,4 +141,60 @@
       }
     }
   }
+
+  &__body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(28);
+
+    .seperator {
+      width: 100%;
+      background-color: $color-subtle;
+      height: 1px;
+    }
+
+    &_section {
+      display: flex;
+      flex-direction: column;
+      gap: u.rem(51);
+
+      .grid_5 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 20px;
+      }
+      .grid_4 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 20px;
+      }
+
+      .title {
+        font-size: u.rem(16);
+        font-family: "Work Sans";
+        font-weight: 500;
+        color: $color-primary;
+      }
+
+      .detail {
+        position: relative;
+
+        &_title {
+          text-transform: uppercase;
+          font-size: u.rem(12);
+          font-family: "Work Sans";
+          font-weight: 400;
+          color: $color-text-primary;
+        }
+        &_point {
+          font-size: u.rem(16);
+          font-family: "Work Sans";
+          font-weight: 500;
+          color: $color-text-primary;
+          margin-top: u.rem(8);
+        }
+      }
+    }
+  }
 }

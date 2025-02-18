@@ -80,6 +80,47 @@ const UserInfo: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* DETAILS BODY */}
+      <div className={styles.details__body}>
+        <div className={styles.details__body_section}>
+          <p className={styles.title}>Personal Information</p>
+          <div className={styles.grid_5}>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>full Name</p>
+              <p className={styles.detail_point}>Grace Effiom</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Phone Number</p>
+              <p className={styles.detail_point}>07060780922</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Email Address</p>
+              <p className={styles.detail_point}>grace@gmail.com</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Bvn</p>
+              <p className={styles.detail_point}>07060780922</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Gender</p>
+              <p className={styles.detail_point}>Female</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Marital status</p>
+              <p className={styles.detail_point}>Single</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Children</p>
+              <p className={styles.detail_point}>None</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Type of residence</p>
+              <p className={styles.detail_point}>Parent’s Apartment</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.seperator}></div>
+      </div>
     </div>
   );
 };
