@@ -4,6 +4,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
 }
 
 html {
@@ -12,7 +17,6 @@ html {
 
 body {
   margin: 0;
-  // min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Work Sans";
@@ -38,6 +42,7 @@ p {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
 a {
   text-decoration: none;
   color: inherit;

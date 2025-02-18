@@ -46,7 +46,7 @@ const SideNav: React.FC = () => {
         <ul className={styles.sidenav__nav}>
           <li className={styles.sidenav__nav_title}>CUSTOMERS</li>
           {/* CUSTOMER SECTION */}
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className={`${styles.sidenav__nav_tooltip} ${styles.active}`}>
             <Link href="#">
               <li>
                 <span>

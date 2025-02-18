@@ -2,13 +2,13 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 import { getUser } from "@/server/user-info";
-import { UserDetailsProp } from "@/types/user";
+import { userContextProps, UserDetailsProp } from "@/types/user";
 import { ChildrenLayoutProp } from "@/types/layout";
 
-const UserContext = createContext(null);
+const UserContext = createContext<userContextProps | null>(null);
 
 export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
-  const [users, setUsers] = useState<[UserDetailsProp]>();
+  const [users, setUsers] = useState<UserDetailsProp[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
         const usersData = await getUser();
         setUsers(usersData);
       } catch (error: any) {
+        console.log("Error", error);
         throw new Error("Error fatching users: ", error);
       } finally {
         setLoading(false);

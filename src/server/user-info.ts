@@ -7,5 +7,7 @@ export async function getUser() {
 
   if (!res.ok) throw new Error("Failed to fetch users information");
 
-  return res.json();
+  const usersData = await res.json();
+
+  return usersData;
 }
