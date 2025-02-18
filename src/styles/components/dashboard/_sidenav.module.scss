@@ -10,6 +10,11 @@
   overflow-y: scroll;
   color: $color-primary;
   background-color: white;
+
+  @include u.breakpoint(large) {
+    display: none;
+  }
+
   &::-webkit-scrollbar {
     width: 3px;
   }

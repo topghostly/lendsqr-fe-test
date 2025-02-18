@@ -196,7 +196,7 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/loan-products.svg"}
                     alt="organisation icon"
                     width={18}
                     height={22}
@@ -212,10 +212,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/savings-products.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={16}
                     priority
                   />
                 </span>
@@ -228,7 +228,7 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/coins-solid.svg"}
                     alt="organisation icon"
                     width={18}
                     height={22}
@@ -244,10 +244,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/transaction.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={18}
                     priority
                   />
                 </span>
@@ -260,10 +260,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/galaxy.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={16}
                     priority
                   />
                 </span>
@@ -276,10 +276,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/service-account.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={13}
                     priority
                   />
                 </span>
@@ -292,10 +292,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/scroll.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={13}
                     priority
                   />
                 </span>
@@ -308,10 +308,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/chart-bar.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={16}
                     priority
                   />
                 </span>
@@ -325,10 +325,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/sliders-h.png"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={14}
+                    height={14}
                     priority
                   />
                 </span>
@@ -341,10 +341,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/badge-percent.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={16}
+                    height={16}
                     priority
                   />
                 </span>
@@ -357,10 +357,10 @@ const SideNav: React.FC = () => {
               <li>
                 <span>
                   <Image
-                    src={"/images/request.svg"}
+                    src={"/images/audit.svg"}
                     alt="organisation icon"
-                    width={18}
-                    height={22}
+                    width={11}
+                    height={18}
                     priority
                   />
                 </span>
