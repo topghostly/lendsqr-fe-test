@@ -58,7 +58,7 @@ const UserInfo: React.FC = () => {
         <div className={styles.details__head_categories}>
           <div className={styles.details__head_categories_list}>
             <ul className={styles.category_items}>
-              <button className={styles.category_button}>
+              <button className={`${styles.category_button} ${styles.active}`}>
                 <li className={styles.category_item}>General Details</li>
               </button>
               <button className={styles.category_button}>
@@ -120,6 +120,101 @@ const UserInfo: React.FC = () => {
           </div>
         </div>
         <div className={styles.seperator}></div>
+        <div className={styles.details__body_section}>
+          <p className={styles.title}>Education and Employment</p>
+          <div className={styles.grid_4}>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>level of education</p>
+              <p className={styles.detail_point}>B.Sc</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>employment status</p>
+              <p className={styles.detail_point}>Employed</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>sector of employment</p>
+              <p className={styles.detail_point}>FinTech</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Duration of employment</p>
+              <p className={styles.detail_point}>2 years</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>office email</p>
+              <p className={styles.detail_point}>grace@lendsqr.com</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Monthly income</p>
+              <p className={styles.detail_point}>₦200,000.00- ₦400,000.00</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>loan repayment</p>
+              <p className={styles.detail_point}>40,000</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.seperator}></div>
+        <div className={styles.details__body_section}>
+          <p className={styles.title}>Socials</p>
+          <div className={styles.grid_5}>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Twitter</p>
+              <p className={styles.detail_point}>@grace_effiom</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Facebook</p>
+              <p className={styles.detail_point}>Grace Effiom</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Instagram</p>
+              <p className={styles.detail_point}>@grace_effiom</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.seperator}></div>
+        <div className={styles.details__body_section}>
+          <p className={styles.title}>Guarantor</p>
+          <div className={styles.grid_5}>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>full Name</p>
+              <p className={styles.detail_point}>Debby Ogana</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Phone Number</p>
+              <p className={styles.detail_point}>07060780922</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Email Address</p>
+              <p className={styles.detail_point}>debby@gmail.com</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Relationship</p>
+              <p className={styles.detail_point}>Sister</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.seperator}></div>
+        <div className={styles.details__body_section}>
+          {/* <p className={styles.title}>Guarantor</p> */}
+          <div className={styles.grid_5}>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>full Name</p>
+              <p className={styles.detail_point}>Debby Ogana</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Phone Number</p>
+              <p className={styles.detail_point}>07060780922</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Email Address</p>
+              <p className={styles.detail_point}>debby@gmail.com</p>
+            </div>
+            <div className={styles.detail}>
+              <p className={styles.detail_title}>Relationship</p>
+              <p className={styles.detail_point}>Sister</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

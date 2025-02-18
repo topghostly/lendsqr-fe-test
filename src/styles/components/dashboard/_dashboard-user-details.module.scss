@@ -33,6 +33,7 @@
     flex-direction: column;
     gap: u.rem(51);
     background-color: white;
+    padding: u.rem(30) u.rem(30) 0px;
 
     &_main {
       display: flex;
@@ -49,7 +50,7 @@
           place-content: center;
           width: u.rem(100);
           height: u.rem(100);
-          background-color: rgba(33, 63, 125, 0.2);
+          background-color: rgba(33, 63, 125, 0.15);
           border-radius: 50%;
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
@@ -125,7 +126,16 @@
           background: none;
           border: none;
           outline: none;
-          border-bottom: solid 2px red;
+
+          .category_item {
+            font-size: u.rem(16);
+            font-family: "SF Compact Text";
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.8);
+          }
+        }
+        .active {
+          border-bottom: solid 2px $color-secondary;
 
           .category_item {
             font-size: u.rem(16);
@@ -147,6 +157,7 @@
     display: flex;
     flex-direction: column;
     gap: u.rem(28);
+    padding: u.rem(30) u.rem(30);
 
     .seperator {
       width: 100%;
@@ -157,17 +168,21 @@
     &_section {
       display: flex;
       flex-direction: column;
-      gap: u.rem(51);
+      gap: u.rem(30);
 
       .grid_5 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fit, min(160px));
         gap: 20px;
+        justify-content: space-between;
+        row-gap: u.rem(30);
       }
       .grid_4 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fit, min(225px));
         gap: 20px;
+        row-gap: u.rem(30);
+        justify-content: space-between;
       }
 
       .title {

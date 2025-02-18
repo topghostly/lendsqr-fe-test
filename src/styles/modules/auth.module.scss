@@ -33,8 +33,14 @@
   }
 
   &__form {
+    height: 100%;
+    display: flex;
+    background-color: green;
+    align-items: center;
     .form {
       padding: 0 1.25rem;
+      width: 100%;
+      max-width: u.rem(447);
     }
     &_header {
       font-family: "Avenir Next";
@@ -56,8 +62,7 @@
     &_inner {
       display: flex;
       flex-direction: column;
-      width: u.rem(447);
-      max-width: 100%;
+      width: 100%;
 
       .input_holder_holder {
         display: flex;
@@ -70,7 +75,7 @@
           position: relative;
           display: flex;
           justify-content: center;
-          flex: 1;
+          // flex: 1;
           flex-direction: column;
           width: 100%;
 

@@ -80,14 +80,11 @@ const Auth: React.FC = () => {
               </div>
               <div className={styles.submit_btn}>
                 <Button
-                  btnStyle={{
-                    backgroundColor: "var(--color-secondary)",
-                    fontFamily: "Avenir Next",
-                    fontWeight: 600,
-                    width: "100%",
-                    height: "3rem",
-                    color: "white",
-                  }}
+                  fullWidth={true}
+                  variant="fill"
+                  onClick={() => {}}
+                  type="button"
+                  color="primary"
                 >
                   LOG IN
                 </Button>
