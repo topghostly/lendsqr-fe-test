@@ -1,11 +1,11 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { getUser } from "@/server/user-info";
 import { userContextProps, UserDetailsProp } from "@/types/user";
 import { ChildrenLayoutProp } from "@/types/layout";
 
-const UserContext = createContext<userContextProps | null>(null);
+export const UserContext = createContext<userContextProps | null>(null);
 
 export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
   const [users, setUsers] = useState<UserDetailsProp[]>([]);
@@ -14,8 +14,11 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        const storedUsers = localStorage.getItem("usersData");
+        if (storedUsers) return setUsers(JSON.parse(storedUsers));
         const usersData = await getUser();
         setUsers(usersData);
+        localStorage.setItem("usersData", JSON.stringify(usersData));
       } catch (error: any) {
         console.log("Error", error);
         throw new Error("Error fatching users: ", error);
@@ -33,7 +36,3 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
     </UserContext.Provider>
   );
 };
-
-export function useUsers() {
-  return useContext(UserContext);
-}

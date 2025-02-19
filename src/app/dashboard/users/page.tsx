@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "@/styles/components/dashboard/_dashboard-boilerplate.module.scss";
 import DashboardMatrics from "@/components/dashboard/dashboard-matrics";
+import DashboardTable from "@/components/dashboard/dashboard-table";
+import FilterForm from "@/components/dashboard/filter-dropdown";
 
 const Users: React.FC = () => {
   return (
@@ -10,6 +12,8 @@ const Users: React.FC = () => {
       </div>
       <div>
         <DashboardMatrics />
+        <DashboardTable />
+        <FilterForm />
       </div>
     </div>
   );

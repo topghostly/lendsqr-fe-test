@@ -1,13 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "@/styles/components/dashboard/_dashboard-boilerplate.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../../../../../components/Button";
 import UserInfo from "@/components/dashboard/dashboard-user-info";
+import { useParams } from "next/navigation";
 
 function UserDetails() {
+  const { id } = useParams();
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__back}>
@@ -53,7 +56,7 @@ function UserDetails() {
           </Button>
         </div>
       </div>
-      <UserInfo />
+      <UserInfo currentUserID={id} />
     </div>
   );
 }

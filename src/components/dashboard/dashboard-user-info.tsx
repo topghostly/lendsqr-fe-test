@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/components/dashboard/_dashboard-user-details.module.scss";
 import Image from "next/image";
+import { useUsers } from "@/hooks/users";
+import { userDetailsPageProp } from "@/types/layout";
+import { UserDetailsProp } from "@/types/user";
 
-const UserInfo: React.FC = () => {
+const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
+  const { users } = useUsers();
+  const [userDetails, setUserDetails] = useState<UserDetailsProp>();
+  useEffect(() => {
+    if (users && currentUserID) {
+      const foundUser = users.find(
+        (user: UserDetailsProp) => user.id === Number(currentUserID)
+      );
+      setUserDetails(foundUser);
+    }
+    console.log(userDetails);
+  });
   return (
     <div className={styles.details}>
       <div className={styles.details__head}>
@@ -18,7 +32,7 @@ const UserInfo: React.FC = () => {
               />
             </div>
             <div className={styles.user_info}>
-              <h2 className={styles.main_text}>Grace Effiom</h2>
+              <h2 className={styles.main_text}>{userDetails?.full_name}</h2>
               <p className={styles.sub_text}>LSQFf587g90</p>
             </div>
           </div>
@@ -87,35 +101,41 @@ const UserInfo: React.FC = () => {
           <div className={styles.grid_5}>
             <div className={styles.detail}>
               <p className={styles.detail_title}>full Name</p>
-              <p className={styles.detail_point}>Grace Effiom</p>
+              <p className={styles.detail_point}>{userDetails?.full_name}</p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Phone Number</p>
-              <p className={styles.detail_point}>07060780922</p>
+              <p className={styles.detail_point}>{userDetails?.phone_number}</p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Email Address</p>
-              <p className={styles.detail_point}>grace@gmail.com</p>
+              <p className={styles.detail_point}>{userDetails?.email}</p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Bvn</p>
-              <p className={styles.detail_point}>07060780922</p>
+              <p className={styles.detail_point}>{userDetails?.bvn}</p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Gender</p>
-              <p className={styles.detail_point}>Female</p>
+              <p className={styles.detail_point}>{userDetails?.gender}</p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Marital status</p>
-              <p className={styles.detail_point}>Single</p>
+              <p className={styles.detail_point}>
+                {userDetails?.marital_status}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Children</p>
-              <p className={styles.detail_point}>None</p>
+              <p className={styles.detail_point}>
+                {userDetails?.children ? userDetails?.children : ""}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Type of residence</p>
-              <p className={styles.detail_point}>Parent’s Apartment</p>
+              <p className={styles.detail_point}>
+                {userDetails?.type_of_residence}
+              </p>
             </div>
           </div>
         </div>
@@ -125,31 +145,43 @@ const UserInfo: React.FC = () => {
           <div className={styles.grid_4}>
             <div className={styles.detail}>
               <p className={styles.detail_title}>level of education</p>
-              <p className={styles.detail_point}>B.Sc</p>
+              <p className={styles.detail_point}>
+                {userDetails?.education_level}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>employment status</p>
-              <p className={styles.detail_point}>Employed</p>
+              <p className={styles.detail_point}>
+                {userDetails?.employment_status}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>sector of employment</p>
-              <p className={styles.detail_point}>FinTech</p>
+              <p className={styles.detail_point}>
+                {userDetails?.sector_of_employment}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Duration of employment</p>
-              <p className={styles.detail_point}>2 years</p>
+              <p className={styles.detail_point}>
+                {userDetails?.duration_of_employment}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>office email</p>
-              <p className={styles.detail_point}>grace@lendsqr.com</p>
+              <p className={styles.detail_point}>{userDetails?.office_email}</p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Monthly income</p>
-              <p className={styles.detail_point}>₦200,000.00- ₦400,000.00</p>
+              <p className={styles.detail_point}>
+                {userDetails?.monthly_income}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>loan repayment</p>
-              <p className={styles.detail_point}>40,000</p>
+              <p className={styles.detail_point}>
+                {userDetails?.loan_repayment}
+              </p>
             </div>
           </div>
         </div>
@@ -159,15 +191,21 @@ const UserInfo: React.FC = () => {
           <div className={styles.grid_5}>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Twitter</p>
-              <p className={styles.detail_point}>@grace_effiom</p>
+              <p className={styles.detail_point}>
+                {userDetails?.socials.twitter}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Facebook</p>
-              <p className={styles.detail_point}>Grace Effiom</p>
+              <p className={styles.detail_point}>
+                {userDetails?.socials.facebook}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Instagram</p>
-              <p className={styles.detail_point}>@grace_effiom</p>
+              <p className={styles.detail_point}>
+                {userDetails?.socials.instagram}
+              </p>
             </div>
           </div>
         </div>
@@ -177,19 +215,27 @@ const UserInfo: React.FC = () => {
           <div className={styles.grid_5}>
             <div className={styles.detail}>
               <p className={styles.detail_title}>full Name</p>
-              <p className={styles.detail_point}>Debby Ogana</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.full_name}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Phone Number</p>
-              <p className={styles.detail_point}>07060780922</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.phone_number}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Email Address</p>
-              <p className={styles.detail_point}>debby@gmail.com</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.email_address}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Relationship</p>
-              <p className={styles.detail_point}>Sister</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.relationship}
+              </p>
             </div>
           </div>
         </div>
@@ -199,19 +245,27 @@ const UserInfo: React.FC = () => {
           <div className={styles.grid_5}>
             <div className={styles.detail}>
               <p className={styles.detail_title}>full Name</p>
-              <p className={styles.detail_point}>Debby Ogana</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.full_name}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Phone Number</p>
-              <p className={styles.detail_point}>07060780922</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.phone_number}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Email Address</p>
-              <p className={styles.detail_point}>debby@gmail.com</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.email_address}
+              </p>
             </div>
             <div className={styles.detail}>
               <p className={styles.detail_title}>Relationship</p>
-              <p className={styles.detail_point}>Sister</p>
+              <p className={styles.detail_point}>
+                {userDetails?.guarantor.relationship}
+              </p>
             </div>
           </div>
         </div>

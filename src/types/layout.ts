@@ -14,3 +14,7 @@ export interface BtnProp {
   disabled?: boolean;
   customClass?: React.CSSProperties;
 }
+
+export interface userDetailsPageProp {
+  currentUserID: string | string[] | undefined;
+}

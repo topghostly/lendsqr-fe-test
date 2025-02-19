@@ -10,6 +10,7 @@
   overflow-y: scroll;
   color: $color-primary;
   background-color: white;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
 
   @include u.breakpoint(large) {
     display: none;
