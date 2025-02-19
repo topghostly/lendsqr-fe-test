@@ -14,7 +14,7 @@ function UserDetails() {
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboard__back}>
-        <Link href={"#"}>
+        <Link href={"/dashboard/users/"}>
           <Image
             src={"/images/np_back_3007750_000000.svg"}
             alt="back"

@@ -6,89 +6,11 @@ import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { UserDetailsProp } from "@/types/user";
 import Pagination from "../../components/dashboard/pagination";
-// const users = [
-//   {
-//     organization: "Lendsqr",
-//     username: "Adedeji",
-//     email: "adedeji@lendsqr.com",
-//     phone: "08078903721",
-//     dateJoined: "May 15, 2020 10:00 AM",
-//     status: "Inactive",
-//   },
-//   {
-//     organization: "Irorun",
-//     username: "Debby Ogana",
-//     email: "debby2@irorun.com",
-//     phone: "08160780928",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Pending",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-//   {
-//     organization: "Lendstar",
-//     username: "Grace Effiom",
-//     email: "grace@lendstar.com",
-//     phone: "07060780922",
-//     dateJoined: "Apr 30, 2020 10:00 AM",
-//     status: "Blacklisted",
-//   },
-// ];
+import { useRouter } from "next/navigation";
+
 const DashboardTable: React.FC = () => {
+  const router = useRouter();
+
   const { pageItems } = useUsers();
 
   return (
@@ -176,7 +98,12 @@ const DashboardTable: React.FC = () => {
         <tbody>
           {pageItems.map((user: UserDetailsProp, index: number) => (
             <>
-              <tr key={index}>
+              <tr
+                key={index}
+                onClick={() =>
+                  router.push(`/dashboard/users/details/${user.id}`)
+                }
+              >
                 <td>{user.bvn}</td>
                 <td>{user.full_name}</td>
                 <td>{user.email}</td>

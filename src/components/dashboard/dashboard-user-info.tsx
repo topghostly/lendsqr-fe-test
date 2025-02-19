@@ -8,10 +8,11 @@ import { UserDetailsProp } from "@/types/user";
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
   const { users } = useUsers();
   const [userDetails, setUserDetails] = useState<UserDetailsProp>();
+  const maximumTier = 3;
   useEffect(() => {
     if (users && currentUserID) {
       const foundUser = users.find(
-        (user: UserDetailsProp) => user.id === Number(currentUserID)
+        (user: UserDetailsProp) => Number(user.id) === Number(currentUserID)
       );
       setUserDetails(foundUser);
     }
@@ -40,27 +41,32 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           <div className={styles.details__head_main_tier}>
             <p className={styles.tier_title}>User's Tier</p>
             <div className={styles.stars_holder}>
-              <Image
-                src={"/images/np_star_1208084_000000.svg"}
-                alt="profilepic"
-                width={16}
-                height={16}
-                priority
-              />
-              <Image
-                src={"/images/np_star_1171151_000000.svg"}
-                alt="profilepic"
-                width={16}
-                height={16}
-                priority
-              />
-              <Image
-                src={"/images/np_star_1171151_000000.svg"}
-                alt="profilepic"
-                width={16}
-                height={16}
-                priority
-              />
+              {Array.from(
+                { length: userDetails?.user_tier || 0 },
+                (_, index) => (
+                  <Image
+                    key={index}
+                    src={"/images/np_star_1208084_000000.svg"}
+                    alt="profilepic"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                )
+              )}
+              {Array.from(
+                { length: maximumTier - Number(userDetails?.user_tier) || 0 },
+                (_, index) => (
+                  <Image
+                    key={index}
+                    src={"/images/np_star_1171151_000000.svg"}
+                    alt="profilepic"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                )
+              )}
             </div>
           </div>
           <div className={styles.seperator}></div>

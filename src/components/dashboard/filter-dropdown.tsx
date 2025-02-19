@@ -1,24 +1,36 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/components/dashboard/_filter.scss";
 import { useUsers } from "@/hooks/users";
 import { userFilterProps } from "@/types/user";
 
 const FilterForm = () => {
-  const { setFilters, filters } = useUsers();
+  const { setFilters } = useUsers();
+
+  const [form, setForm] = useState({
+    organization: "",
+    username: "",
+    email: "",
+    date: "",
+    phoneNumber: "",
+    status: "",
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFilters((prev: userFilterProps) => ({
+    setForm((prev: userFilterProps) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
+  const handleSubmit = () => {
+    setFilters({ ...form });
+  };
 
   const handleReset = () => {
-    setFilters({
+    setForm({
       organization: "",
       username: "",
       email: "",
@@ -34,7 +46,7 @@ const FilterForm = () => {
         Organization
         <select
           name="organization"
-          value={filters.organization}
+          value={form.organization}
           onChange={handleChange}
         >
           <option value="">Select</option>
@@ -48,7 +60,7 @@ const FilterForm = () => {
         <input
           type="text"
           name="username"
-          value={filters.username}
+          value={form.username}
           onChange={handleChange}
           placeholder="User"
         />
@@ -59,7 +71,7 @@ const FilterForm = () => {
         <input
           type="email"
           name="email"
-          value={filters.email}
+          value={form.email}
           onChange={handleChange}
           placeholder="Email"
         />
@@ -70,7 +82,7 @@ const FilterForm = () => {
         <input
           type="date"
           name="date"
-          value={filters.date}
+          value={form.date}
           onChange={handleChange}
         />
       </label>
@@ -80,7 +92,7 @@ const FilterForm = () => {
         <input
           type="text"
           name="phoneNumber"
-          value={filters.phoneNumber}
+          value={form.phoneNumber}
           onChange={handleChange}
           placeholder="Phone Number"
         />
@@ -88,7 +100,7 @@ const FilterForm = () => {
 
       <label>
         Status
-        <select name="status" value={filters.status} onChange={handleChange}>
+        <select name="status" value={form.status} onChange={handleChange}>
           <option value="">Select</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
@@ -99,7 +111,9 @@ const FilterForm = () => {
         <button className="reset" onClick={handleReset}>
           Reset
         </button>
-        <button className="filter">Filter</button>
+        <button className="filter" onClick={handleSubmit}>
+          Filter
+        </button>
       </div>
     </div>
   );
