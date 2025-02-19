@@ -9,6 +9,7 @@ const Pagination = () => {
     setCurrentPage,
     itemsPerPage,
     setItemsPerPage,
+    totalUsers,
   } = useUsers();
   const [final, setFinal] = useState<number[]>([]);
   const [initial, setInitial] = useState<number[]>([]);
@@ -46,7 +47,7 @@ const Pagination = () => {
             </option>
           ))}
         </select>
-        <span>out of 500</span>
+        <span>out of {totalUsers}</span>
       </div>
 
       <div className={styles.pagination}>

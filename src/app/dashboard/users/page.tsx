@@ -13,7 +13,7 @@ const Users: React.FC = () => {
       <div>
         <DashboardMatrics />
         <DashboardTable />
-        {/* <FilterForm /> */}
+        <FilterForm />
       </div>
     </div>
   );

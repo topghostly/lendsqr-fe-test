@@ -48,8 +48,20 @@ export interface userContextProps {
   loading: boolean;
   pageItems: UserDetailsProp[] | null;
   totalPages: number;
+  totalUsers: number;
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  filters: userFilterProps;
+  setFilters: React.Dispatch<React.SetStateAction<userFilterProps>>;
   itemsPerPage: number;
   setItemsPerPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface userFilterProps {
+  organization: string;
+  username: string;
+  email: string;
+  date: string;
+  phoneNumber: string;
+  status: string;
 }
