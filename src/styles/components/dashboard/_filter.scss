@@ -1,7 +1,10 @@
+@use "../../utils/" as u;
+@import "../../global//colors";
+
 .filter-form {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  top: u.rem(50);
+  left: u.rem(20);
   background: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -17,7 +20,28 @@
     color: #555;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: u.rem(10);
+    position: relative;
+    font-family: "Work Sans";
+    font-weight: 500;
+    color: $color-text-primary;
+    font-size: u.rem(14);
+  }
+  .date-holder {
+    position: relative;
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: u.rem(12);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      pointer-events: none;
+
+      background-color: white;
+    }
   }
 
   input,
@@ -25,10 +49,13 @@
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1px solid rgba(84, 95, 125, 0.14);
     outline: none;
-    transition: border-color 0.2s;
+    font-family: "Work Sans";
+    font-weight: 400;
+    font-size: u.rem(14);
+    color: $color-text-primary;
+    border-radius: u.rem(4);
 
     &:focus {
       border-color: #007bff;
@@ -40,34 +67,14 @@
     gap: 10px;
     justify-content: space-between;
 
-    button {
-      flex: 1;
-      padding: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .reset {
-      background: #fff;
-      border: 1px solid #ccc;
-      color: #555;
-
-      &:hover {
-        background: #f4f4f4;
-      }
-    }
-
-    .filter {
-      background: #00b4d8;
-      color: white;
-
-      &:hover {
-        background: #0096c7;
-      }
-    }
+    // button {
+    //   flex: 1;
+    //   padding: 10px;
+    //   font-size: 14px;
+    //   font-weight: 600;
+    //   border: none;
+    //   border-radius: 6px;
+    //   cursor: pointer;
+    // }
   }
 }

@@ -7,6 +7,7 @@ import { useUsers } from "@/hooks/users";
 import { UserDetailsProp } from "@/types/user";
 import Pagination from "../../components/dashboard/pagination";
 import { useRouter } from "next/navigation";
+import FilterForm from "./filter-dropdown";
 
 const DashboardTable: React.FC = () => {
   const router = useRouter();
@@ -121,6 +122,7 @@ const DashboardTable: React.FC = () => {
         </tbody>
       </table>
       <Pagination />
+      <FilterForm />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
   useEffect(() => {
     if (users && currentUserID) {
       const foundUser = users.find(
-        (user: UserDetailsProp) => Number(user.id) === Number(currentUserID)
+        (user: UserDetailsProp) => user.id === currentUserID
       );
       setUserDetails(foundUser);
     }
@@ -34,7 +34,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             </div>
             <div className={styles.user_info}>
               <h2 className={styles.main_text}>{userDetails?.full_name}</h2>
-              <p className={styles.sub_text}>LSQFf587g90</p>
+              <p className={styles.sub_text}>{userDetails?.id}</p>
             </div>
           </div>
           <div className={styles.seperator}></div>
@@ -72,7 +72,9 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           <div className={styles.seperator}></div>
           <div className={styles.details__head_main_balance}>
             <h2 className={styles.main_text}>₦200,000.00</h2>
-            <p className={styles.sub_text}>9912345678/Providus Bank</p>
+            <p className={styles.sub_text}>
+              {userDetails?.bank.acct_number}/{userDetails?.bank.name}
+            </p>
           </div>
         </div>
         <div className={styles.details__head_categories}>
@@ -134,7 +136,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             <div className={styles.detail}>
               <p className={styles.detail_title}>Children</p>
               <p className={styles.detail_point}>
-                {userDetails?.children ? userDetails?.children : ""}
+                {userDetails?.children ? userDetails?.children : "0"}
               </p>
             </div>
             <div className={styles.detail}>

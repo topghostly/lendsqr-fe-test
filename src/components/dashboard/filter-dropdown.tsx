@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import "../../styles/components/dashboard/_filter.scss";
 import { useUsers } from "@/hooks/users";
 import { userFilterProps } from "@/types/user";
+import Image from "next/image";
+import Button from "../Button";
 
 const FilterForm = () => {
   const { setFilters } = useUsers();
@@ -79,12 +81,21 @@ const FilterForm = () => {
 
       <label>
         Date
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-        />
+        <div className="date-holder">
+          <input
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+          />
+          <Image
+            src={"/images/np_calendar_2080577_000000.svg"}
+            alt="logo"
+            width={16}
+            height={16}
+            priority
+          />
+        </div>
       </label>
 
       <label>
@@ -108,12 +119,27 @@ const FilterForm = () => {
       </label>
 
       <div className="buttons">
-        <button className="reset" onClick={handleReset}>
+        <Button
+          type="button"
+          fullWidth={true}
+          variant="outline"
+          onClick={handleReset}
+          customClass={{
+            border: "solid 1px rgba(84, 95, 125, 1)",
+            color: "rgba(84, 95, 125, 1)",
+          }}
+        >
           Reset
-        </button>
-        <button className="filter" onClick={handleSubmit}>
+        </Button>
+        <Button
+          type="button"
+          variant="fill"
+          color="primary"
+          onClick={handleSubmit}
+          fullWidth={true}
+        >
           Filter
-        </button>
+        </Button>
       </div>
     </div>
   );

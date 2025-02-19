@@ -9,6 +9,11 @@
 
   &__back {
     margin-bottom: u.rem(26);
+    width: fit-content;
+
+    &:hover {
+      opacity: 0.6;
+    }
     a {
       display: flex;
       gap: u.rem(13);
