@@ -3,9 +3,21 @@
 
 .holder {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat((4, 1fr));
   gap: u.rem(26);
+
+  @include u.breakpoint(large) {
+    gap: 0px;
+  }
+  @include u.breakpoint(medium) {
+    grid-template-columns: repeat((2, 1fr));
+  }
+  @include u.breakpoint(small) {
+    grid-template-columns: repeat((1, 1fr));
+  }
   &__card {
     width: 100%;
     max-width: u.rem(240);

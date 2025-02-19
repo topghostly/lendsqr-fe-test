@@ -1,11 +1,15 @@
 import React from "react";
 
 export interface UserDetailsProp {
-  id: number;
+  id: string;
   full_name: string;
   phone_number: string;
   email: string;
   bvn: string;
+  bank: {
+    name: string;
+    acct_number: string;
+  };
   gender: "Male" | "Female";
   marital_status: "Single" | "Married";
   children: number | null;
@@ -15,6 +19,7 @@ export interface UserDetailsProp {
   sector_of_employment: string;
   duration_of_employment: number;
   office_email: string;
+  organisation_name: string;
   monthly_income: string;
   loan_repayment: number;
   socials: {
@@ -29,6 +34,7 @@ export interface UserDetailsProp {
     relationship: string;
   };
   savings: number;
+  date_joined: string;
   kyc_status: "Active" | "Blacklisted" | "Inactive" | "Pending";
   user_tier: number;
   profile_image: string;
@@ -39,6 +45,11 @@ export interface UserDetailsProp {
 
 export interface userContextProps {
   users: UserDetailsProp[] | null;
-  setUsers: React.Dispatch<React.SetStateAction<UserDetailsProp[]>>;
   loading: boolean;
+  pageItems: UserDetailsProp[] | null;
+  totalPage: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  itemsPerPage: number;
+  setItemsPerPage: React.Dispatch<React.SetStateAction<number>>;
 }
