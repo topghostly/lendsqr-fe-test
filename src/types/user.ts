@@ -47,7 +47,7 @@ export interface userContextProps {
   users: UserDetailsProp[] | null;
   loading: boolean;
   pageItems: UserDetailsProp[] | null;
-  totalPage: number;
+  totalPages: number;
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   itemsPerPage: number;

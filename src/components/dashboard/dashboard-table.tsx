@@ -89,8 +89,8 @@ import Pagination from "../../components/dashboard/pagination";
 //   },
 // ];
 const DashboardTable: React.FC = () => {
-  const { users } = useUsers();
-  const smllUsers = users.slice(0, 4);
+  const { pageItems } = useUsers();
+
   return (
     <div className="table-container">
       <table className="user-table">
@@ -174,7 +174,7 @@ const DashboardTable: React.FC = () => {
 
         {/* Table Body */}
         <tbody>
-          {smllUsers.map((user: UserDetailsProp, index: number) => (
+          {pageItems.map((user: UserDetailsProp, index: number) => (
             <>
               <tr key={index}>
                 <td>{user.bvn}</td>
@@ -188,7 +188,7 @@ const DashboardTable: React.FC = () => {
                   </span> */}
                 </td>
               </tr>
-              <div className="seperator"></div>
+              {/* <div className="seperator"></div> */}
             </>
           ))}
         </tbody>

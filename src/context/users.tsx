@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useActionState } from "react";
 import { getUser } from "@/server/user-info";
 import { userContextProps, UserDetailsProp } from "@/types/user";
 import { ChildrenLayoutProp } from "@/types/layout";
@@ -12,28 +12,31 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [pageItems, setPageItems] = useState<UserDetailsProp[]>([]);
+  const [filters, setFilters] = useState({});
 
-  let totalPage: any;
-  let pageItems: any;
+  useEffect(() => {
+    console.log(currentPage, itemsPerPage, totalPages);
+  }, [totalPages, currentPage, itemsPerPage]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const storedUsers = localStorage.getItem("usersData");
-        if (storedUsers) return setUsers(JSON.parse(storedUsers));
-        const usersData = await getUser();
+        let usersData: UserDetailsProp[] = [];
 
-        /* HANDLE PAGINATION */
-        totalPage = Math.ceil(users.length / itemsPerPage);
-        pageItems = users.slice(
-          (currentPage - 1) * itemsPerPage,
-          currentPage * itemsPerPage
-        );
+        if (storedUsers) {
+          usersData = JSON.parse(storedUsers);
+        } else {
+          usersData = await getUser();
+          localStorage.setItem("usersData", JSON.stringify(usersData));
+        }
+
         setUsers(usersData);
-        localStorage.setItem("usersData", JSON.stringify(usersData));
       } catch (error: any) {
         console.log("Error", error);
-        throw new Error("Error fatching users: ", error);
+        throw new Error("Error fetching users: " + error.message);
       } finally {
         setLoading(false);
       }
@@ -42,13 +45,29 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    if (users.length > 0) {
+      setTotalPages(Math.ceil(users.length / itemsPerPage));
+      setPageItems(
+        users.slice(
+          (currentPage - 1) * itemsPerPage,
+          currentPage * itemsPerPage
+        )
+      );
+    }
+  }, [users, currentPage, itemsPerPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [totalPages]);
+
   return (
     <UserContext.Provider
       value={{
         users,
         loading,
         pageItems,
-        totalPage,
+        totalPages,
         currentPage,
         setCurrentPage,
         itemsPerPage,
