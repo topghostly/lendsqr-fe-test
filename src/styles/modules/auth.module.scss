@@ -55,11 +55,15 @@
 
     align-items: center;
     .form {
-      padding: 0 1.25rem;
+      margin-left: u.rem(100);
       width: 100%;
       max-width: u.rem(447);
+      @include u.breakpoint(xLarge) {
+        margin: 0 auto;
+      }
       @include u.breakpoint(medium) {
         max-width: 100%;
+        padding: 0px u.rem(10);
       }
     }
     &_header {

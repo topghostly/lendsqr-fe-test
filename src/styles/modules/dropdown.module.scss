@@ -40,13 +40,14 @@
       padding: u.rem(8);
       width: 100%;
       display: flex;
-      justify-content: space-between;
-      gap: u.rem(5);
+      // justify-content: space-between;
+      gap: u.rem(7);
       color: $color-text-primary;
       font-family: "Work Sans";
       border-radius: u.rem(8);
       font-weight: 500;
       font-size: u.rem(14);
+      align-items: center;
       cursor: pointer;
 
       &:hover {

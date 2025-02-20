@@ -5,14 +5,17 @@ import styles from "../../styles/modules/navbar.module.scss";
 import Link from "next/link";
 import Button from "./button";
 import Dropdown from "./dropdown";
+import SideNav from "../dashboard/side-nav";
+import { useState } from "react";
 
-const Navbar: React.FC = ({ setOpenSidebar }) => {
+const Navbar: React.FC = () => {
+  const [activeSidebar, setActiveSideBar] = useState<boolean>(false);
   return (
     <nav className={styles.navbar}>
       <div
         className={styles.navbar__control}
         onClick={() => {
-          setOpenSidebar((prev: boolean) => !prev);
+          setActiveSideBar((prev) => !prev);
         }}
       >
         <Image
@@ -22,6 +25,14 @@ const Navbar: React.FC = ({ setOpenSidebar }) => {
           height={20}
           priority
         />
+      </div>
+      <div
+        className={styles.sidenav__holder}
+        style={{
+          left: `${activeSidebar ? "0" : "calc(290rem * -1)"}`,
+        }}
+      >
+        <SideNav />
       </div>
       <div className={styles.navbar__logo}>
         <Link

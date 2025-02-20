@@ -8,6 +8,7 @@ import {
   userFilterProps,
 } from "@/types/user";
 import { ChildrenLayoutProp } from "@/types/layout";
+import { formatDate } from "@/lib/util";
 
 export const UserContext = createContext<userContextProps | null>(null);
 
@@ -55,13 +56,22 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
   useEffect(() => {
     let filtered = users.filter((user) => {
       return (
+        (!filters.status ||
+          user.kyc_status
+            .toLowerCase()
+            .includes(filters.status.toLowerCase())) &&
+        (!filters.organization ||
+          user.organisation_name
+            .toLowerCase()
+            .includes(filters.organization.toLowerCase())) &&
         (!filters.username ||
           user.full_name
             .toLowerCase()
             .includes(filters.username.toLowerCase())) &&
         (!filters.email ||
           user.email.toLowerCase().includes(filters.email.toLowerCase())) &&
-        (!filters.date || user.date_joined.includes(filters.date)) &&
+        (!filters.date ||
+          user.date_joined.includes(formatDate(filters.date))) &&
         (!filters.phoneNumber ||
           user.phone_number.includes(filters.phoneNumber)) &&
         (!filters.status || user.kyc_status.includes(filters.status))
@@ -81,16 +91,16 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
           currentPage * itemsPerPage
         )
       );
+    } else {
+      setTotalUsers(0);
+      setTotalPages(0);
+      setPageItems([]);
     }
   }, [users, currentPage, itemsPerPage, filteredUsers]);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [totalPages]);
-
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
 
   return (
     <UserContext.Provider

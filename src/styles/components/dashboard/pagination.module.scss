@@ -65,8 +65,14 @@
       }
     }
     .disable {
-      background: none;
       cursor: no-drop;
+
+      &:hover {
+        background: rgba(33, 63, 125, 0.1);
+      }
+      img {
+        opacity: 0.6;
+      }
     }
 
     .pageNumber {

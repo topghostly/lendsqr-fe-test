@@ -2,17 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../ui/dropdown";
-// import styles from "../../styles/components/dashboard/_sidenav.module.scss";
 
-const SideNav: React.FC = ({ openSidebar }) => {
+const SideNav: React.FC = () => {
   return (
     <aside>
-      <div
-        className="sidenav"
-        style={{
-          left: `${openSidebar ? "0px" : "calc(290em * -1)"}`,
-        }}
-      >
+      <div className="sidenav">
         <div className="sidenav__action">
           <div className={`sidenav__action-organisation`}>
             <span>

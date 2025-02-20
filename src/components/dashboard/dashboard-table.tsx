@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/components/dashboard/_dashboard-table.scss";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";
@@ -14,6 +14,10 @@ import Dropdown from "../ui/dropdown";
 const DashboardTable: React.FC = () => {
   const router = useRouter();
   const [showFilter, setShowFilter] = useState<boolean>(false);
+
+  const LinkToDetails = (user: string) => {
+    router.push(`/dashboard/users/details/${user}`);
+  };
 
   const { pageItems } = useUsers();
 
@@ -114,81 +118,80 @@ const DashboardTable: React.FC = () => {
           {/* Table Body */}
           <tbody>
             {pageItems.map((user: UserDetailsProp, index: number) => (
-              <>
-                <tr
-                  key={index}
-                  // onClick={() =>
-                  //   router.push(`/dashboard/users/details/${user.id}`)
-                  // }
-                >
-                  <td className="none-3">{user.organisation_name}</td>
-                  <td>{user.full_name}</td>
-                  <td className="none-2">{user.email}</td>
-                  <td className="none-2">{user.phone_number}</td>
-                  <td className="none-1">{formatDateTime(user.date_joined)}</td>
-                  <td>
-                    {user.kyc_status === "Active" ? (
-                      <div className="active tag">Active</div>
-                    ) : user.kyc_status === "Blacklisted" ? (
-                      <div className="blacklisted tag">Blacklisted</div>
-                    ) : user.kyc_status === "Inactive" ? (
-                      <div className="inactive tag">Inactive</div>
-                    ) : user.kyc_status === "Pending" ? (
-                      <div className="pending tag">Pending</div>
-                    ) : null}
-                  </td>
-                  <td>
-                    <div className="options">
-                      <Dropdown
-                        trigger={
+              <tr key={index}>
+                <td className="none-3" onClick={() => LinkToDetails(user.id)}>
+                  {user.organisation_name}
+                </td>
+                <td>{user.full_name}</td>
+                <td className="none-2" onClick={() => LinkToDetails(user.id)}>
+                  {user.email}
+                </td>
+                <td className="none-2" onClick={() => LinkToDetails(user.id)}>
+                  {user.phone_number}
+                </td>
+                <td className="none-1" onClick={() => LinkToDetails(user.id)}>
+                  {formatDateTime(user.date_joined)}
+                </td>
+                <td onClick={() => LinkToDetails(user.id)}>
+                  {user.kyc_status === "Active" ? (
+                    <div className="active tag">Active</div>
+                  ) : user.kyc_status === "Blacklisted" ? (
+                    <div className="blacklisted tag">Blacklisted</div>
+                  ) : user.kyc_status === "Inactive" ? (
+                    <div className="inactive tag">Inactive</div>
+                  ) : user.kyc_status === "Pending" ? (
+                    <div className="pending tag">Pending</div>
+                  ) : null}
+                </td>
+                <td>
+                  <div className="options">
+                    <Dropdown
+                      trigger={
+                        <Image
+                          src={"/images/table_options.svg"}
+                          alt="logo"
+                          width={20}
+                          height={20}
+                          priority
+                        />
+                      }
+                    >
+                      <ul>
+                        <li>
                           <Image
-                            src={"/images/table_options.svg"}
-                            alt="logo"
-                            width={20}
-                            height={20}
+                            src={"/images/np_view_1214519_000000.svg"}
+                            alt="user details"
+                            width={14}
+                            height={14}
                             priority
                           />
-                        }
-                      >
-                        <ul>
-                          <li>
-                            <Image
-                              src={"/images/np_view_1214519_000000.svg"}
-                              alt="user details"
-                              width={14}
-                              height={14}
-                              priority
-                            />
-                            View Details
-                          </li>
-                          <li>
-                            <Image
-                              src={
-                                "/images/np_delete-friend_3248001_000000.svg"
-                              }
-                              alt="blacklist"
-                              width={14}
-                              height={14}
-                              priority
-                            />
-                            Blacklist User
-                          </li>
-                          <li>
-                            <Image
-                              src={"/images/np_user_2995993_000000.svg"}
-                              alt="logo"
-                              width={14}
-                              height={14}
-                              priority
-                            />
-                            Activate User
-                          </li>
-                        </ul>
-                      </Dropdown>
-                    </div>
-                  </td>
-                </tr>
-              </>
+                          View Details
+                        </li>
+                        <li>
+                          <Image
+                            src={"/images/np_delete-friend_3248001_000000.svg"}
+                            alt="blacklist"
+                            width={14}
+                            height={14}
+                            priority
+                          />
+                          Blacklist User
+                        </li>
+                        <li>
+                          <Image
+                            src={"/images/np_user_2995993_000000.svg"}
+                            alt="logo"
+                            width={14}
+                            height={14}
+                            priority
+                          />
+                          Activate User
+                        </li>
+                      </ul>
+                    </Dropdown>
+                  </div>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>

@@ -13,12 +13,17 @@
   place-content: center;
   padding: 0px 1rem;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &.primary {
     background-color: $color-secondary;
     border: 2px solid $color-secondary;
     color: $color-secondary;
     &:hover {
-      background-color: darken(rgba(57, 205, 204, 1), 10%);
+      background-color: rgb(47, 165, 165);
+      border: solid 2px rgb(47, 165, 165);
     }
   }
 
@@ -27,23 +32,20 @@
     border: 2px solid $color-text-primary;
     color: $color-text-primary;
     &:hover {
-      background-color: darken(rgba(84, 95, 125, 1), 10%);
+      background-color: rgb(48, 54, 71);
+      border: solid 2px rgb(48, 54, 71);
     }
   }
 
   &.outline {
     background: none;
-    // &:hover {
-    //   background: #007bff;
-    //   color: white;
-    // }
+    &:hover {
+      background: inherit;
+      color: white;
+    }
   }
   &.fill {
     color: white;
-    // &:hover {
-    //   background: #007bff;
-    //   color: white;
-    // }
   }
 
   &.text {

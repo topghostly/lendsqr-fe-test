@@ -25,7 +25,6 @@ const FilterForm = ({ setShowFilter }) => {
       ...prev,
       [e.target.name]: e.target.value,
     }));
-    console.log(form);
   };
   const handleSubmit = () => {
     setFilters({ ...form });
@@ -53,8 +52,11 @@ const FilterForm = ({ setShowFilter }) => {
           onChange={handleChange}
         >
           <option value="">Select</option>
-          <option value="lendsqr">Lendsqr</option>
-          <option value="irorun">Irorun</option>
+          <option value="Insuranceco">Insuranceco</option>
+          <option value="Fintechafrica">Fintechafrica</option>
+          <option value="Techhub">Techhub</option>
+          <option value="Bizconnect">Bizconnect</option>
+          <option value="Banknigeria">Banknigeria</option>
         </select>
       </label>
 
@@ -66,6 +68,7 @@ const FilterForm = ({ setShowFilter }) => {
           value={form.username}
           onChange={handleChange}
           placeholder="User"
+          autoComplete="off"
         />
       </label>
 
@@ -77,6 +80,7 @@ const FilterForm = ({ setShowFilter }) => {
           value={form.email}
           onChange={handleChange}
           placeholder="Email"
+          autoComplete="off"
         />
       </label>
 
@@ -88,6 +92,7 @@ const FilterForm = ({ setShowFilter }) => {
             name="date"
             value={form.date}
             onChange={handleChange}
+            autoComplete="off"
           />
           <Image
             src={"/images/np_calendar_2080577_000000.svg"}
@@ -107,6 +112,7 @@ const FilterForm = ({ setShowFilter }) => {
           value={form.phoneNumber}
           onChange={handleChange}
           placeholder="Phone Number"
+          autoComplete="off"
         />
       </label>
 
@@ -116,6 +122,8 @@ const FilterForm = ({ setShowFilter }) => {
           <option value="">Select</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
+          <option value="Blacklisted">Blacklisted</option>
+          <option value="Pending">Pending</option>
         </select>
       </label>
 

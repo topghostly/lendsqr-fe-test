@@ -56,7 +56,7 @@ const Auth: React.FC = () => {
                     type="email"
                     id="email"
                     name="email"
-                    autoComplete="new-email"
+                    autoComplete="off"
                     className={styles.form_input}
                   />
                   <label htmlFor="email" className={styles.form_label}>
@@ -68,7 +68,7 @@ const Auth: React.FC = () => {
                     type="password"
                     id="password"
                     name="password"
-                    autoComplete="new-password"
+                    autoComplete="off"
                     className={styles.form_input}
                   />
                   <label htmlFor="password" className={styles.form_label}>

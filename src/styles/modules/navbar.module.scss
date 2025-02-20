@@ -17,6 +17,7 @@
 
   &__control {
     display: none;
+    cursor: pointer;
     @include u.breakpoint(xLarge) {
       display: block;
     }
@@ -108,9 +109,20 @@
 }
 .side {
   display: none;
+  cursor: pointer;
 
   @include u.breakpoint(xLarge) {
     display: block;
   }
+  cursor: pointer;
+}
+
+.sidenav__holder {
+  position: fixed;
+  top: u.rem(100);
+  width: u.rem(283);
+  left: 0;
+  height: 100%;
+  max-height: calc(100vh - u.rem(100));
   cursor: pointer;
 }
