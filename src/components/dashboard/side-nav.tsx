@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/components/dashboard/_sidenav.module.scss";
+// import styles from "../../styles/components/dashboard/_sidenav.module.scss";
 
 const SideNav: React.FC = () => {
   return (
     <aside>
-      <div className={styles.sidenav}>
-        <div className={styles.sidenav__action}>
-          <div className={`${styles.sidenav__action_organisation}`}>
+      <div className="sidenav">
+        <div className="sidenav__action">
+          <div className={`sidenav__action-organisation`}>
             <span>
               <Image
                 src={"/images/briefcase.svg"}
@@ -29,7 +29,7 @@ const SideNav: React.FC = () => {
               />
             </span>
           </div>
-          <div className={styles.sidenav__action_tab}>
+          <div className="sidenav__action-tab">
             <span>
               <Image
                 src={"/images/home.svg"}
@@ -43,10 +43,10 @@ const SideNav: React.FC = () => {
           </div>
         </div>
         {/* LIST SECTION */}
-        <ul className={styles.sidenav__nav}>
-          <li className={styles.sidenav__nav_title}>CUSTOMERS</li>
+        <ul className="sidenav__nav">
+          <li className="sidenav__nav-title">CUSTOMERS</li>
           {/* CUSTOMER SECTION */}
-          <div className={`${styles.sidenav__nav_tooltip} ${styles.active}`}>
+          <div className={`sidenav__nav-tooltip active`}>
             <Link href="#">
               <li>
                 <span>
@@ -62,7 +62,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -78,7 +78,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -94,7 +94,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -110,7 +110,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -126,7 +126,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -142,7 +142,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -158,7 +158,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -174,8 +174,8 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <li className={styles.sidenav__nav_title}>BUSINESSES</li>
-          <div className={styles.sidenav__nav_tooltip}>
+          <li className="sidenav__nav-title">BUSINESSES</li>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -191,7 +191,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -207,7 +207,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -223,7 +223,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -239,7 +239,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -255,7 +255,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -271,7 +271,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -287,7 +287,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -303,7 +303,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -319,8 +319,8 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <li className={styles.sidenav__nav_title}>SETTINGS</li>
-          <div className={styles.sidenav__nav_tooltip}>
+          <li className="sidenav__nav-title">SETTINGS</li>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -336,7 +336,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>
@@ -352,7 +352,7 @@ const SideNav: React.FC = () => {
               </li>
             </Link>
           </div>
-          <div className={styles.sidenav__nav_tooltip}>
+          <div className="sidenav__nav-tooltip">
             <Link href="#">
               <li>
                 <span>

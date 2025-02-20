@@ -1,16 +1,16 @@
-import Navbar from "@/components/navbar";
-import SideNav from "@/components/side-nav";
+import Navbar from "@/components/ui/navbar";
+import SideNav from "@/components/dashboard/side-nav";
 import React from "react";
-import styles from "@/styles/modules/dashboard.module.scss";
+import "@/styles/modules/dashboard.scss";
 import { ChildrenLayoutProp } from "@/types/layout";
 
 const DashboardLayout: React.FC<ChildrenLayoutProp> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className={styles.dashboard}>
+      <div className="dashboard">
         <SideNav />
-        <main className={styles.dashboard__main}>{children}</main>
+        <main className="dashboard__main">{children}</main>
       </div>
     </>
   );

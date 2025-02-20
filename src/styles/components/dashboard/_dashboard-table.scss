@@ -39,6 +39,19 @@
     color: $color-text-primary;
     font-size: u.rem(12);
     text-transform: uppercase;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      width: fit-content;
+      height: fit-content;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 
   // thead {

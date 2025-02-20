@@ -1,17 +1,34 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/dashboard/_dashboard-matrics.module.scss";
 import { ChildrenLayoutProp } from "@/types/layout";
 import Image from "next/image";
+import { useUsers } from "@/hooks/users";
+import { UserDetailsProp } from "@/types/user";
 
 const MatricsCard: React.FC<ChildrenLayoutProp> = ({ children }) => {
-  return <div className={styles.holder__card}>{children}</div>;
+  return <div className="matrics__card">{children}</div>;
 };
 
 const DashboardMatrics = () => {
+  const { users } = useUsers();
+
+  const [activeUsers, setActiveUsers] = useState<number[]>([]);
+  const [userWithSavings, setUserWithSavings] = useState<number[]>([]);
+
+  useEffect(() => {
+    const active = users.filter(
+      (user: UserDetailsProp) => user.active_loan.total_loan > 0
+    );
+    const savings = users.filter((user: UserDetailsProp) => user.savings > 0);
+    setActiveUsers(active);
+    setUserWithSavings(savings);
+  }, [users]);
   return (
-    <div className={styles.holder}>
+    <div className="matrics">
       <MatricsCard>
-        <div className={styles.holder__card_image}>
+        <div className="matrics__card-image purple">
           <Image
             src={"/images/np_users_1248631_000000.svg"}
             alt="search icon"
@@ -20,11 +37,11 @@ const DashboardMatrics = () => {
             priority
           />
         </div>
-        <div className={styles.holder__card_text}>USERS</div>
-        <div className={styles.holder__card_stat}>2,453</div>
+        <div className="matrics__card-text">USERS</div>
+        <div className="matrics__card-stat">{users.length}</div>
       </MatricsCard>
       <MatricsCard>
-        <div className={styles.holder__card_image}>
+        <div className="matrics__card-image blue">
           <Image
             src={"/images/np_users_1977590_000000.svg"}
             alt="search icon"
@@ -33,11 +50,11 @@ const DashboardMatrics = () => {
             priority
           />
         </div>
-        <div className={styles.holder__card_text}>ACTIVE USERS</div>
-        <div className={styles.holder__card_stat}>2,453</div>
+        <div className="matrics__card-text">ACTIVE USERS</div>
+        <div className="matrics__card-stat">{activeUsers.length || 0}</div>
       </MatricsCard>
       <MatricsCard>
-        <div className={styles.holder__card_image}>
+        <div className="matrics__card-image orange">
           <Image
             src={"/images/np_loan_1243991_000000.svg"}
             alt="search icon"
@@ -46,11 +63,11 @@ const DashboardMatrics = () => {
             priority
           />
         </div>
-        <div className={styles.holder__card_text}>USERS WITH LOANS</div>
-        <div className={styles.holder__card_stat}>12,453</div>
+        <div className="matrics__card-text">USERS WITH LOANS</div>
+        <div className="matrics__card-stat">{activeUsers.length || 0}</div>
       </MatricsCard>
       <MatricsCard>
-        <div className={styles.holder__card_image}>
+        <div className="matrics__card-image red">
           <Image
             src={"/images/np_money_549109_000000.svg"}
             alt="search icon"
@@ -59,8 +76,8 @@ const DashboardMatrics = () => {
             priority
           />
         </div>
-        <div className={styles.holder__card_text}>USERS WITH SAVINGS</div>
-        <div className={styles.holder__card_stat}>102,453</div>
+        <div className="matrics__card-text">USERS WITH SAVINGS</div>
+        <div className="matrics__card-stat">{userWithSavings.length || 0}</div>
       </MatricsCard>
     </div>
   );

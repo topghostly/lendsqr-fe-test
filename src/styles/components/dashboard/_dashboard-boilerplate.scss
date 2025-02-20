@@ -1,7 +1,7 @@
 @use "../../utils/" as u;
 @import "../../global/colors";
 
-.dashboard {
+.main {
   padding: u.rem(60);
   display: flex;
   flex-direction: column;
@@ -28,13 +28,13 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: u.rem(40);
-    &_title {
+    &-title {
       font-weight: 500;
       font-family: "Work Sans";
       color: $color-primary;
       font-size: u.rem(24);
     }
-    &_action {
+    &-action {
       display: flex;
       align-items: center;
       gap: u.rem(20);

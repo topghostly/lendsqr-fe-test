@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import styles from "@/styles/components/dashboard/_dashboard-boilerplate.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../../../../../components/Button";
+import Button from "../../../../../components/ui/button";
 import UserInfo from "@/components/dashboard/dashboard-user-info";
 import { useParams } from "next/navigation";
 
@@ -12,8 +11,8 @@ function UserDetails() {
   const { id } = useParams();
 
   return (
-    <div className={styles.dashboard}>
-      <div className={styles.dashboard__back}>
+    <div className="main">
+      <div className="main__back">
         <Link href={"/dashboard/users/"}>
           <Image
             src={"/images/np_back_3007750_000000.svg"}
@@ -25,9 +24,9 @@ function UserDetails() {
           Back to Users
         </Link>
       </div>
-      <div className={styles.dashboard__head}>
-        <h2 className={styles.dashboard__head_title}>Users Details</h2>
-        <div className={styles.dashboard__head_action}>
+      <div className="main__head">
+        <h2 className="main__head-title">Users Details</h2>
+        <div className="main__head-action">
           <Button
             variant="outline"
             type="button"

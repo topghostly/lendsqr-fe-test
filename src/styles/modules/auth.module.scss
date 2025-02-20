@@ -110,6 +110,16 @@
             -ms-border-radius: u.rem(5);
             -o-border-radius: u.rem(5);
             padding: 0px 1rem;
+            font-family: "Avenir Next";
+            font-weight: 400;
+            font-size: u.rem(14);
+            font-style: normal;
+            color: $color-text-primary;
+
+            &:focus + .form_label {
+              top: 0px;
+              font-size: u.rem(11);
+            }
           }
 
           .form_label {
@@ -126,6 +136,8 @@
             -ms-transform: translateY(-50%);
             -o-transform: translateY(-50%);
             left: 1rem;
+            background-color: white;
+            padding: 4px 5px;
           }
         }
       }

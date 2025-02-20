@@ -11,7 +11,6 @@ export interface BtnProp {
   variant: "fill" | "outline" | "text";
   onClick: () => void;
   fullWidth?: boolean;
-  disabled?: boolean;
   customClass?: React.CSSProperties;
 }
 

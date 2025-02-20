@@ -1,4 +1,9 @@
 @use "../utils/" as u;
+@import "../components/dashboard/sidenav.scss";
+@import "../components/dashboard/dashboard-boilerplate.scss";
+@import "../components/dashboard/dashboard-matrics.scss";
+@import "../components/dashboard/dashboard-user-details.scss";
+@import "../components/dashboard/filter.scss";
 
 .dashboard {
   position: relative;

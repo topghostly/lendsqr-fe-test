@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import "../../styles/components/dashboard/_filter.scss";
 import { useUsers } from "@/hooks/users";
 import { userFilterProps } from "@/types/user";
 import Image from "next/image";
-import Button from "../Button";
+import Button from "../ui/button";
 
-const FilterForm = () => {
+const FilterForm = ({ setShowFilter }) => {
   const { setFilters } = useUsers();
 
   const [form, setForm] = useState({
@@ -26,9 +25,11 @@ const FilterForm = () => {
       ...prev,
       [e.target.name]: e.target.value,
     }));
+    console.log(form);
   };
   const handleSubmit = () => {
     setFilters({ ...form });
+    setShowFilter(false);
   };
 
   const handleReset = () => {

@@ -1,12 +1,10 @@
 import { BtnProp } from "@/types/layout";
 import React from "react";
-import styles from "../styles/components/_button.module.scss";
 
 const Button: React.FC<BtnProp> = ({
   children,
   variant,
   fullWidth,
-  disabled,
   onClick,
   customClass,
   type,
@@ -14,9 +12,7 @@ const Button: React.FC<BtnProp> = ({
 }) => {
   return (
     <button
-      className={`${styles.btn} ${styles[variant]} ${styles[color]} ${
-        disabled ? styles.disable : ""
-      } ${fullWidth ? styles.fw : ""}`}
+      className={`btn ${color} ${variant} ${fullWidth ? "fw" : null}`}
       style={{ ...customClass }}
       onClick={() => onClick()}
       type={type}

@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "@/styles/modules/auth.module.scss";
-import Button from "@/components/Button";
+import Button from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const Auth: React.FC = () => {
+  const router = useRouter();
   return (
     <div className={`${styles.authLayout} container `}>
       {/* LOGO NAVBAR */}
@@ -20,7 +22,7 @@ const Auth: React.FC = () => {
           >
             <Image
               src={"/images/logo.svg"}
-              alt="logo"
+              alt="lendsqr logo"
               width={174}
               height={36}
               priority
@@ -82,7 +84,9 @@ const Auth: React.FC = () => {
                 <Button
                   fullWidth={true}
                   variant="fill"
-                  onClick={() => {}}
+                  onClick={() => {
+                    router.push("/dashboard/users/");
+                  }}
                   type="button"
                   color="primary"
                 >

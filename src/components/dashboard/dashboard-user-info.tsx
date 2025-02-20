@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from "@/styles/components/dashboard/_dashboard-user-details.module.scss";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { userDetailsPageProp } from "@/types/layout";
 import { UserDetailsProp } from "@/types/user";
+import { formatBalance } from "@/lib/util";
 
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
   const { users } = useUsers();
@@ -19,11 +19,11 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
     console.log(userDetails);
   });
   return (
-    <div className={styles.details}>
-      <div className={styles.details__head}>
-        <div className={styles.details__head_main}>
-          <div className={styles.details__head_main_user}>
-            <div className={styles.profile_pic}>
+    <div className="details">
+      <div className="details__head">
+        <div className="details__head-main">
+          <div className="details__head-main_user">
+            <div className="profile_pic">
               <Image
                 src={"/images/profileVector.svg"}
                 alt="profilepic"
@@ -32,15 +32,15 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
                 priority
               />
             </div>
-            <div className={styles.user_info}>
-              <h2 className={styles.main_text}>{userDetails?.full_name}</h2>
-              <p className={styles.sub_text}>{userDetails?.id}</p>
+            <div className="user_info">
+              <h2 className="main_text">{userDetails?.full_name}</h2>
+              <p className="sub_text">{userDetails?.id}</p>
             </div>
           </div>
-          <div className={styles.seperator}></div>
-          <div className={styles.details__head_main_tier}>
-            <p className={styles.tier_title}>User's Tier</p>
-            <div className={styles.stars_holder}>
+          <div className="seperator"></div>
+          <div className="details__head-main_tier">
+            <p className="tier_title">User's Tier</p>
+            <div className="stars_holder">
               {Array.from(
                 { length: userDetails?.user_tier || 0 },
                 (_, index) => (
@@ -69,209 +69,189 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
               )}
             </div>
           </div>
-          <div className={styles.seperator}></div>
-          <div className={styles.details__head_main_balance}>
-            <h2 className={styles.main_text}>₦200,000.00</h2>
-            <p className={styles.sub_text}>
+          <div className="seperator"></div>
+          <div className="details__head-main_balance">
+            <h2 className="main_text">
+              ₦{formatBalance(userDetails?.active_loan.total_loan || 0)}
+            </h2>
+            <p className="sub_text">
               {userDetails?.bank.acct_number}/{userDetails?.bank.name}
             </p>
           </div>
         </div>
-        <div className={styles.details__head_categories}>
-          <div className={styles.details__head_categories_list}>
-            <ul className={styles.category_items}>
-              <button className={`${styles.category_button} ${styles.active}`}>
-                <li className={styles.category_item}>General Details</li>
+        <div className="details__head-categories">
+          <div className="details__head-categories_list">
+            <ul className="category_items">
+              <button className={`category_button active`}>
+                <li className="category_item">General Details</li>
               </button>
-              <button className={styles.category_button}>
-                <li className={styles.category_item}>Documents</li>
+              <button className="category_button">
+                <li className="category_item">Documents</li>
               </button>
-              <button className={styles.category_button}>
-                <li className={styles.category_item}>Bank Details</li>
+              <button className="category_button">
+                <li className="category_item">Bank Details</li>
               </button>
-              <button className={styles.category_button}>
-                <li className={styles.category_item}>Loans</li>
+              <button className="category_button">
+                <li className="category_item">Loans</li>
               </button>
-              <button className={styles.category_button}>
-                <li className={styles.category_item}>Savings</li>
+              <button className="category_button">
+                <li className="category_item">Savings</li>
               </button>
-              <button className={styles.category_button}>
-                <li className={styles.category_item}>App and System</li>
+              <button className="category_button">
+                <li className="category_item">App and System</li>
               </button>
             </ul>
           </div>
         </div>
       </div>
       {/* DETAILS BODY */}
-      <div className={styles.details__body}>
-        <div className={styles.details__body_section}>
-          <p className={styles.title}>Personal Information</p>
-          <div className={styles.grid_5}>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>full Name</p>
-              <p className={styles.detail_point}>{userDetails?.full_name}</p>
+      <div className="details__body">
+        <div className="details__body-section">
+          <p className="title">Personal Information</p>
+          <div className="grid_5">
+            <div className="detail">
+              <p className="detail_title">full Name</p>
+              <p className="detail_point">{userDetails?.full_name}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Phone Number</p>
-              <p className={styles.detail_point}>{userDetails?.phone_number}</p>
+            <div className="detail">
+              <p className="detail_title">Phone Number</p>
+              <p className="detail_point">{userDetails?.phone_number}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Email Address</p>
-              <p className={styles.detail_point}>{userDetails?.email}</p>
+            <div className="detail">
+              <p className="detail_title">Email Address</p>
+              <p className="detail_point">{userDetails?.email}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Bvn</p>
-              <p className={styles.detail_point}>{userDetails?.bvn}</p>
+            <div className="detail">
+              <p className="detail_title">Bvn</p>
+              <p className="detail_point">{userDetails?.bvn}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Gender</p>
-              <p className={styles.detail_point}>{userDetails?.gender}</p>
+            <div className="detail">
+              <p className="detail_title">Gender</p>
+              <p className="detail_point">{userDetails?.gender}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Marital status</p>
-              <p className={styles.detail_point}>
-                {userDetails?.marital_status}
+            <div className="detail">
+              <p className="detail_title">Marital status</p>
+              <p className="detail_point">{userDetails?.marital_status}</p>
+            </div>
+            <div className="detail">
+              <p className="detail_title">Children</p>
+              <p className="detail_point">
+                {userDetails?.children}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Children</p>
-              <p className={styles.detail_point}>
-                {userDetails?.children ? userDetails?.children : "0"}
-              </p>
-            </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Type of residence</p>
-              <p className={styles.detail_point}>
-                {userDetails?.type_of_residence}
-              </p>
+            <div className="detail">
+              <p className="detail_title">Type of residence</p>
+              <p className="detail_point">{userDetails?.type_of_residence}</p>
             </div>
           </div>
         </div>
-        <div className={styles.seperator}></div>
-        <div className={styles.details__body_section}>
-          <p className={styles.title}>Education and Employment</p>
-          <div className={styles.grid_4}>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>level of education</p>
-              <p className={styles.detail_point}>
-                {userDetails?.education_level}
-              </p>
+        <div className="seperator"></div>
+        <div className="details__body-section">
+          <p className="title">Education and Employment</p>
+          <div className="grid_4">
+            <div className="detail">
+              <p className="detail_title">level of education</p>
+              <p className="detail_point">{userDetails?.education_level}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>employment status</p>
-              <p className={styles.detail_point}>
-                {userDetails?.employment_status}
-              </p>
+            <div className="detail">
+              <p className="detail_title">employment status</p>
+              <p className="detail_point">{userDetails?.employment_status}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>sector of employment</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">sector of employment</p>
+              <p className="detail_point">
                 {userDetails?.sector_of_employment}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Duration of employment</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Duration of employment</p>
+              <p className="detail_point">
                 {userDetails?.duration_of_employment}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>office email</p>
-              <p className={styles.detail_point}>{userDetails?.office_email}</p>
+            <div className="detail">
+              <p className="detail_title">office email</p>
+              <p className="detail_point">{userDetails?.office_email}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Monthly income</p>
-              <p className={styles.detail_point}>
-                {userDetails?.monthly_income}
-              </p>
+            <div className="detail">
+              <p className="detail_title">Monthly income</p>
+              <p className="detail_point">{userDetails?.monthly_income}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>loan repayment</p>
-              <p className={styles.detail_point}>
-                {userDetails?.loan_repayment}
-              </p>
+            <div className="detail">
+              <p className="detail_title">loan repayment</p>
+              <p className="detail_point">{userDetails?.loan_repayment}</p>
             </div>
           </div>
         </div>
-        <div className={styles.seperator}></div>
-        <div className={styles.details__body_section}>
-          <p className={styles.title}>Socials</p>
-          <div className={styles.grid_5}>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Twitter</p>
-              <p className={styles.detail_point}>
-                {userDetails?.socials.twitter}
-              </p>
+        <div className="seperator"></div>
+        <div className="details__body-section">
+          <p className="title">Socials</p>
+          <div className="grid_5">
+            <div className="detail">
+              <p className="detail_title">Twitter</p>
+              <p className="detail_point">{userDetails?.socials.twitter}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Facebook</p>
-              <p className={styles.detail_point}>
-                {userDetails?.socials.facebook}
-              </p>
+            <div className="detail">
+              <p className="detail_title">Facebook</p>
+              <p className="detail_point">{userDetails?.socials.facebook}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Instagram</p>
-              <p className={styles.detail_point}>
-                {userDetails?.socials.instagram}
-              </p>
+            <div className="detail">
+              <p className="detail_title">Instagram</p>
+              <p className="detail_point">{userDetails?.socials.instagram}</p>
             </div>
           </div>
         </div>
-        <div className={styles.seperator}></div>
-        <div className={styles.details__body_section}>
-          <p className={styles.title}>Guarantor</p>
-          <div className={styles.grid_5}>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>full Name</p>
-              <p className={styles.detail_point}>
-                {userDetails?.guarantor.full_name}
-              </p>
+        <div className="seperator"></div>
+        <div className="details__body-section">
+          <p className="title">Guarantor</p>
+          <div className="grid_5">
+            <div className="detail">
+              <p className="detail_title">full Name</p>
+              <p className="detail_point">{userDetails?.guarantor.full_name}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Phone Number</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Phone Number</p>
+              <p className="detail_point">
                 {userDetails?.guarantor.phone_number}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Email Address</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Email Address</p>
+              <p className="detail_point">
                 {userDetails?.guarantor.email_address}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Relationship</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Relationship</p>
+              <p className="detail_point">
                 {userDetails?.guarantor.relationship}
               </p>
             </div>
           </div>
         </div>
-        <div className={styles.seperator}></div>
-        <div className={styles.details__body_section}>
-          {/* <p className={styles.title}>Guarantor</p> */}
-          <div className={styles.grid_5}>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>full Name</p>
-              <p className={styles.detail_point}>
-                {userDetails?.guarantor.full_name}
-              </p>
+        <div className="seperator"></div>
+        <div className="details__body-section">
+          {/* <p className="title">Guarantor</p> */}
+          <div className="grid_5">
+            <div className="detail">
+              <p className="detail_title">full Name</p>
+              <p className="detail_point">{userDetails?.guarantor.full_name}</p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Phone Number</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Phone Number</p>
+              <p className="detail_point">
                 {userDetails?.guarantor.phone_number}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Email Address</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Email Address</p>
+              <p className="detail_point">
                 {userDetails?.guarantor.email_address}
               </p>
             </div>
-            <div className={styles.detail}>
-              <p className={styles.detail_title}>Relationship</p>
-              <p className={styles.detail_point}>
+            <div className="detail">
+              <p className="detail_title">Relationship</p>
+              <p className="detail_point">
                 {userDetails?.guarantor.relationship}
               </p>
             </div>

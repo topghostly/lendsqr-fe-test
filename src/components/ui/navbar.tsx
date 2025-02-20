@@ -1,10 +1,9 @@
 "use client";
 
-import { ChildrenLayoutProp } from "@/types/layout";
 import Image from "next/image";
-import styles from "../styles/components/_navbar.module.scss";
+import styles from "../../styles/modules/navbar.module.scss";
 import Link from "next/link";
-import Button from "./Button";
+import Button from "./button";
 
 const Navbar: React.FC = () => {
   return (

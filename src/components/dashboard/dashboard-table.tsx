@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/components/dashboard/_dashboard-table.scss";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";
@@ -11,6 +11,7 @@ import FilterForm from "./filter-dropdown";
 
 const DashboardTable: React.FC = () => {
   const router = useRouter();
+  const [showFilter, setShowFilter] = useState<boolean>(false);
 
   const { pageItems } = useUsers();
 
@@ -23,73 +24,86 @@ const DashboardTable: React.FC = () => {
             <th>
               <div className="th-holder">
                 Organization
-                <Image
-                  src={"/images/filter-results-button.svg"}
-                  alt="logo"
-                  width={16}
-                  height={16}
-                  priority
-                />
+                <button>
+                  <Image
+                    onClick={() => setShowFilter((prev) => !prev)}
+                    src={"/images/filter-results-button.svg"}
+                    alt="logo"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                </button>
               </div>
             </th>
             <th>
               <div className="th-holder">
                 Username
-                <Image
-                  src={"/images/filter-results-button.svg"}
-                  alt="logo"
-                  width={16}
-                  height={16}
-                  priority
-                />
+                <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <Image
+                    src={"/images/filter-results-button.svg"}
+                    alt="logo"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                </button>
               </div>
             </th>
             <th>
               <div className="th-holder">
                 Email
-                <Image
-                  src={"/images/filter-results-button.svg"}
-                  alt="logo"
-                  width={16}
-                  height={16}
-                  priority
-                />
+                <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <Image
+                    src={"/images/filter-results-button.svg"}
+                    alt="logo"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                </button>
               </div>
             </th>
             <th>
               <div className="th-holder">
                 Phone Number
-                <Image
-                  src={"/images/filter-results-button.svg"}
-                  alt="logo"
-                  width={16}
-                  height={16}
-                  priority
-                />
+                <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <Image
+                    src={"/images/filter-results-button.svg"}
+                    alt="logo"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                </button>
               </div>
             </th>
             <th>
               <div className="th-holder">
                 Date Joined
-                <Image
-                  src={"/images/filter-results-button.svg"}
-                  alt="logo"
-                  width={16}
-                  height={16}
-                  priority
-                />
+                <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <Image
+                    src={"/images/filter-results-button.svg"}
+                    alt="logo"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                </button>
               </div>
             </th>
             <th>
               <div className="th-holder">
                 Status
-                <Image
-                  src={"/images/filter-results-button.svg"}
-                  alt="logo"
-                  width={16}
-                  height={16}
-                  priority
-                />
+                <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <Image
+                    src={"/images/filter-results-button.svg"}
+                    alt="logo"
+                    width={16}
+                    height={16}
+                    priority
+                  />
+                </button>
               </div>
             </th>
           </tr>
@@ -122,7 +136,7 @@ const DashboardTable: React.FC = () => {
         </tbody>
       </table>
       <Pagination />
-      <FilterForm />
+      {showFilter && <FilterForm setShowFilter={setShowFilter} />}
     </div>
   );
 };
