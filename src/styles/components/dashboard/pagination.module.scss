@@ -12,6 +12,12 @@
   font-weight: 400;
   font-size: u.rem(14);
 
+  @include u.breakpoint(small) {
+    flex-direction: column;
+    justify-content: center;
+    gap: u.rem(15);
+  }
+
   .showing {
     display: flex;
     align-items: center;

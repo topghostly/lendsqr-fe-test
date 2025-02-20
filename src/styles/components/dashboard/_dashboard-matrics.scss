@@ -3,25 +3,20 @@
 
 .matrics {
   position: relative;
-  // display: flex;
-  // justify-content: space-between;
+
   display: grid;
-  grid-template-columns: repeat((4, 1fr));
+  grid-template-columns: repeat((auto-fill, minmax(220px, 1fr)));
   gap: u.rem(26);
 
-  @include u.breakpoint(xLarge) {
-    gap: 0px;
-  }
-  @include u.breakpoint(medium) {
-    grid-template-columns: repeat((2, 1fr));
-  }
   @include u.breakpoint(small) {
-    grid-template-columns: repeat((1, 1fr));
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(26);
   }
 
   &__card {
     width: 100%;
-    max-width: u.rem(240);
+    min-width: u.rem(220);
     height: u.rem(160);
     background-color: rgb(255, 255, 255);
     border-radius: u.rem(4);
