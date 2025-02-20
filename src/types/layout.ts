@@ -17,3 +17,8 @@ export interface BtnProp {
 export interface userDetailsPageProp {
   currentUserID: string | string[] | undefined;
 }
+
+export interface DropdownProps {
+  trigger: React.ReactNode;
+  children: React.ReactNode;
+}

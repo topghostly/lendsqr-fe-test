@@ -4,8 +4,11 @@ import Image from "next/image";
 import styles from "../../styles/modules/navbar.module.scss";
 import Link from "next/link";
 import Button from "./button";
+import Dropdown from "./dropdown";
+import { useState } from "react";
 
 const Navbar: React.FC = () => {
+  const [openSide, setOpenSide] = useState(false);
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar__logo}>
@@ -24,6 +27,7 @@ const Navbar: React.FC = () => {
           />
         </Link>
       </div>
+
       <form className={styles.navbar__form}>
         <div className={styles.navbar__form_group}>
           <input
@@ -79,15 +83,72 @@ const Navbar: React.FC = () => {
           />
           <div className={styles.user__details_name}>
             <p>Adedeji</p>
-            <Image
-              src={"/images/dropdown.svg"}
-              className={styles.user__details_image}
-              alt="Adedeji profile picture"
-              width={20}
-              height={20}
-              priority
-            />
+
+            <Dropdown
+              trigger={
+                <Image
+                  src={"/images/dropdown.svg"}
+                  className={styles.user__details_image}
+                  alt="drop down image"
+                  width={20}
+                  height={20}
+                  priority
+                />
+              }
+            >
+              <ul>
+                <li>Account</li>
+                <li>Upgrade</li>
+                <li>Logout</li>
+              </ul>
+            </Dropdown>
           </div>
+        </div>
+        <div className={styles.side}>
+          <Dropdown
+            trigger={
+              <Image
+                src={"/images/burger-menu-svgrepo-com.svg"}
+                alt="search icon"
+                width={24}
+                height={24}
+                priority
+              />
+            }
+          >
+            <div className={styles.user__details}>
+              <Image
+                src={"/images/profile.png"}
+                className={styles.user__details_image}
+                alt="Adedeji profile picture"
+                width={48}
+                height={48}
+                priority
+              />
+              <div className={styles.user__details_name}>
+                <p>Adedeji</p>
+
+                <Dropdown
+                  trigger={
+                    <Image
+                      src={"/images/dropdown.svg"}
+                      className={styles.user__details_image}
+                      alt="drop down image"
+                      width={20}
+                      height={20}
+                      priority
+                    />
+                  }
+                >
+                  <ul>
+                    <li>Account</li>
+                    <li>Upgrade</li>
+                    <li>Logout</li>
+                  </ul>
+                </Dropdown>
+              </div>
+            </div>
+          </Dropdown>
         </div>
       </div>
     </nav>

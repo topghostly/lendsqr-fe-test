@@ -51,60 +51,72 @@ const Pagination = () => {
         <span>out of {totalUsers}</span>
       </div>
 
-      <div className={styles.pagination}>
-        <button
-          className={styles.navButton}
-          onClick={() => {
-            if (currentPage <= 1) return setCurrentPage(1);
-            setCurrentPage((prev: number) => prev - 1);
-          }}
-        >
-          <Image
-            src={"/images/prev.svg"}
-            alt="prev icon"
-            width={12}
-            height={12}
-            priority
-          />
-        </button>
-        {initial.map((num) => (
+      {currentPage && totalPages ? (
+        <div className={styles.pagination}>
           <button
-            key={num}
-            className={`${styles.pageNumber} ${
-              currentPage === num ? styles.active_page : null
+            className={`${styles.navButton} ${
+              currentPage === initial[0] ? styles.disable : null
             }`}
+            onClick={() => {
+              if (currentPage <= 1) return setCurrentPage(1);
+              setCurrentPage((prev: number) => prev - 1);
+            }}
           >
-            {num}
+            <Image
+              src={"/images/prev.svg"}
+              alt="prev icon"
+              width={12}
+              height={12}
+              priority
+            />
           </button>
-        ))}
-        <span className={styles.dots}>...</span>
-        {final.map((num) => (
+          {initial.map((num) => (
+            <button
+              key={num}
+              className={`${styles.pageNumber} ${
+                currentPage === num ? styles.active_page : null
+              }`}
+              onClick={() => {
+                setCurrentPage(num);
+              }}
+            >
+              {num}
+            </button>
+          ))}
+          <span className={styles.dots}>...</span>
+          {final.map((num) => (
+            <button
+              key={num}
+              className={`${styles.pageNumber} ${
+                currentPage === num ? styles.active_page : null
+              } `}
+              onClick={() => {
+                setCurrentPage(num);
+              }}
+            >
+              {num}
+            </button>
+          ))}
           <button
-            key={num}
-            className={`${styles.pageNumber} ${
-              currentPage === num ? styles.active_page : null
-            } `}
+            className={`${styles.navButton} ${
+              currentPage === final.at(-1) ? styles.disable : null
+            }`}
+            onClick={() => {
+              console.log("Total page: ", totalPages);
+              if (currentPage >= totalPages) return setCurrentPage(totalPages);
+              setCurrentPage((prev: number) => prev + 1);
+            }}
           >
-            {num}
+            <Image
+              src={"/images/next.svg"}
+              alt="next icon"
+              width={12}
+              height={12}
+              priority
+            />
           </button>
-        ))}
-        <button
-          className={styles.navButton}
-          onClick={() => {
-            console.log("Total page: ", totalPages);
-            if (currentPage >= totalPages) return setCurrentPage(totalPages);
-            setCurrentPage((prev: number) => prev + 1);
-          }}
-        >
-          <Image
-            src={"/images/next.svg"}
-            alt="next icon"
-            width={12}
-            height={12}
-            priority
-          />
-        </button>
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 };

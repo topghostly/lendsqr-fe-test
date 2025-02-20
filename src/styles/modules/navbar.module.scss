@@ -25,6 +25,10 @@
   &__form {
     height: u.rem(40);
 
+    @include u.breakpoint(medium) {
+      display: none;
+    }
+
     &_group {
       width: u.rem(400);
       display: grid;
@@ -57,9 +61,17 @@
   text-decoration: underline;
   color: $color-primary;
   margin-right: u.rem(47);
+
+  @include u.breakpoint(xLarge) {
+    display: none;
+  }
 }
 .notification_holder {
   margin-right: u.rem(30);
+
+  @include u.breakpoint(xLarge) {
+    display: none;
+  }
 }
 
 .user__details {
@@ -82,4 +94,16 @@
     gap: u.rem(6);
     align-items: center;
   }
+
+  @include u.breakpoint(xLarge) {
+    display: none;
+  }
+}
+.side {
+  display: none;
+
+  @include u.breakpoint(xLarge) {
+    display: block;
+  }
+  cursor: pointer;
 }

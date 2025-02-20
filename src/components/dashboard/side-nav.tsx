@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Dropdown from "../ui/dropdown";
 // import styles from "../../styles/components/dashboard/_sidenav.module.scss";
 
 const SideNav: React.FC = () => {
@@ -20,13 +21,23 @@ const SideNav: React.FC = () => {
             </span>
             Switch Organisation
             <span>
-              <Image
-                src={"/images/dropdown-outline.svg"}
-                alt="briefcae icon"
-                width={14}
-                height={14}
-                priority
-              />
+              <Dropdown
+                trigger={
+                  <Image
+                    src={"/images/dropdown-outline.svg"}
+                    alt="dropdown icon"
+                    width={14}
+                    height={14}
+                    priority
+                  />
+                }
+              >
+                <ul>
+                  <li>Account</li>
+                  <li>Upgrade</li>
+                  <li>Logout</li>
+                </ul>
+              </Dropdown>
             </span>
           </div>
           <div className="sidenav__action-tab">
