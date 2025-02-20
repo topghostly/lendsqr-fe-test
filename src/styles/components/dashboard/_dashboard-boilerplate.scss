@@ -32,6 +32,11 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: u.rem(40);
+
+    @include u.breakpoint(medium) {
+      gap: u.rem(20);
+      flex-direction: column;
+    }
     &-title {
       font-weight: 500;
       font-family: "Work Sans";

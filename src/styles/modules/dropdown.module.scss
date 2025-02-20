@@ -17,8 +17,8 @@
   background: white;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.04);
-  padding: 10px;
-  z-index: 1000;
+  padding: 10px 20px;
+  z-index: 9999999;
   border-radius: u.rem(8);
   transition: opacity 0.2s ease-in-out;
   -webkit-border-radius: u.rem(8);
@@ -33,18 +33,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: u.rem(2);
+    gap: u.rem(10);
     flex-direction: column;
 
     li {
       padding: u.rem(8);
       width: 100%;
-      display: grid;
-      place-content: center;
+      display: flex;
+      justify-content: space-between;
+      gap: u.rem(5);
       color: $color-text-primary;
       font-family: "Work Sans";
       border-radius: u.rem(8);
-      font-weight: 400;
+      font-weight: 500;
+      font-size: u.rem(14);
       cursor: pointer;
 
       &:hover {

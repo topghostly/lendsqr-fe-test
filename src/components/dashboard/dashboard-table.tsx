@@ -9,6 +9,7 @@ import Pagination from "../../components/dashboard/pagination";
 import { useRouter } from "next/navigation";
 import FilterForm from "./filter-dropdown";
 import { formatDateTime } from "@/lib/util";
+import Dropdown from "../ui/dropdown";
 
 const DashboardTable: React.FC = () => {
   const router = useRouter();
@@ -116,9 +117,9 @@ const DashboardTable: React.FC = () => {
               <>
                 <tr
                   key={index}
-                  onClick={() =>
-                    router.push(`/dashboard/users/details/${user.id}`)
-                  }
+                  // onClick={() =>
+                  //   router.push(`/dashboard/users/details/${user.id}`)
+                  // }
                 >
                   <td className="none-3">{user.organisation_name}</td>
                   <td>{user.full_name}</td>
@@ -138,13 +139,52 @@ const DashboardTable: React.FC = () => {
                   </td>
                   <td>
                     <div className="options">
-                      <Image
-                        src={"/images/table_options.svg"}
-                        alt="logo"
-                        width={20}
-                        height={20}
-                        priority
-                      />
+                      <Dropdown
+                        trigger={
+                          <Image
+                            src={"/images/table_options.svg"}
+                            alt="logo"
+                            width={20}
+                            height={20}
+                            priority
+                          />
+                        }
+                      >
+                        <ul>
+                          <li>
+                            <Image
+                              src={"/images/np_view_1214519_000000.svg"}
+                              alt="user details"
+                              width={14}
+                              height={14}
+                              priority
+                            />
+                            View Details
+                          </li>
+                          <li>
+                            <Image
+                              src={
+                                "/images/np_delete-friend_3248001_000000.svg"
+                              }
+                              alt="blacklist"
+                              width={14}
+                              height={14}
+                              priority
+                            />
+                            Blacklist User
+                          </li>
+                          <li>
+                            <Image
+                              src={"/images/np_user_2995993_000000.svg"}
+                              alt="logo"
+                              width={14}
+                              height={14}
+                              priority
+                            />
+                            Activate User
+                          </li>
+                        </ul>
+                      </Dropdown>
                     </div>
                   </td>
                 </tr>

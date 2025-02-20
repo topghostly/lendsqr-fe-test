@@ -9,7 +9,7 @@
   max-height: calc(100vh - u.rem(100));
   overflow-y: scroll;
   color: $color-primary;
-  // background-color: rgb(39, 14, 14);
+  background-color: rgb(39, 14, 14);
   box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
 
   @include u.breakpoint(xLarge) {

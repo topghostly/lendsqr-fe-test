@@ -5,12 +5,24 @@ import styles from "../../styles/modules/navbar.module.scss";
 import Link from "next/link";
 import Button from "./button";
 import Dropdown from "./dropdown";
-import { useState } from "react";
 
-const Navbar: React.FC = () => {
-  const [openSide, setOpenSide] = useState(false);
+const Navbar: React.FC = ({ setOpenSidebar }) => {
   return (
     <nav className={styles.navbar}>
+      <div
+        className={styles.navbar__control}
+        onClick={() => {
+          setOpenSidebar((prev: boolean) => !prev);
+        }}
+      >
+        <Image
+          src={"/images/table_options.svg"}
+          alt="logo"
+          width={20}
+          height={20}
+          priority
+        />
+      </div>
       <div className={styles.navbar__logo}>
         <Link
           href={"#"}
