@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "../../styles/components/dashboard/pagination.module.scss";
 import { useUsers } from "@/hooks/users";
+import Image from "next/image";
 
 const Pagination = () => {
   const {
@@ -58,16 +59,32 @@ const Pagination = () => {
             setCurrentPage((prev: number) => prev - 1);
           }}
         >
-          {"<"}
+          <Image
+            src={"/images/prev.svg"}
+            alt="prev icon"
+            width={12}
+            height={12}
+            priority
+          />
         </button>
         {initial.map((num) => (
-          <button key={num} className={styles.pageNumber}>
+          <button
+            key={num}
+            className={`${styles.pageNumber} ${
+              currentPage === num ? styles.active_page : null
+            }`}
+          >
             {num}
           </button>
         ))}
         <span className={styles.dots}>...</span>
         {final.map((num) => (
-          <button key={num} className={styles.pageNumber}>
+          <button
+            key={num}
+            className={`${styles.pageNumber} ${
+              currentPage === num ? styles.active_page : null
+            } `}
+          >
             {num}
           </button>
         ))}
@@ -79,7 +96,13 @@ const Pagination = () => {
             setCurrentPage((prev: number) => prev + 1);
           }}
         >
-          {">"}
+          <Image
+            src={"/images/next.svg"}
+            alt="next icon"
+            width={12}
+            height={12}
+            priority
+          />
         </button>
       </div>
     </div>

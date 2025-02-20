@@ -177,7 +177,7 @@
         column-gap: u.rem(30);
         row-gap: u.rem(30);
 
-        @include u.breakpoint(large) {
+        @include u.breakpoint(xLarge) {
           justify-content: space-between;
         }
       }

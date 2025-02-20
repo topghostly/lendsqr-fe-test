@@ -9,19 +9,20 @@ export interface UserDetailsProp {
   bank: {
     name: string;
     acct_number: string;
+    user_balance: string;
   };
   gender: "Male" | "Female";
   marital_status: "Single" | "Married";
-  children: number | null;
+  children: string;
   type_of_residence: "Own's Apartment" | "Parent's Apartment";
   education_level: "HND" | "Diploma" | "M.Sc" | "B.Sc" | "M.Sc";
   employment_status: string;
   sector_of_employment: string;
-  duration_of_employment: number;
+  duration_of_employment: string;
   office_email: string;
   organisation_name: string;
   monthly_income: string;
-  loan_repayment: number;
+  loan_repayment: string;
   socials: {
     twitter: string;
     facebook: string;
@@ -33,14 +34,15 @@ export interface UserDetailsProp {
     email_address: string;
     relationship: string;
   };
-  savings: number;
+  savings: string;
   date_joined: string;
   kyc_status: "Active" | "Blacklisted" | "Inactive" | "Pending";
-  user_tier: number;
+  user_tier: string;
   profile_image: string;
   active_loan: {
-    total_loan: number;
+    total_loan: string;
   };
+  active: boolean;
 }
 
 export interface userContextProps {

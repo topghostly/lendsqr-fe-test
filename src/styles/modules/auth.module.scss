@@ -8,7 +8,7 @@
     z-index: 500;
     background-color: #fff;
     padding: 5.5rem 0 0 6.0625rem;
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xLarge) {
       padding: 3rem 0 0 3rem;
     }
     @include u.breakpoint(medium) {

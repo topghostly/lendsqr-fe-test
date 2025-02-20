@@ -9,7 +9,7 @@
   grid-template-columns: repeat((4, 1fr));
   gap: u.rem(26);
 
-  @include u.breakpoint(large) {
+  @include u.breakpoint(xLarge) {
     gap: 0px;
   }
   @include u.breakpoint(medium) {

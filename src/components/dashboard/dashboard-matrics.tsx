@@ -16,13 +16,18 @@ const DashboardMatrics = () => {
 
   const [activeUsers, setActiveUsers] = useState<number[]>([]);
   const [userWithSavings, setUserWithSavings] = useState<number[]>([]);
+  const [userWithLoan, setUserWithLoan] = useState<number[]>([]);
 
   useEffect(() => {
-    const active = users.filter(
-      (user: UserDetailsProp) => user.active_loan.total_loan > 0
+    const active = users.filter((user: UserDetailsProp) => user.active);
+    const savings = users.filter(
+      (user: UserDetailsProp) => Number(user.savings) > 0
     );
-    const savings = users.filter((user: UserDetailsProp) => user.savings > 0);
+    const loan = users.filter(
+      (user: UserDetailsProp) => Number(user.active_loan.total_loan) > 0
+    );
     setActiveUsers(active);
+    setUserWithLoan(loan);
     setUserWithSavings(savings);
   }, [users]);
   return (
@@ -64,7 +69,7 @@ const DashboardMatrics = () => {
           />
         </div>
         <div className="matrics__card-text">USERS WITH LOANS</div>
-        <div className="matrics__card-stat">{activeUsers.length || 0}</div>
+        <div className="matrics__card-stat">{userWithLoan.length || 0}</div>
       </MatricsCard>
       <MatricsCard>
         <div className="matrics__card-image red">

@@ -12,7 +12,7 @@
   // background-color: rgb(39, 14, 14);
   box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.04);
 
-  @include u.breakpoint(large) {
+  @include u.breakpoint(xLarge) {
     display: none;
   }
 

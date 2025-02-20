@@ -16,7 +16,7 @@
   height: calc(100vh - u.rem(100));
   background-color: rgba(251, 251, 251, 1);
 
-  @include u.breakpoint(large) {
+  @include u.breakpoint(xLarge) {
     display: block;
   }
 

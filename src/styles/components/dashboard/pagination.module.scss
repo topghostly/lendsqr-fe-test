@@ -1,26 +1,39 @@
 @use "../../utils/" as u;
+@import "../../global/colors";
 
 .paginationContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: #6b7280;
+  color: $color-text-primary;
   margin-top: u.rem(20);
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-size: u.rem(14);
 
   .showing {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: u.rem(10);
+    font-size: u.rem(14);
 
     .dropdown {
+      color: $color-text-primary;
+      font-family: "Work Sans";
+      font-weight: 500;
+      font-size: u.rem(14);
       padding: 5px 10px;
-      border: 1px solid #e5e7eb;
-      border-radius: 5px;
+      border: 1px solid rgba(33, 63, 125, 0.1);
+      border-radius: u.rem(8);
       background: white;
+      -webkit-border-radius: u.rem(8);
+      -moz-border-radius: u.rem(8);
+      -ms-border-radius: u.rem(8);
+      -o-border-radius: u.rem(8);
       cursor: pointer;
+      width: u.rem(80);
+      background: rgba(33, 63, 125, 0.1);
     }
   }
 
@@ -28,28 +41,38 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: u.rem(16);
+    font-family: "Work Sans";
+    font-weight: 400;
+    color: $color-text-primary;
 
     .navButton {
-      background: #f3f4f6;
+      background: rgba(33, 63, 125, 0.1);
       border: none;
-      padding: 5px 10px;
+      width: u.rem(24);
+      height: u.rem(24);
       border-radius: 5px;
       cursor: pointer;
 
       &:hover {
-        background: #e5e7eb;
+        background: none;
       }
     }
 
     .pageNumber {
-      background: white;
-      border: 1px solid #e5e7eb;
+      background: none;
       padding: 5px 10px;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-family: "Work Sans";
+      font-weight: 400;
+      color: $color-text-primary;
+      font-size: u.rem(16);
+      opacity: 0.6;
 
       &:hover {
-        background: #e5e7eb;
+        background: rgba(33, 63, 125, 0.1);
       }
     }
 
@@ -57,4 +80,7 @@
       padding: 0 5px;
     }
   }
+}
+.active_page {
+  opacity: 1;
 }

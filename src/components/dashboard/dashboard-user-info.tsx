@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { userDetailsPageProp } from "@/types/layout";
 import { UserDetailsProp } from "@/types/user";
-import { formatBalance } from "@/lib/util";
+import { formatBalance, formatDateTime } from "@/lib/util";
 
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
   const { users } = useUsers();
@@ -42,7 +42,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             <p className="tier_title">User's Tier</p>
             <div className="stars_holder">
               {Array.from(
-                { length: userDetails?.user_tier || 0 },
+                { length: Number(userDetails?.user_tier) || 0 },
                 (_, index) => (
                   <Image
                     key={index}
@@ -72,7 +72,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           <div className="seperator"></div>
           <div className="details__head-main_balance">
             <h2 className="main_text">
-              ₦{formatBalance(userDetails?.active_loan.total_loan || 0)}
+              ₦{formatBalance(Number(userDetails?.bank.user_balance) || 0)}
             </h2>
             <p className="sub_text">
               {userDetails?.bank.acct_number}/{userDetails?.bank.name}
@@ -135,9 +135,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             </div>
             <div className="detail">
               <p className="detail_title">Children</p>
-              <p className="detail_point">
-                {userDetails?.children}
-              </p>
+              <p className="detail_point">{userDetails?.children}</p>
             </div>
             <div className="detail">
               <p className="detail_title">Type of residence</p>
@@ -179,7 +177,9 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             </div>
             <div className="detail">
               <p className="detail_title">loan repayment</p>
-              <p className="detail_point">{userDetails?.loan_repayment}</p>
+              <p className="detail_point">
+                ₦{formatBalance(Number(userDetails?.loan_repayment) || 0)}
+              </p>
             </div>
           </div>
         </div>
