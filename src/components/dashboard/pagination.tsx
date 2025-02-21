@@ -29,7 +29,6 @@ const Pagination = () => {
 
   const pageNumberList = [...initial, ...final];
 
-  console.log(pageNumberList);
   return (
     <div className={styles.paginationContainer}>
       <div className={styles.showing}>
@@ -104,7 +103,6 @@ const Pagination = () => {
                 : ""
             }`}
             onClick={() => {
-              console.log("Total page: ", totalPages);
               if (currentPage >= totalPages) return setCurrentPage(totalPages);
               setCurrentPage((prev: number) => prev + 1);
             }}

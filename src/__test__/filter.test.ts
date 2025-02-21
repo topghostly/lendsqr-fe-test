@@ -1,7 +1,6 @@
 import { filterUsers } from "@/context/users";
 import { UserDetailsProp } from "@/types/user";
 import { describe, expect, test } from "@jest/globals";
-import { formatDate } from "@/lib/util";
 
 describe("filterUsers function", () => {
   const mockUsers: UserDetailsProp[] = [

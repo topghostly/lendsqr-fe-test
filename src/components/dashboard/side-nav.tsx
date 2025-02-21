@@ -104,9 +104,7 @@ const SideNav: React.FC = () => {
             }
           >
             <ul>
-              <li>Account</li>
-              <li>Upgrade</li>
-              <li>Logout</li>
+              <li>LendSqr</li>
             </ul>
           </Dropdown>
         </div>

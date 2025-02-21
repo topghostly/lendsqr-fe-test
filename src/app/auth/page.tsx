@@ -8,12 +8,46 @@ import Button from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 const Auth: React.FC = () => {
+  interface SignInData {
+    email: string;
+    password: string;
+  }
   const router = useRouter();
+  const [signinData, setSigninData] = useState<SignInData>({
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const togglePassword = useCallback(() => {
     setShowPassword((prev) => !prev);
   }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSigninData((prev: SignInData) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!isValidEmail(signinData.email)) {
+      alert("Invalid email format.");
+      return;
+    }
+
+    if (signinData.password.length < 4) {
+      alert("Password must be at least 4 characters.");
+      return;
+    }
+    router.push("/dashboard/users/");
+  };
+
+  const isValidEmail = (email: string) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
 
   return (
     <div className={`${styles.authLayout} container `}>
@@ -55,6 +89,7 @@ const Auth: React.FC = () => {
               autoComplete="off"
               noValidate={true}
               className={styles.auth__form_container}
+              onSubmit={handleSubmit}
             >
               <div className={styles.input_group}>
                 <div className={styles.input_holder}>
@@ -64,10 +99,10 @@ const Auth: React.FC = () => {
                     name="email"
                     autoComplete="off"
                     className={styles.form_input}
+                    value={signinData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
                   />
-                  <label htmlFor="email" className={styles.form_label}>
-                    Email
-                  </label>
                 </div>
                 <div className={styles.input_holder}>
                   <button
@@ -86,10 +121,13 @@ const Auth: React.FC = () => {
                     name="password"
                     autoComplete="off"
                     className={styles.form_input}
+                    value={signinData.password}
+                    onChange={handleChange}
+                    placeholder="Password"
                   />
-                  <label htmlFor="password" className={styles.form_label}>
+                  {/* <label htmlFor="password" className={styles.form_label}>
                     Password
-                  </label>
+                  </label> */}
                 </div>
               </div>
 
@@ -100,10 +138,8 @@ const Auth: React.FC = () => {
                 <Button
                   fullWidth={true}
                   variant="fill"
-                  onClick={() => {
-                    router.push("/dashboard/users/");
-                  }}
-                  type="button"
+                  onClick={() => {}}
+                  type="submit"
                   color="primary"
                 >
                   LOG IN
