@@ -27,6 +27,9 @@ const Pagination = () => {
     return [currentPage - 1, currentPage, currentPage + 1];
   }, [currentPage, totalPages]);
 
+  const pageNumberList = [...initial, ...final];
+
+  console.log(pageNumberList);
   return (
     <div className={styles.paginationContainer}>
       <div className={styles.showing}>
@@ -95,9 +98,10 @@ const Pagination = () => {
           ))}
           <button
             className={`${styles.navButton} ${
-              final.length <= 0 || currentPage === final.at(-1)
+              pageNumberList.length <= 1 ||
+              currentPage === pageNumberList.at(-1)
                 ? styles.disable
-                : null
+                : ""
             }`}
             onClick={() => {
               console.log("Total page: ", totalPages);
