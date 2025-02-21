@@ -22,3 +22,10 @@ export interface DropdownProps {
   trigger: React.ReactNode;
   children: React.ReactNode;
 }
+
+export interface MatricsCardProps {
+  icon: string;
+  label: string;
+  value: number;
+  color: string;
+}

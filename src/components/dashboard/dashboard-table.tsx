@@ -21,6 +21,8 @@ const DashboardTable: React.FC = () => {
 
   const { pageItems } = useUsers();
 
+  const toggleFilter = () => setShowFilter((prev) => !prev);
+
   return (
     <div>
       <div className="table-container">
@@ -31,7 +33,7 @@ const DashboardTable: React.FC = () => {
               <th className="none-3">
                 <div className="th-holder">
                   Organization
-                  <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <button onClick={toggleFilter}>
                     <Image
                       src={"/images/filter-results-button.svg"}
                       alt="logo"
@@ -45,7 +47,7 @@ const DashboardTable: React.FC = () => {
               <th>
                 <div className="th-holder">
                   Username
-                  <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <button onClick={toggleFilter}>
                     <Image
                       src={"/images/filter-results-button.svg"}
                       alt="logo"
@@ -59,7 +61,7 @@ const DashboardTable: React.FC = () => {
               <th className="none-2">
                 <div className="th-holder">
                   Email
-                  <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <button onClick={toggleFilter}>
                     <Image
                       src={"/images/filter-results-button.svg"}
                       alt="logo"
@@ -73,7 +75,7 @@ const DashboardTable: React.FC = () => {
               <th className="none-2">
                 <div className="th-holder">
                   Phone Number
-                  <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <button onClick={toggleFilter}>
                     <Image
                       src={"/images/filter-results-button.svg"}
                       alt="logo"
@@ -87,7 +89,7 @@ const DashboardTable: React.FC = () => {
               <th className="none-1">
                 <div className="th-holder ">
                   Date Joined
-                  <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <button onClick={toggleFilter}>
                     <Image
                       src={"/images/filter-results-button.svg"}
                       alt="logo"
@@ -101,7 +103,7 @@ const DashboardTable: React.FC = () => {
               <th>
                 <div className="th-holder">
                   Status
-                  <button onClick={() => setShowFilter((prev) => !prev)}>
+                  <button onClick={toggleFilter}>
                     <Image
                       src={"/images/filter-results-button.svg"}
                       alt="logo"
@@ -117,8 +119,8 @@ const DashboardTable: React.FC = () => {
 
           {/* Table Body */}
           <tbody>
-            {pageItems.map((user: UserDetailsProp, index: number) => (
-              <tr key={index}>
+            {pageItems.map((user: UserDetailsProp) => (
+              <tr key={user.id}>
                 <td className="none-3" onClick={() => LinkToDetails(user.id)}>
                   {user.organisation_name}
                 </td>

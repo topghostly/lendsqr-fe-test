@@ -2,17 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import styles from "@/styles/modules/auth.module.scss";
 import Button from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 const Auth: React.FC = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const togglePassword = useCallback(() => {
+    setShowPassword((prev) => !prev);
+  }, []);
+
   return (
     <div className={`${styles.authLayout} container `}>
       {/* LOGO NAVBAR */}
-      <div className={styles.authLayout__nav}>
+      <header className={styles.header}>
         <nav className={styles.navbar}>
           <Link
             href={"https://lendsqr.com/"}
@@ -29,7 +35,7 @@ const Auth: React.FC = () => {
             />
           </Link>
         </nav>
-      </div>
+      </header>
       <div className={styles.auth}>
         <div className={styles.auth__illustration}>
           <Image
@@ -48,9 +54,9 @@ const Auth: React.FC = () => {
             <form
               autoComplete="off"
               noValidate={true}
-              className={styles.auth__form_inner}
+              className={styles.auth__form_container}
             >
-              <div className={styles.input_holder_holder}>
+              <div className={styles.input_group}>
                 <div className={styles.input_holder}>
                   <input
                     type="email"
@@ -64,8 +70,18 @@ const Auth: React.FC = () => {
                   </label>
                 </div>
                 <div className={styles.input_holder}>
+                  <button
+                    className={styles.toggleButton}
+                    type="button"
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
+                    onClick={togglePassword}
+                  >
+                    {showPassword ? "HIDE" : "SHOW"}
+                  </button>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     id="password"
                     name="password"
                     autoComplete="off"
@@ -77,10 +93,10 @@ const Auth: React.FC = () => {
                 </div>
               </div>
 
-              <div className={styles.forgot_link}>
+              <div className={styles.forgot_password}>
                 <Link href={"#"}>Forgot password?</Link>
               </div>
-              <div className={styles.submit_btn}>
+              <div className={styles.submit_button}>
                 <Button
                   fullWidth={true}
                   variant="fill"

@@ -11,20 +11,23 @@
   flex-direction: column;
   // gap: u.rem(40);
 
-  &__back {
+  &__backbutton {
     margin-bottom: u.rem(26);
     width: fit-content;
 
     &:hover {
       opacity: 0.6;
     }
-    a {
+    button {
       display: flex;
       gap: u.rem(13);
       align-items: center;
       font-family: "Work Sans";
       font-weight: 400;
       color: $color-text-primary;
+      background: none;
+      border: none;
+      outline: none;
     }
   }
 

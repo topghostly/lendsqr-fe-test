@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { userDetailsPageProp } from "@/types/layout";
@@ -7,17 +7,11 @@ import { formatBalance, formatDateTime } from "@/lib/util";
 
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
   const { users } = useUsers();
-  const [userDetails, setUserDetails] = useState<UserDetailsProp>();
   const maximumTier = 3;
-  useEffect(() => {
-    if (users && currentUserID) {
-      const foundUser = users.find(
-        (user: UserDetailsProp) => user.id === currentUserID
-      );
-      setUserDetails(foundUser);
-    }
-    console.log(userDetails);
-  });
+  const userDetails = useMemo(
+    () => users.find((user: UserDetailsProp) => user.id === currentUserID),
+    [users, currentUserID]
+  );
   return (
     <div className="details">
       <div className="details__head">

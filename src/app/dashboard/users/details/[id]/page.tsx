@@ -1,19 +1,36 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Button from "../../../../../components/ui/button";
+import Button from "@/components/ui/button";
 import UserInfo from "@/components/dashboard/dashboard-user-info";
 import { useParams } from "next/navigation";
 
 function UserDetails() {
-  const { id } = useParams();
+  const { id } = useParams() as { id: string };
+
+  const router = useRouter();
+
+  const buttonStyles = {
+    blacklist: {
+      color: "rgba(228, 3, 59, 1)",
+      border: "solid 1px rgba(228, 3, 59, 1)",
+      fontFamily: "Work Sans",
+      fontWeight: 600,
+    },
+    activate: {
+      color: "rgba(57, 205, 204, 1)",
+      border: "solid 1px rgba(57, 205, 204, 1)",
+      fontFamily: "Work Sans",
+      fontWeight: 600,
+    },
+  };
 
   return (
     <div className="main">
-      <div className="main__back">
-        <Link href={"/dashboard/users/"}>
+      <div className="main__backbutton">
+        <button onClick={() => router.push("/dashboard/users/")}>
           <Image
             src={"/images/np_back_3007750_000000.svg"}
             alt="back"
@@ -22,7 +39,7 @@ function UserDetails() {
             priority
           />
           Back to Users
-        </Link>
+        </button>
       </div>
       <div className="main__head">
         <h2 className="main__head-title">Users Details</h2>
@@ -31,12 +48,7 @@ function UserDetails() {
             variant="outline"
             type="button"
             onClick={() => {}}
-            customClass={{
-              color: "rgba(228, 3, 59, 1)",
-              border: "solid 1px rgba(228, 3, 59, 1)",
-              fontFamily: "Work Sans",
-              fontWeight: 600,
-            }}
+            customClass={buttonStyles.blacklist}
           >
             BLACKLIST USER
           </Button>
@@ -44,12 +56,7 @@ function UserDetails() {
             variant="outline"
             type="button"
             onClick={() => {}}
-            customClass={{
-              color: "rgba(57, 205, 204, 1)",
-              border: "solid 1px rgba(57, 205, 204, 1)",
-              fontFamily: "Work Sans",
-              fontWeight: 600,
-            }}
+            customClass={buttonStyles.activate}
           >
             ACTIVATER USER
           </Button>

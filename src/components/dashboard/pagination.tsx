@@ -16,7 +16,11 @@ const Pagination = () => {
   const [initial, setInitial] = useState<number[]>([]);
 
   useEffect(() => {
-    setFinal([totalPages - 1, totalPages]);
+    if (totalPages <= 3) {
+      setFinal([]);
+    } else {
+      setFinal([totalPages - 1, totalPages]);
+    }
   }, [totalPages]);
 
   useEffect(() => {
@@ -77,13 +81,15 @@ const Pagination = () => {
                 currentPage === num ? styles.active_page : null
               }`}
               onClick={() => {
-                setCurrentPage(num);
+                if (totalPages >= num) {
+                  setCurrentPage(num);
+                }
               }}
             >
               {num}
             </button>
           ))}
-          <span className={styles.dots}>...</span>
+          {totalPages >= 3 ? <span className={styles.dots}>...</span> : null}
           {final.map((num) => (
             <button
               key={num}
@@ -99,7 +105,9 @@ const Pagination = () => {
           ))}
           <button
             className={`${styles.navButton} ${
-              currentPage === final.at(-1) ? styles.disable : null
+              final.length <= 0 || currentPage === final.at(-1)
+                ? styles.disable
+                : null
             }`}
             onClick={() => {
               console.log("Total page: ", totalPages);

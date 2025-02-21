@@ -3,24 +3,24 @@
 
 .authLayout {
   position: relative;
-  &__nav {
-    position: absolute;
-    z-index: 500;
-    background-color: #fff;
-    padding: 5.5rem 0 0 6.0625rem;
-    @include u.breakpoint(xLarge) {
-      padding: 3rem 0 0 3rem;
-    }
-    @include u.breakpoint(medium) {
-      padding: 2rem 0 0 1rem;
-    }
+}
+.header {
+  position: absolute;
+  z-index: 500;
+  background-color: #fff;
+  padding: 5.5rem 0 0 6.0625rem;
+  @include u.breakpoint(xLarge) {
+    padding: 3rem 0 0 3rem;
+  }
+  @include u.breakpoint(medium) {
+    padding: 2rem 0 0 1rem;
+  }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -83,12 +83,12 @@
       margin: u.rem(20) 0 u.rem(60) 0;
     }
 
-    &_inner {
+    &_container {
       display: flex;
       flex-direction: column;
       width: 100%;
 
-      .input_holder_holder {
+      .input_group {
         display: flex;
         flex-direction: column;
         gap: u.rem(24);
@@ -124,6 +124,10 @@
               top: 0px;
               font-size: u.rem(11);
             }
+            &:not(:placeholder-shown) + .form_label {
+              top: 0px;
+              font-size: u.rem(11);
+            }
           }
 
           .form_label {
@@ -146,7 +150,7 @@
         }
       }
 
-      .forgot_link {
+      .forgot_password {
         position: relative;
         margin: u.rem(24) 0px u.rem(26);
 
@@ -159,10 +163,34 @@
         }
       }
 
-      .submit_btn {
+      .submit_button {
         width: 100%;
         position: relative;
       }
     }
+  }
+}
+
+.toggleButton {
+  font-size: u.rem(12);
+  color: $color-secondary;
+  font-family: "Avenir Next";
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+
+  right: u.rem(10);
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
   }
 }
