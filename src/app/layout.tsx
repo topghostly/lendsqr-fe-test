@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/style.scss";
 import { UserProvider } from "@/context/users";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title:
@@ -17,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/images/logoo.png" sizes="any" />
+      </Head>
       <body>
         <UserProvider>{children}</UserProvider>
       </body>
