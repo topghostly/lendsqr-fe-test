@@ -19,7 +19,7 @@ const DashboardTable: React.FC = () => {
     router.push(`/dashboard/users/details/${user}`);
   };
 
-  const { pageItems } = useUsers();
+  const { pageItems } = useUsers() || {};
 
   const toggleFilter = () => setShowFilter((prev) => !prev);
 
@@ -119,7 +119,7 @@ const DashboardTable: React.FC = () => {
 
           {/* Table Body */}
           <tbody>
-            {pageItems.map((user: UserDetailsProp) => (
+            {pageItems!.map((user: UserDetailsProp) => (
               <tr key={user.id}>
                 <td className="none-3" onClick={() => LinkToDetails(user.id)}>
                   {user.organisation_name}

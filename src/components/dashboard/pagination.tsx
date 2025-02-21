@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import styles from "../../styles/components/dashboard/pagination.module.scss";
 import { useUsers } from "@/hooks/users";
 import Image from "next/image";
@@ -11,7 +11,7 @@ const Pagination = () => {
     itemsPerPage,
     setItemsPerPage,
     totalUsers,
-  } = useUsers();
+  } = useUsers()!;
 
   const final = useMemo(
     () => (totalPages <= 3 ? [] : [totalPages - 1, totalPages]),

@@ -24,21 +24,21 @@ const MatricsCard: React.FC<MatricsCardProps> = ({
 };
 
 const DashboardMatrics = () => {
-  const { users } = useUsers();
+  const { users } = useUsers() || {};
 
   const activeUsers = useMemo(
-    () => users.filter((user: UserDetailsProp) => user.active),
+    () => users?.filter((user: UserDetailsProp) => user.active),
     [users]
   );
 
   const userWithSavings = useMemo(
-    () => users.filter((user: UserDetailsProp) => Number(user.savings) > 0),
+    () => users?.filter((user: UserDetailsProp) => Number(user.savings) > 0),
     [users]
   );
 
   const userWithLoan = useMemo(
     () =>
-      users.filter(
+      users?.filter(
         (user: UserDetailsProp) => Number(user.active_loan.total_loan) > 0
       ),
     [users]
@@ -47,25 +47,25 @@ const DashboardMatrics = () => {
   const metrics = [
     {
       label: "USERS",
-      value: users.length,
+      value: users!.length,
       icon: "/images/np_users_1248631_000000.svg",
       color: "purple",
     },
     {
       label: "ACTIVE USERS",
-      value: activeUsers.length || 0,
+      value: activeUsers!.length || 0,
       icon: "/images/np_users_1977590_000000.svg",
       color: "blue",
     },
     {
       label: "USERS WITH LOANS",
-      value: userWithLoan.length || 0,
+      value: userWithLoan!.length || 0,
       icon: "/images/np_loan_1243991_000000.svg",
       color: "orange",
     },
     {
       label: "USERS WITH SAVINGS",
-      value: userWithSavings.length || 0,
+      value: userWithSavings!.length || 0,
       icon: "/images/np_money_549109_000000.svg",
       color: "red",
     },

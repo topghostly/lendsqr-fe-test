@@ -8,7 +8,7 @@ import Button from "../ui/button";
 import { FilterPageProps } from "@/types/layout";
 
 const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
-  const { setFilters } = useUsers();
+  const { setFilters } = useUsers()!;
 
   const [form, setForm] = useState({
     organization: "",

@@ -6,10 +6,10 @@ import { UserDetailsProp } from "@/types/user";
 import { formatBalance } from "@/lib/util";
 
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
-  const { users } = useUsers();
+  const { users } = useUsers()!;
   const maximumTier = 3;
   const userDetails = useMemo(
-    () => users.find((user: UserDetailsProp) => user.id === currentUserID),
+    () => users?.find((user: UserDetailsProp) => user.id === currentUserID),
     [users, currentUserID]
   );
   return (
