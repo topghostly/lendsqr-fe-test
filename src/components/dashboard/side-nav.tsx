@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../ui/dropdown";
-import { useRouter } from "next/compat/router";
 
 const menuItems = [
   {

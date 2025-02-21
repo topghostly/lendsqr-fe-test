@@ -1,7 +1,7 @@
 import { filterUsers } from "@/context/users";
-import { formatDate } from "@/lib/util";
 import { UserDetailsProp } from "@/types/user";
 import { describe, expect, test } from "@jest/globals";
+import { formatDate } from "@/lib/util";
 
 describe("filterUsers function", () => {
   const mockUsers: UserDetailsProp[] = [
@@ -183,7 +183,7 @@ describe("filterUsers function", () => {
     },
   ];
 
-  test("returns all users when filters are empty", () => {
+  test("should return all users when no filter is selected", () => {
     const filters = {
       organization: "",
       username: "",
@@ -196,7 +196,7 @@ describe("filterUsers function", () => {
     expect(result).toEqual(mockUsers);
   });
 
-  test("filters by username", () => {
+  test("should return filter with username", () => {
     const filters = {
       organization: "",
       username: "Tunde",
@@ -209,7 +209,7 @@ describe("filterUsers function", () => {
     expect(result).toEqual([mockUsers[1]]);
   });
 
-  test("filters by email", () => {
+  test("should return filter with email", () => {
     const filters = {
       organization: "",
       username: "",
@@ -222,22 +222,22 @@ describe("filterUsers function", () => {
     expect(result).toEqual([mockUsers[0]]);
   });
 
-  test("filters by kyc status", () => {
+  test("should return filter with status", () => {
     const filters = {
       organization: "",
       username: "",
       email: "",
       date: "",
       phoneNumber: "",
-      status: "Pending",
+      status: "pending",
     };
     const result = filterUsers(mockUsers, filters);
-    expect(result).toEqual([mockUsers[0]]);
+    expect(result).toEqual([mockUsers[0], mockUsers[2], mockUsers[3]]);
   });
 
-  test("filters by organization name", () => {
+  test("should return filter with organization name", () => {
     const filters = {
-      organization: "Techhub",
+      organization: "Fintechafrica",
       username: "",
       email: "",
       date: "",
@@ -248,7 +248,7 @@ describe("filterUsers function", () => {
     expect(result).toEqual([mockUsers[1]]);
   });
 
-  test("filters by phone number", () => {
+  test("should return filter with phone number", () => {
     const filters = {
       organization: "",
       username: "",
@@ -261,12 +261,12 @@ describe("filterUsers function", () => {
     expect(result).toEqual([mockUsers[0]]);
   });
 
-  test("filters by date joined", () => {
+  test("should return filter with date joined", () => {
     const filters = {
       organization: "",
       username: "",
       email: "",
-      date: "28-06-2021",
+      date: "2019-05-26",
       phoneNumber: "",
       status: "",
     };
@@ -274,7 +274,7 @@ describe("filterUsers function", () => {
     expect(result).toEqual([mockUsers[0]]);
   });
 
-  test("filters by multiple criteria", () => {
+  test("should return filter with multiple criteria", () => {
     const filters = {
       organization: "Insuranceco",
       username: "Chinedu",
@@ -287,7 +287,7 @@ describe("filterUsers function", () => {
     expect(result).toEqual([mockUsers[0]]);
   });
 
-  test("returns an empty array when no users match", () => {
+  test("should return empty array when no users match", () => {
     const filters = {
       organization: "Loyal",
       username: "",

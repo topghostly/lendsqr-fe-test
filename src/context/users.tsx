@@ -7,7 +7,7 @@ import {
   UserDetailsProp,
   userFilterProps,
 } from "@/types/user";
-import { ChildrenLayoutProp, FilterPageProps } from "@/types/layout";
+import { ChildrenLayoutProp } from "@/types/layout";
 import { formatDate } from "@/lib/util";
 
 export const UserContext = createContext<userContextProps | null>(null);
