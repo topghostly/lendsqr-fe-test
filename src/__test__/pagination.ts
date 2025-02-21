@@ -1,7 +1,8 @@
 import { renderHook } from "@testing-library/react";
 import { useMemo } from "react";
+import { describe, expect, test } from "@jest/globals";
 
-const usePagination = (currentPage, totalPages) => {
+const usePagination = (currentPage: number, totalPages: number) => {
   const final = useMemo(
     () => (totalPages <= 3 ? [] : [totalPages - 1, totalPages]),
     [totalPages]

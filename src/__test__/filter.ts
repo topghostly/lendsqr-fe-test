@@ -1,76 +1,301 @@
-import { filterUsers } from "../path-to-your-file"; // Adjust the import
-import { formatDate } from "../path-to-utils"; // Adjust import if needed
+import { filterUsers } from "@/context/users";
+import { formatDate } from "@/lib/util";
+import { UserDetailsProp } from "@/types/user";
+import { describe, expect, test } from "@jest/globals";
 
 describe("filterUsers function", () => {
-  const mockUsers = [
+  const mockUsers: UserDetailsProp[] = [
     {
-      full_name: "John Doe",
-      email: "johndoe@example.com",
-      phone_number: "1234567890",
-      kyc_status: "verified",
-      organisation_name: "Acme Corp",
-      date_joined: "2023-02-17",
+      id: "N4D1OKCC4I",
+      full_name: "Chinedu Okafor",
+      phone_number: "07043146463",
+      email: "chinedu.okafor@gmail.com",
+      bvn: "62353860102",
+      gender: "Male",
+      marital_status: "Single",
+      children: "None",
+      type_of_residence: "Own's Apartment",
+      education_level: "HND",
+      employment_status: "Employed",
+      sector_of_employment: "Retail",
+      duration_of_employment: "8",
+      office_email: "chinedu@insuranceco.ng",
+      monthly_income: "226439 - 569781",
+      loan_repayment: "57492",
+      socials: {
+        twitter: "@aisha_786",
+        facebook: "Tunde Alabi",
+        instagram: "@emeka.official51",
+      },
+      guarantor: {
+        full_name: "Musa Lawal",
+        phone_number: "07088714775",
+        email_address: "musa@gmail.com",
+        relationship: "Friend",
+      },
+      savings: "130125",
+      kyc_status: "Pending",
+      user_tier: "2",
+      profile_image: "",
+      active_loan: {
+        total_loan: "496777",
+      },
+      bank: {
+        name: "EcoBank",
+        acct_number: "5315689683",
+        user_balance: "382986",
+      },
+      organisation_name: "Insuranceco",
+      date_joined: "26-05-2019 08:34PM",
+      active: true,
     },
     {
-      full_name: "Jane Smith",
-      email: "janesmith@example.com",
-      phone_number: "9876543210",
-      kyc_status: "pending",
-      organisation_name: "Tech Inc",
-      date_joined: "2023-05-21",
+      id: "C4Q73OR3T4",
+      full_name: "Tunde Chukwu",
+      phone_number: "07028357139",
+      email: "tunde.chukwu@gmail.com",
+      bvn: "18821429349",
+      gender: "Female",
+      marital_status: "Single",
+      children: "2",
+      type_of_residence: "Own's Apartment",
+      education_level: "HND",
+      employment_status: "Employed",
+      sector_of_employment: "Healthcare",
+      duration_of_employment: "1",
+      office_email: "tunde@fintechafrica.ng",
+      monthly_income: "132073 - 556371",
+      loan_repayment: "91742",
+      socials: {
+        twitter: "@chinedu_376",
+        facebook: "Bola Adeyemi",
+        instagram: "@kunle.crypto31",
+      },
+      guarantor: {
+        full_name: "Musa Lawal",
+        phone_number: "07021238613",
+        email_address: "musa@gmail.com",
+        relationship: "Sister",
+      },
+      savings: "0",
+      kyc_status: "Blacklisted",
+      user_tier: "1",
+      profile_image: "",
+      active_loan: {
+        total_loan: "1133204",
+      },
+      bank: {
+        name: "UBA",
+        acct_number: "9770823717",
+        user_balance: "299780",
+      },
+      organisation_name: "Fintechafrica",
+      date_joined: "26-05-2018 01:50AM",
+      active: false,
+    },
+    {
+      id: "U5V9VTLGGU",
+      full_name: "Emeka Alabi",
+      phone_number: "07080767004",
+      email: "emeka.alabi@gmail.com",
+      bvn: "87955503586",
+      gender: "Male",
+      marital_status: "Married",
+      children: "3",
+      type_of_residence: "Own's Apartment",
+      education_level: "Diploma",
+      employment_status: "Employed",
+      sector_of_employment: "Agriculture",
+      duration_of_employment: "1",
+      office_email: "emeka@techhub.com",
+      monthly_income: "167996 - 989658",
+      loan_repayment: "25508",
+      socials: {
+        twitter: "@tunde_294",
+        facebook: "Yusuf Osho",
+        instagram: "@fatima.ng45",
+      },
+      guarantor: {
+        full_name: "Patricia Nwankwo",
+        phone_number: "07087495835",
+        email_address: "patricia@gmail.com",
+        relationship: "Uncle",
+      },
+      savings: "0",
+      kyc_status: "Pending",
+      user_tier: "2",
+      profile_image: "",
+      active_loan: {
+        total_loan: "596596",
+      },
+      bank: {
+        name: "Zenith Bank",
+        acct_number: "3550032867",
+        user_balance: "463050",
+      },
+      organisation_name: "Techhub",
+      date_joined: "20-11-2023 11:06PM",
+      active: false,
+    },
+    {
+      id: "K3HCHKFGV1",
+      full_name: "Fatima Eze",
+      phone_number: "07027011567",
+      email: "fatima.eze@gmail.com",
+      bvn: "86671658645",
+      gender: "Female",
+      marital_status: "Single",
+      children: "1",
+      type_of_residence: "Own's Apartment",
+      education_level: "HND",
+      employment_status: "Employed",
+      sector_of_employment: "Agriculture",
+      duration_of_employment: "6",
+      office_email: "fatima@insuranceco.ng",
+      monthly_income: "221806 - 646264",
+      loan_repayment: "95589",
+      socials: {
+        twitter: "@fatima_655",
+        facebook: "Fatima Ibrahim",
+        instagram: "@yusuf.africa12",
+      },
+      guarantor: {
+        full_name: "Samuel Adekunle",
+        phone_number: "07048616012",
+        email_address: "samuel@gmail.com",
+        relationship: "Friend",
+      },
+      savings: "393869",
+      kyc_status: "Pending",
+      user_tier: "3",
+      profile_image: "",
+      active_loan: {
+        total_loan: "730167",
+      },
+      bank: {
+        name: "Sterling Bank",
+        acct_number: "5605909419",
+        user_balance: "446024",
+      },
+      organisation_name: "Insuranceco",
+      date_joined: "28-06-2021 02:25AM",
+      active: false,
     },
   ];
 
   test("returns all users when filters are empty", () => {
-    const filters = {};
+    const filters = {
+      organization: "",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
     expect(result).toEqual(mockUsers);
   });
 
   test("filters by username", () => {
-    const filters = { username: "John" };
-    const result = filterUsers(mockUsers, filters);
-    expect(result).toEqual([mockUsers[0]]);
-  });
-
-  test("filters by email", () => {
-    const filters = { email: "janesmith" };
+    const filters = {
+      organization: "",
+      username: "Tunde",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
     expect(result).toEqual([mockUsers[1]]);
   });
 
+  test("filters by email", () => {
+    const filters = {
+      organization: "",
+      username: "",
+      email: "chinedu.okafor@gmail.com",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    };
+    const result = filterUsers(mockUsers, filters);
+    expect(result).toEqual([mockUsers[0]]);
+  });
+
   test("filters by kyc status", () => {
-    const filters = { status: "verified" };
+    const filters = {
+      organization: "",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "Pending",
+    };
     const result = filterUsers(mockUsers, filters);
     expect(result).toEqual([mockUsers[0]]);
   });
 
   test("filters by organization name", () => {
-    const filters = { organization: "Tech" };
+    const filters = {
+      organization: "Techhub",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
     expect(result).toEqual([mockUsers[1]]);
   });
 
   test("filters by phone number", () => {
-    const filters = { phoneNumber: "1234567890" };
+    const filters = {
+      organization: "",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "07043146463",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
     expect(result).toEqual([mockUsers[0]]);
   });
 
   test("filters by date joined", () => {
-    const filters = { date: "2023-05-21" };
+    const filters = {
+      organization: "",
+      username: "",
+      email: "",
+      date: "28-06-2021",
+      phoneNumber: "",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
-    expect(result).toEqual([mockUsers[1]]);
+    expect(result).toEqual([mockUsers[0]]);
   });
 
   test("filters by multiple criteria", () => {
-    const filters = { username: "Jane", organization: "Tech" };
+    const filters = {
+      organization: "Insuranceco",
+      username: "Chinedu",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
-    expect(result).toEqual([mockUsers[1]]);
+    expect(result).toEqual([mockUsers[0]]);
   });
 
   test("returns an empty array when no users match", () => {
-    const filters = { username: "Nonexistent" };
+    const filters = {
+      organization: "Loyal",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    };
     const result = filterUsers(mockUsers, filters);
     expect(result).toEqual([]);
   });

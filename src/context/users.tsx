@@ -7,10 +7,34 @@ import {
   UserDetailsProp,
   userFilterProps,
 } from "@/types/user";
-import { ChildrenLayoutProp } from "@/types/layout";
+import { ChildrenLayoutProp, FilterPageProps } from "@/types/layout";
 import { formatDate } from "@/lib/util";
 
 export const UserContext = createContext<userContextProps | null>(null);
+
+export const filterUsers = (
+  users: UserDetailsProp[],
+  filters: userFilterProps
+) => {
+  return users.filter((user) => {
+    return (
+      (!filters.status ||
+        user.kyc_status.toLowerCase().includes(filters.status.toLowerCase())) &&
+      (!filters.organization ||
+        user.organisation_name
+          .toLowerCase()
+          .includes(filters.organization.toLowerCase())) &&
+      (!filters.username ||
+        user.full_name
+          .toLowerCase()
+          .includes(filters.username.toLowerCase())) &&
+      (!filters.email ||
+        user.email.toLowerCase().includes(filters.email.toLowerCase())) &&
+      (!filters.date || user.date_joined.includes(formatDate(filters.date))) &&
+      (!filters.phoneNumber || user.phone_number.includes(filters.phoneNumber))
+    );
+  });
+};
 
 export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
   const [users, setUsers] = useState<UserDetailsProp[]>([]);
@@ -53,32 +77,9 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
 
     fetchUsers();
   }, []);
-  useEffect(() => {
-    const filtered = users.filter((user) => {
-      return (
-        (!filters.status ||
-          user.kyc_status
-            .toLowerCase()
-            .includes(filters.status.toLowerCase())) &&
-        (!filters.organization ||
-          user.organisation_name
-            .toLowerCase()
-            .includes(filters.organization.toLowerCase())) &&
-        (!filters.username ||
-          user.full_name
-            .toLowerCase()
-            .includes(filters.username.toLowerCase())) &&
-        (!filters.email ||
-          user.email.toLowerCase().includes(filters.email.toLowerCase())) &&
-        (!filters.date ||
-          user.date_joined.includes(formatDate(filters.date))) &&
-        (!filters.phoneNumber ||
-          user.phone_number.includes(filters.phoneNumber)) &&
-        (!filters.status || user.kyc_status.includes(filters.status))
-      );
-    });
 
-    setFilteredUsers(filtered);
+  useEffect(() => {
+    setFilteredUsers(filterUsers(users, filters));
   }, [users, filters]);
 
   useEffect(() => {
