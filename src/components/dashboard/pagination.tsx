@@ -12,29 +12,19 @@ const Pagination = () => {
     setItemsPerPage,
     totalUsers,
   } = useUsers();
-  const [final, setFinal] = useState<number[]>([]);
-  const [initial, setInitial] = useState<number[]>([]);
 
-  useEffect(() => {
-    if (totalPages <= 3) {
-      setFinal([]);
-    } else {
-      setFinal([totalPages - 1, totalPages]);
-    }
-  }, [totalPages]);
+  const final = useMemo(
+    () => (totalPages <= 3 ? [] : [totalPages - 1, totalPages]),
+    [totalPages]
+  );
 
-  useEffect(() => {
-    if (currentPage === 1) {
-      setInitial([currentPage, currentPage + 1, currentPage + 2]);
-    } else if (currentPage === totalPages - 2) {
-      setInitial([currentPage - 2, currentPage - 1, currentPage]);
-    } else if (currentPage === totalPages - 1) {
-      setInitial([currentPage - 3, currentPage - 2, currentPage - 1]);
-    } else if (currentPage === totalPages) {
-      setInitial([currentPage - 4, currentPage - 3, currentPage - 2]);
-    } else {
-      setInitial([currentPage - 1, currentPage, currentPage + 1]);
-    }
+  const initial = useMemo(() => {
+    if (totalPages <= 3)
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    if (currentPage <= 2) return [1, 2, 3];
+    if (currentPage >= totalPages - 1)
+      return [totalPages - 2, totalPages - 1, totalPages];
+    return [currentPage - 1, currentPage, currentPage + 1];
   }, [currentPage, totalPages]);
 
   return (
@@ -59,7 +49,7 @@ const Pagination = () => {
         <div className={styles.pagination}>
           <button
             className={`${styles.navButton} ${
-              currentPage === initial[0] ? styles.disable : null
+              currentPage === initial[0] ? styles.disable : ""
             }`}
             onClick={() => {
               if (currentPage <= 1) return setCurrentPage(1);

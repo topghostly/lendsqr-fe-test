@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useEffect, useActionState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { getUser } from "@/server/user-info";
 import {
   userContextProps,
@@ -43,9 +43,9 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
           localStorage.setItem("usersData", JSON.stringify(usersData));
         }
         setUsers(usersData);
-      } catch (error: any) {
+      } catch (error) {
         console.log("Error", error);
-        throw new Error("Error fetching users: " + error.message);
+        throw new Error("Error fetching users");
       } finally {
         setLoading(false);
       }
@@ -54,7 +54,7 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
     fetchUsers();
   }, []);
   useEffect(() => {
-    let filtered = users.filter((user) => {
+    const filtered = users.filter((user) => {
       return (
         (!filters.status ||
           user.kyc_status

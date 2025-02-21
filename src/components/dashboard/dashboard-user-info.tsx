@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { userDetailsPageProp } from "@/types/layout";
 import { UserDetailsProp } from "@/types/user";
-import { formatBalance, formatDateTime } from "@/lib/util";
+import { formatBalance } from "@/lib/util";
 
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
   const { users } = useUsers();
@@ -33,7 +33,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           </div>
           <div className="seperator"></div>
           <div className="details__head-main_tier">
-            <p className="tier_title">User's Tier</p>
+            <p className="tier_title">User&apos;s Tier</p>
             <div className="stars_holder">
               {Array.from(
                 { length: Number(userDetails?.user_tier) || 0 },

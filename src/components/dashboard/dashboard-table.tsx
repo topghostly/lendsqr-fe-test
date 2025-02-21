@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../styles/components/dashboard/_dashboard-table.scss";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";

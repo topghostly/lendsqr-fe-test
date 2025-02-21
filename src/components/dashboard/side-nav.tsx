@@ -1,385 +1,130 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../ui/dropdown";
+import { useRouter } from "next/compat/router";
+
+const menuItems = [
+  {
+    title: "CUSTOMERS",
+    links: [
+      { icon: "/images/user-friends.svg", label: "Users", href: "#" },
+      { icon: "/images/guarantors.svg", label: "Guarantors", href: "#" },
+      { icon: "/images/loan.svg", label: "Loans", href: "#" },
+      { icon: "/images/handshake.svg", label: "Decision Models", href: "#" },
+      { icon: "/images/piggy-bank.svg", label: "Savings", href: "#" },
+      { icon: "/images/request.svg", label: "Loan Request", href: "#" },
+    ],
+  },
+  {
+    title: "BUSINESSES",
+    links: [
+      { icon: "/images/organisation.svg", label: "Organization", href: "#" },
+      { icon: "/images/loan-products.svg", label: "Loan Products", href: "#" },
+      {
+        icon: "/images/savings-products.svg",
+        label: "Savings Products",
+        href: "#",
+      },
+      { icon: "/images/coins-solid.svg", label: "Fees and Charges", href: "#" },
+    ],
+  },
+  {
+    title: "SETTINGS",
+    links: [
+      { icon: "/images/sliders-h.png", label: "Preferences", href: "#" },
+      {
+        icon: "/images/badge-percent.svg",
+        label: "Fees and Pricing",
+        href: "#",
+      },
+      { icon: "/images/audit.svg", label: "Audit Logs", href: "#" },
+    ],
+  },
+];
+
+const MenuList = () => {
+  return (
+    <ul className="sidenav__nav">
+      {menuItems.map((section) => (
+        <div key={section.title} className="holder">
+          <li className="sidenav__nav-title">{section.title}</li>
+          {section.links.map((item) => (
+            <div
+              key={item.label}
+              className={`sidenav__nav-tooltip ${
+                "Users" === item.label && "active"
+              }`}
+            >
+              <Link href={item.href}>
+                <li>
+                  <span>
+                    <Image
+                      src={item.icon}
+                      alt={`${item.label} icon`}
+                      width={16}
+                      height={16}
+                      priority
+                    />
+                  </span>
+                  {item.label}
+                </li>
+              </Link>
+            </div>
+          ))}
+        </div>
+      ))}
+    </ul>
+  );
+};
 
 const SideNav: React.FC = () => {
   return (
-    <aside>
-      <div className="sidenav">
-        <div className="sidenav__action">
-          <div className={`sidenav__action-organisation`}>
-            <span>
+    <aside className="sidenav">
+      <div className="sidenav__action">
+        <div className="sidenav__action-organisation">
+          <Image
+            src={"/images/briefcase.svg"}
+            alt="briefcase icon"
+            width={16}
+            height={16}
+            priority
+          />
+          Switch Organisation
+          <Dropdown
+            trigger={
               <Image
-                src={"/images/briefcase.svg"}
-                alt="briefcae icon"
-                width={16}
-                height={16}
+                src={"/images/dropdown-outline.svg"}
+                alt="dropdown icon"
+                width={14}
+                height={14}
                 priority
               />
-            </span>
-            Switch Organisation
-            <span>
-              <Dropdown
-                trigger={
-                  <Image
-                    src={"/images/dropdown-outline.svg"}
-                    alt="dropdown icon"
-                    width={14}
-                    height={14}
-                    priority
-                  />
-                }
-              >
-                <ul>
-                  <li>Account</li>
-                  <li>Upgrade</li>
-                  <li>Logout</li>
-                </ul>
-              </Dropdown>
-            </span>
-          </div>
-          <div className="sidenav__action-tab">
-            <span>
-              <Image
-                src={"/images/home.svg"}
-                alt="briefcae icon"
-                width={16}
-                height={16}
-                priority
-              />
-            </span>
-            Dashboard
-          </div>
+            }
+          >
+            <ul>
+              <li>Account</li>
+              <li>Upgrade</li>
+              <li>Logout</li>
+            </ul>
+          </Dropdown>
         </div>
-        {/* LIST SECTION */}
-        <ul className="sidenav__nav">
-          <li className="sidenav__nav-title">CUSTOMERS</li>
-          {/* CUSTOMER SECTION */}
-          <div className={`sidenav__nav-tooltip active`}>
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/user-friends.svg"}
-                    alt="user friends icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Users
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/guarantors.svg"}
-                    alt="user friends icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Guarantors
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/loan.svg"}
-                    alt="user friends icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Loans
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/handshake.svg"}
-                    alt="handshake icon"
-                    width={19}
-                    height={15}
-                    priority
-                  />
-                </span>
-                Decision Models
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/piggy-bank.svg"}
-                    alt="Piggy bank icon"
-                    width={16}
-                    height={14}
-                    priority
-                  />
-                </span>
-                Savings
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/request.svg"}
-                    alt="Loan request icon"
-                    width={18}
-                    height={22}
-                    priority
-                  />
-                </span>
-                Loan Request
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/user-check.svg"}
-                    alt="Loan request icon"
-                    width={18}
-                    height={22}
-                    priority
-                  />
-                </span>
-                Whitelist
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/user-times.svg"}
-                    alt="Loan request icon"
-                    width={18}
-                    height={22}
-                    priority
-                  />
-                </span>
-                Karma
-              </li>
-            </Link>
-          </div>
-          <li className="sidenav__nav-title">BUSINESSES</li>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/organisation.svg"}
-                    alt="organisation icon"
-                    width={18}
-                    height={22}
-                    priority
-                  />
-                </span>
-                Organization
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/loan-products.svg"}
-                    alt="organisation icon"
-                    width={18}
-                    height={22}
-                    priority
-                  />
-                </span>
-                Loan Products
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/savings-products.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Savings Products
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/coins-solid.svg"}
-                    alt="organisation icon"
-                    width={18}
-                    height={22}
-                    priority
-                  />
-                </span>
-                Fees and Charges
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/transaction.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={18}
-                    priority
-                  />
-                </span>
-                Transactions
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/galaxy.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Services
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/service-account.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={13}
-                    priority
-                  />
-                </span>
-                Service Account
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/scroll.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={13}
-                    priority
-                  />
-                </span>
-                Settlements
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/chart-bar.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Reports
-              </li>
-            </Link>
-          </div>
-          <li className="sidenav__nav-title">SETTINGS</li>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/sliders-h.png"}
-                    alt="organisation icon"
-                    width={14}
-                    height={14}
-                    priority
-                  />
-                </span>
-                Preferences
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/badge-percent.svg"}
-                    alt="organisation icon"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </span>
-                Fees and Pricing
-              </li>
-            </Link>
-          </div>
-          <div className="sidenav__nav-tooltip">
-            <Link href="#">
-              <li>
-                <span>
-                  <Image
-                    src={"/images/audit.svg"}
-                    alt="organisation icon"
-                    width={11}
-                    height={18}
-                    priority
-                  />
-                </span>
-                Audit Logs
-              </li>
-            </Link>
-          </div>
-        </ul>
+        <div className="sidenav__action-tab">
+          <span>
+            <Image
+              src={"/images/home.svg"}
+              alt="briefcae icon"
+              width={16}
+              height={16}
+              priority
+            />
+          </span>
+          Dashboard
+        </div>
       </div>
+      <MenuList />
     </aside>
   );
 };

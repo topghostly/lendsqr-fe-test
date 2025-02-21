@@ -59,6 +59,13 @@
     gap: u.rem(12);
     padding: 0px;
 
+    .holder {
+      display: flex;
+      flex-direction: column;
+      gap: u.rem(12);
+      padding: 0px;
+    }
+
     &-title {
       text-transform: uppercase;
       font-weight: 500;

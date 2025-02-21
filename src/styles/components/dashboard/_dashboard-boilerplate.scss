@@ -9,15 +9,11 @@
   }
   display: flex;
   flex-direction: column;
-  // gap: u.rem(40);
 
   &__backbutton {
     margin-bottom: u.rem(26);
     width: fit-content;
 
-    &:hover {
-      opacity: 0.6;
-    }
     button {
       display: flex;
       gap: u.rem(13);
@@ -28,6 +24,9 @@
       background: none;
       border: none;
       outline: none;
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 

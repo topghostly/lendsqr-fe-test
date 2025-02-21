@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactEventHandler, ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export interface ChildrenLayoutProp {
   children: ReactNode;
@@ -28,4 +28,8 @@ export interface MatricsCardProps {
   label: string;
   value: number;
   color: string;
+}
+
+export interface FilterPageProps {
+  setShowFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }

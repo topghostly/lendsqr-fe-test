@@ -6,7 +6,6 @@ import { DropdownProps } from "@/types/layout";
 
 const Dropdown = ({ trigger, children }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
   const dropdownRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -14,18 +13,6 @@ const Dropdown = ({ trigger, children }: DropdownProps) => {
     setIsOpen((prev) => !prev);
   };
 
-  // Handle positioning
-  //   useEffect(() => {
-  //     if (isOpen && triggerRef.current && dropdownRef.current) {
-  //       const rect = triggerRef.current.getBoundingClientRect();
-  //       setPosition({
-  //         top: rect.bottom + window.scrollY, // Position below trigger
-  //         left: rect.left + window.scrollX,
-  //       });
-  //     }
-  //   }, [isOpen]);
-
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -51,18 +38,12 @@ const Dropdown = ({ trigger, children }: DropdownProps) => {
 
   return (
     <div className={styles.dropdownWrapper}>
-      {/* Trigger element */}
       <div ref={triggerRef} onClick={toggleDropdown} className={styles.trigger}>
         {trigger}
       </div>
 
-      {/* Dropdown menu */}
       {isOpen && (
-        <div
-          ref={dropdownRef}
-          className={styles.dropdown}
-          //   style={{ top: position.top, left: position.left }}
-        >
+        <div ref={dropdownRef} className={styles.dropdown}>
           {children}
         </div>
       )}

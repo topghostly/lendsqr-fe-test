@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useUsers } from "@/hooks/users";
 import { userFilterProps } from "@/types/user";
 import Image from "next/image";
 import Button from "../ui/button";
+import { FilterPageProps } from "@/types/layout";
 
-const FilterForm = ({ setShowFilter }) => {
+const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
   const { setFilters } = useUsers();
 
   const [form, setForm] = useState({
