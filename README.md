@@ -1,14 +1,14 @@
 # Lendsqr Frontend Engineering Assessment
 
-## About The Project [🔝](#lendsqr-frontend-engineering-assessment)
+## About The Project
 
 This project is a frontend implementation of the Lendsqr admin console, built as part of the assessment. It includes login, user listing, and user details pages.
 
-## Live Demo [🔝](#lendsqr-frontend-engineering-assessment)
+### Live Demo
 
 [Live Application](https://temitope-abolaji-lendsqr-fe-test.vercel.app/)
 
-### Built With [🔝](#lendsqr-frontend-engineering-assessment)
+### Built With
 
 - **Next.js** – React framework for optimized performance
 - **TypeScript** – Enforced type safety
@@ -16,7 +16,7 @@ This project is a frontend implementation of the Lendsqr admin console, built as
 - **Jest & React Testing Library** – Unit testing
 - **Mock API** – Simulated user data
 
-### Features [🔝](#lendsqr-frontend-engineering-assessment)
+### Features
 
 - **Login Page**: User authentication with validation
 - **Dashboard**: Overview of user statistics
@@ -25,7 +25,7 @@ This project is a frontend implementation of the Lendsqr admin console, built as
 
 ## Getting Started [🔝](#lendsqr-frontend-engineering-assessment)
 
-### Prerequisites [🔝](#lendsqr-frontend-engineering-assessment)
+### Prerequisites
 
 Before running the project, ensure you have the following installed:
 
@@ -37,7 +37,7 @@ To update npm to the latest version, run:
 $ npm install -g npm@latest
 ```
 
-### Installation [🔝](#lendsqr-frontend-engineering-assessment)
+### Installation
 
 Clone the repository:
 
@@ -66,13 +66,13 @@ $ const MOCK_API_UR = 'ENTER YOUR API ENDPOINT';
 
 Visit `http://localhost:3000` in your browser.
 
-### Mock API Setup [🔝](#lendsqr-frontend-engineering-assessment)
+### Mock API Setup
 
 The application uses a mock API with 500 records. You can generate mock data using:
 
 - [Mocky.io](https://mocky.io/)
 
-### Testing [🔝](#lendsqr-frontend-engineering-assessment)
+### Testing
 
 Run unit tests:
 
@@ -80,7 +80,7 @@ Run unit tests:
 $ npm run test
 ```
 
-### Deployment [🔝](#lendsqr-frontend-engineering-assessment)
+### Deployment
 
 Deploy to Vercel:
 
@@ -91,7 +91,7 @@ $ vercel
 Ensure the app is hosted at:
 
 ```
-https://yourname-lendsqr-fe-test.vercel.app
+https://temitope-abolaji-lendsqr-fe-test.vercel.app/
 ```
 
 ## Author [🔝](#lendsqr-frontend-engineering-assessment)
