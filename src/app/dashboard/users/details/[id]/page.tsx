@@ -26,7 +26,7 @@ function UserDetails() {
     } else {
       logout();
     }
-  }, []);
+  }, [logout]);
 
   // Define button styles to avoid crowded jsx
   const buttonStyles = {

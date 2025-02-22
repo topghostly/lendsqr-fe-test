@@ -17,7 +17,7 @@ const Users: React.FC = () => {
     } else {
       logout();
     }
-  }, []);
+  }, [logout]);
   return (
     <div className="main">
       {/* DASGBOARD HEADER TITLE */}

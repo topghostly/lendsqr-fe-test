@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
     } else {
       logout();
     }
-  }, []);
+  }, [logout]);
   return (
     <div className="main">
       {/* DASHBOARD MAIN CONTENT HEADER */}

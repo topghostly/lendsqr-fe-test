@@ -2,7 +2,7 @@
 
 import { AuthContextType } from "@/types/auth";
 import { useRouter } from "next/navigation";
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const AUTH_KEY = "auth_data"; // Key for localStorage
 const EXPIRATION_TIME = 10 * 60 * 1000; // Expires in 10 mins

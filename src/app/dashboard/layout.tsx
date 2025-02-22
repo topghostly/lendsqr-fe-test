@@ -3,7 +3,6 @@ import SideNav from "@/components/dashboard/side-nav";
 import React from "react";
 import "@/styles/modules/dashboard.scss";
 import { ChildrenLayoutProp } from "@/types/layout";
-import { useAuth } from "@/hooks/auth";
 
 const DashboardLayout: React.FC<ChildrenLayoutProp> = ({ children }) => {
   return (
