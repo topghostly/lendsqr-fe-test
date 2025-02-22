@@ -151,38 +151,9 @@ const Navbar: React.FC = () => {
               />
             }
           >
-            <div className={styles.user__details}>
-              <Image
-                src={"/images/profile.png"}
-                className={styles.user__details_image}
-                alt="Adedeji profile picture"
-                width={48}
-                height={48}
-                priority
-              />
-              <div className={styles.user__details_name}>
-                <p>Adedeji</p>
-
-                <Dropdown
-                  trigger={
-                    <Image
-                      src={"/images/dropdown.svg"}
-                      className={styles.user__details_image}
-                      alt="drop down image"
-                      width={20}
-                      height={20}
-                      priority
-                    />
-                  }
-                >
-                  <ul>
-                    <li>Account</li>
-                    <li>Upgrade</li>
-                    <li>Logout</li>
-                  </ul>
-                </Dropdown>
-              </div>
-            </div>
+            <ul>
+              <li>Adedeji</li>
+            </ul>
           </Dropdown>
         </div>
       </div>
