@@ -208,7 +208,7 @@
 
       .grid_5 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, min(170));
+        grid-template-columns: repeat(auto-fit, min(u.rem(170)));
         column-gap: u.rem(30);
         row-gap: u.rem(30);
 
@@ -218,7 +218,7 @@
       }
       .grid_4 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, min(225px));
+        grid-template-columns: repeat(auto-fit, min(u.rem(225)));
         gap: 20px;
         row-gap: u.rem(30);
         justify-content: space-between;
