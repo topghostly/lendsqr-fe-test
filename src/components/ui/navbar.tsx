@@ -152,7 +152,7 @@ const Navbar: React.FC = () => {
             }
           >
             <ul>
-              <li>Adedeji22</li>
+              <li>Adedeji</li>
             </ul>
           </Dropdown>
         </div>
