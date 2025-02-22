@@ -19,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        {/* ICON FOR SITE **FIX THIS ASAP** */}
         <link rel="icon" href="/images/logoo.png" sizes="any" />
       </Head>
       <body>
+        {/* USER CONTEXT PROVIDER */}
+        {/* PROLLY MAKE PAGINATION CONTEXT PROVIDER */}
         <UserProvider>{children}</UserProvider>
       </body>
     </html>

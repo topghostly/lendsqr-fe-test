@@ -1,21 +1,26 @@
 import React, { useMemo } from "react";
-import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { userDetailsPageProp } from "@/types/layout";
 import { UserDetailsProp } from "@/types/user";
 import { formatBalance } from "@/lib/util";
+import Image from "next/image";
 
 const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
-  const { users } = useUsers()!;
+  const { users } = useUsers()!; // Fetch users from context
+
   const maximumTier = 3;
+
+  // Find user details using useMemo to optimize performance
   const userDetails = useMemo(
     () => users?.find((user: UserDetailsProp) => user.id === currentUserID),
     [users, currentUserID]
   );
   return (
     <div className="details">
+      {/* USER DETAIL HEAD */}
       <div className="details__head">
         <div className="details__head-main">
+          {/* USER PROFILE */}
           <div className="details__head-main_user">
             <div className="profile_pic">
               <Image
@@ -34,7 +39,9 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           <div className="seperator"></div>
           <div className="details__head-main_tier">
             <p className="tier_title">User&apos;s Tier</p>
+            {/* USER TIER */}
             <div className="stars_holder">
+              {/* FILLED STAR BASED ON TIRE */}
               {Array.from(
                 { length: Number(userDetails?.user_tier) || 0 },
                 (_, index) => (
@@ -48,6 +55,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
                   />
                 )
               )}
+              {/* EMPTY STAR FOR REMAINING TIER */}
               {Array.from(
                 { length: maximumTier - Number(userDetails?.user_tier) || 0 },
                 (_, index) => (
@@ -64,6 +72,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             </div>
           </div>
           <div className="seperator"></div>
+          {/* USER BALANCE */}
           <div className="details__head-main_balance">
             <h2 className="main_text">
               ₦{formatBalance(Number(userDetails?.bank.user_balance) || 0)}
@@ -73,6 +82,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             </p>
           </div>
         </div>
+        {/* DETAILS HEAD */}
         <div className="details__head-categories">
           <div className="details__head-categories_list">
             <ul className="category_items">
@@ -98,8 +108,10 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           </div>
         </div>
       </div>
+
       {/* DETAILS BODY */}
       <div className="details__body">
+        {/* PERSONAL INFORMATION */}
         <div className="details__body-section">
           <p className="title">Personal Information</p>
           <div className="grid_5">
@@ -138,6 +150,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           </div>
         </div>
         <div className="seperator"></div>
+        {/* EDUCATION & EMPLOYMENT */}
         <div className="details__body-section">
           <p className="title">Education and Employment</p>
           <div className="grid_4">
@@ -178,6 +191,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           </div>
         </div>
         <div className="seperator"></div>
+        {/* USER SOCIALS */}
         <div className="details__body-section">
           <p className="title">Socials</p>
           <div className="grid_5">
@@ -196,6 +210,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
           </div>
         </div>
         <div className="seperator"></div>
+        {/* GUARANTOR */}
         <div className="details__body-section">
           <p className="title">Guarantor</p>
           <div className="grid_5">
@@ -223,9 +238,9 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
             </div>
           </div>
         </div>
-        <div className="seperator"></div>
+        {/* <div className="seperator"></div>
         <div className="details__body-section">
-          {/* <p className="title">Guarantor</p> */}
+          
           <div className="grid_5">
             <div className="detail">
               <p className="detail_title">full Name</p>
@@ -250,7 +265,7 @@ const UserInfo: React.FC<userDetailsPageProp> = ({ currentUserID }) => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

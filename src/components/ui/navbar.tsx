@@ -1,17 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import styles from "../../styles/modules/navbar.module.scss";
 import Link from "next/link";
 import Button from "./button";
 import Dropdown from "./dropdown";
 import SideNav from "../dashboard/side-nav";
 import { useState } from "react";
 
+import styles from "@/styles/modules/navbar.module.scss";
+
 const Navbar: React.FC = () => {
   const [activeSidebar, setActiveSideBar] = useState<boolean>(false);
   return (
     <nav className={styles.navbar}>
+      {/* HIDE AND VIEW SIDEBAR BUTTON */}
       <div
         className={styles.navbar__control}
         onClick={() => {
@@ -26,6 +28,8 @@ const Navbar: React.FC = () => {
           priority
         />
       </div>
+
+      {/* SIDEBAR CONTAINER */}
       <div
         className={styles.sidenav__holder}
         style={{
@@ -51,6 +55,7 @@ const Navbar: React.FC = () => {
         </Link>
       </div>
 
+      {/* SIDEBAR FORM */}
       <form className={styles.navbar__form}>
         <div className={styles.navbar__form_group}>
           <input
@@ -75,6 +80,8 @@ const Navbar: React.FC = () => {
           </Button>
         </div>
       </form>
+
+      {/* USER INFO & NOTIFICATION */}
       <div className={styles.navbar__info_holder}>
         <Link href={"#"} className={styles.doc_link}>
           Docs
@@ -95,6 +102,8 @@ const Navbar: React.FC = () => {
             />
           </Button>
         </div>
+
+        {/* USER PROFILE SECTION */}
         <div className={styles.user__details}>
           <Image
             src={"/images/profile.png"}
@@ -107,6 +116,7 @@ const Navbar: React.FC = () => {
           <div className={styles.user__details_name}>
             <p>Adedeji</p>
 
+            {/* DROPDOWN FOR USER ACTION */}
             <Dropdown
               trigger={
                 <Image
@@ -127,6 +137,8 @@ const Navbar: React.FC = () => {
             </Dropdown>
           </div>
         </div>
+
+        {/* HAMBURGER MENU */}
         <div className={styles.side}>
           <Dropdown
             trigger={

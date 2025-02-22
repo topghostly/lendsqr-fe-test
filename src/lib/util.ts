@@ -1,3 +1,8 @@
+/**
+ * Formats a number into a currency balance with commas and two decimal places
+ * @param amount - The numerical amount to format
+ * @returns A formatted string like "20,000.00"
+ */
 export const formatBalance = (amount: number): string => {
   return amount.toLocaleString("en-US", {
     minimumFractionDigits: 2,
@@ -5,6 +10,11 @@ export const formatBalance = (amount: number): string => {
   });
 };
 
+/**
+ * Converts a date-time string from "15-05-2020 10:00AM" to "May 15, 2020 10:00 AM"
+ * @param dateTimeString - The date-time string in "DD-MM-YYYY HH:MMAM/PM" format
+ * @returns Formatted date-time string like "May 15, 2020 10:00 AM"
+ */
 export const formatDateTime = (dateTimeString: string): string => {
   const dateParts = dateTimeString.split(" ");
   const [day, month, year] = dateParts[0].split("-").map(Number);
@@ -20,6 +30,11 @@ export const formatDateTime = (dateTimeString: string): string => {
   return `${formattedDate} ${time}`;
 };
 
+/**
+ * Converts a date string to the format "DD-MM-YYYY"
+ * @param dateString - A valid date string
+ * @returns Formatted string like "15-05-2020"
+ */
 export const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
 

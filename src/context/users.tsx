@@ -10,8 +10,15 @@ import {
 import { ChildrenLayoutProp } from "@/types/layout";
 import { formatDate } from "@/lib/util";
 
+// Create Context for User Data
 export const UserContext = createContext<userContextProps | null>(null);
 
+/**
+ * Filters the users based on the provided filter criteria.
+ * @param users - The list of users.
+ * @param filters - The applied filters.
+ * @returns Filtered users.
+ */
 export const filterUsers = (
   users: UserDetailsProp[],
   filters: userFilterProps
@@ -36,6 +43,7 @@ export const filterUsers = (
   });
 };
 
+// Context Provider Component
 export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
   const [users, setUsers] = useState<UserDetailsProp[]>([]);
   const [filteredUsers, setFilteredUsers] = useState<UserDetailsProp[]>([]);
@@ -54,6 +62,7 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
     status: "",
   });
 
+  // Fetch user data from localStorage or API
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -78,10 +87,12 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
     fetchUsers();
   }, []);
 
+  // Apply filters to the user data
   useEffect(() => {
     setFilteredUsers(filterUsers(users, filters));
   }, [users, filters]);
 
+  // Handle pagination updates
   useEffect(() => {
     if (filteredUsers.length > 0) {
       setTotalUsers(filteredUsers.length);
@@ -99,6 +110,7 @@ export const UserProvider: React.FC<ChildrenLayoutProp> = ({ children }) => {
     }
   }, [users, currentPage, itemsPerPage, filteredUsers]);
 
+  // Reset current page when total pages change
   useEffect(() => {
     setCurrentPage(1);
   }, [totalPages]);

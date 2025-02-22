@@ -6,12 +6,9 @@ import React, { useCallback, useState } from "react";
 import styles from "@/styles/modules/auth.module.scss";
 import Button from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { SignInData } from "@/types/layout";
 
 const Auth: React.FC = () => {
-  interface SignInData {
-    email: string;
-    password: string;
-  }
   const router = useRouter();
   const [signinData, setSigninData] = useState<SignInData>({
     email: "",
@@ -19,10 +16,12 @@ const Auth: React.FC = () => {
   });
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  // Switch password input type
   const togglePassword = useCallback(() => {
     setShowPassword((prev) => !prev);
   }, []);
 
+  // Stores changes in the input fields
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSigninData((prev: SignInData) => ({
       ...prev,
@@ -30,21 +29,27 @@ const Auth: React.FC = () => {
     }));
   };
 
+  // Form submission handler
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Makes sure email matches a mail structure
     if (!isValidEmail(signinData.email)) {
       alert("Invalid email format.");
       return;
     }
 
+    // Makes sure password is more than 6 characters
     if (signinData.password.length < 4) {
       alert("Password must be at least 4 characters.");
       return;
     }
+
+    // Redirect to the dashboard after successful login
     router.push("/dashboard/users/");
   };
 
+  // Valid mail structure with regex
   const isValidEmail = (email: string) => {
     return /\S+@\S+\.\S+/.test(email);
   };
@@ -70,6 +75,7 @@ const Auth: React.FC = () => {
           </Link>
         </nav>
       </header>
+      {/* MAIN AUTHENTICATION */}
       <div className={styles.auth}>
         <div className={styles.auth__illustration}>
           <Image
@@ -125,12 +131,9 @@ const Auth: React.FC = () => {
                     onChange={handleChange}
                     placeholder="Password"
                   />
-                  {/* <label htmlFor="password" className={styles.form_label}>
-                    Password
-                  </label> */}
                 </div>
               </div>
-
+              {/* FORGOT PASSWORD */}
               <div className={styles.forgot_password}>
                 <Link href={"#"}>Forgot password?</Link>
               </div>

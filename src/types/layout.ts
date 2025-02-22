@@ -33,3 +33,8 @@ export interface MatricsCardProps {
 export interface FilterPageProps {
   setShowFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface SignInData {
+  email: string;
+  password: string;
+}

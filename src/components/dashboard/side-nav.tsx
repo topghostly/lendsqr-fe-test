@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../ui/dropdown";
 
+// Menu configuration for sidebar navigation
 const menuItems = [
   {
     title: "CUSTOMERS",
@@ -44,6 +45,7 @@ const menuItems = [
   },
 ];
 
+// Component for rendering menu sections dynamically
 const MenuList = () => {
   return (
     <ul className="sidenav__nav">
@@ -79,9 +81,11 @@ const MenuList = () => {
   );
 };
 
+// Sidebar Component
 const SideNav: React.FC = () => {
   return (
     <aside className="sidenav">
+      {/* ORGANISATION SWITCHER */}
       <div className="sidenav__action">
         <div className="sidenav__action-organisation">
           <Image
@@ -108,6 +112,8 @@ const SideNav: React.FC = () => {
             </ul>
           </Dropdown>
         </div>
+
+        {/* DASHBOARD LINK */}
         <div className="sidenav__action-tab">
           <span>
             <Image

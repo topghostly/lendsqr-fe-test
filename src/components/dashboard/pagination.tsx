@@ -4,6 +4,7 @@ import { useUsers } from "@/hooks/users";
 import Image from "next/image";
 
 const Pagination = () => {
+  // Get state and functions from context
   const {
     currentPage,
     totalPages,
@@ -13,11 +14,13 @@ const Pagination = () => {
     totalUsers,
   } = useUsers()!;
 
+  // Get final pages (last two pages) only if total pages > 3
   const final = useMemo(
     () => (totalPages <= 3 ? [] : [totalPages - 1, totalPages]),
     [totalPages]
   );
 
+  // Get initial pages based on the current page position
   const initial = useMemo(() => {
     if (totalPages <= 3)
       return Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -27,10 +30,12 @@ const Pagination = () => {
     return [currentPage - 1, currentPage, currentPage + 1];
   }, [currentPage, totalPages]);
 
+  // Merge initial and final arrays for display
   const pageNumberList = [...initial, ...final];
 
   return (
     <div className={styles.paginationContainer}>
+      {/* ITEMS PER PAGE */}
       <div className={styles.showing}>
         <span>Showing</span>
         <select
@@ -47,6 +52,7 @@ const Pagination = () => {
         <span>out of {totalUsers}</span>
       </div>
 
+      {/* PAGINATION CONTROL */}
       {currentPage && totalPages ? (
         <div className={styles.pagination}>
           <button
@@ -66,6 +72,7 @@ const Pagination = () => {
               priority
             />
           </button>
+          {/* INITIAL PAGE NUMBER */}
           {initial.map((num) => (
             <button
               key={num}
@@ -81,7 +88,9 @@ const Pagination = () => {
               {num}
             </button>
           ))}
+          {/* ELLIPSIS FOR LARGE PAGE NUMBERS */}
           {totalPages >= 3 ? <span className={styles.dots}>...</span> : null}
+          {/* LAST PAGE NUMBERS */}
           {final.map((num) => (
             <button
               key={num}

@@ -8,8 +8,9 @@ import Button from "../ui/button";
 import { FilterPageProps } from "@/types/layout";
 
 const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
-  const { setFilters } = useUsers()!;
+  const { setFilters } = useUsers()!; // Get setFilters from context to change the filter state
 
+  // State to manage filter input values
   const [form, setForm] = useState({
     organization: "",
     username: "",
@@ -19,6 +20,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
     status: "",
   });
 
+  // Handle input changes for both text inputs and select elements
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -27,11 +29,14 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
       [e.target.name]: e.target.value,
     }));
   };
+
+  // Apply filters and close the filter modal
   const handleSubmit = () => {
     setFilters({ ...form });
     setShowFilter(false);
   };
 
+  // Reset form inputs
   const handleReset = () => {
     setForm({
       organization: "",
@@ -45,6 +50,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
 
   return (
     <div className="filter-form">
+      {/* ORGANIZATION FILTER */}
       <label>
         Organization
         <select
@@ -61,6 +67,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         </select>
       </label>
 
+      {/* USERNAME FILTER */}
       <label>
         Username
         <input
@@ -73,6 +80,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         />
       </label>
 
+      {/* EMAIL FILTER */}
       <label>
         Email
         <input
@@ -85,6 +93,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         />
       </label>
 
+      {/* DATE FILTER */}
       <label>
         Date
         <div className="date-holder">
@@ -105,6 +114,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         </div>
       </label>
 
+      {/* PHONE NUMBER FILTER */}
       <label>
         Phone Number
         <input
@@ -117,6 +127,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         />
       </label>
 
+      {/* KYC STATUS FILTER */}
       <label>
         Status
         <select name="status" value={form.status} onChange={handleChange}>
@@ -128,6 +139,7 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         </select>
       </label>
 
+      {/* RESET FILTER BUTTON */}
       <div className="buttons">
         <Button
           type="button"
@@ -141,6 +153,8 @@ const FilterForm: React.FC<FilterPageProps> = ({ setShowFilter }) => {
         >
           Reset
         </Button>
+
+        {/* SUBMIT FILTER BUTTON */}
         <Button
           type="button"
           variant="fill"

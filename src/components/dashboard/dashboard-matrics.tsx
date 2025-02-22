@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { UserDetailsProp } from "@/types/user";
 
+// Card component for displaying individual metrics
 const MatricsCard: React.FC<MatricsCardProps> = ({
   icon,
   label,
@@ -24,8 +25,10 @@ const MatricsCard: React.FC<MatricsCardProps> = ({
 };
 
 const DashboardMatrics = () => {
-  const { users } = useUsers() || {};
+  const { users } = useUsers() || {}; // Get users data from context
 
+  // Get active, user with savings, and user with loan user from users array
+  // useMemo for optimization
   const activeUsers = useMemo(
     () => users?.filter((user: UserDetailsProp) => user.active),
     [users]
@@ -44,6 +47,7 @@ const DashboardMatrics = () => {
     [users]
   );
 
+  // Metrics data
   const metrics = [
     {
       label: "USERS",

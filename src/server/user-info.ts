@@ -1,14 +1,29 @@
 "use server";
 
+/**
+ * Fetches user data from the provided mock API URL.
+ * Uses an environment variable `MOCK_API_URL` if available, otherwise defaults to a fixed Mocky.io URL.
+ *
+ * @returns A Promise resolving to the user data.
+ * @throws An error if the fetch request fails.
+ */
 export async function getUser() {
-  const res = await fetch(
-    process.env.MOCK_API_URL ||
-      "https://run.mocky.io/v3/3a92325a-b21c-44ad-9df3-25f0809c9473"
-  );
+  try {
+    const API_URL = process.env.MOCK_API_URL || "";
 
-  if (!res.ok) throw new Error("Failed to fetch users information");
+    const res = await fetch(API_URL, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+    });
 
-  const usersData = await res.json();
+    if (!res.ok) {
+      throw new Error(`Failed to fetch user data. Status: ${res.status}`);
+    }
 
-  return usersData;
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    throw new Error("Unable to fetch users' information at this time.");
+  }
 }

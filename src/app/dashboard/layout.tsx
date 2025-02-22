@@ -8,10 +8,13 @@ const DashboardLayout: React.FC<ChildrenLayoutProp> = ({ children }) => {
   return (
     <>
       <Navbar />
+      {/* DASHBOARD CONTAINER */}
       <div className="dashboard">
+        {/* SIDEBAR CONTAINER */}
         <div className="dashboard__aside">
           <SideNav />
         </div>
+        {/* DASHBOARD MAIN CONTENT CONTAINER */}
         <main className="dashboard__main">{children}</main>
       </div>
     </>

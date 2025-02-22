@@ -8,10 +8,11 @@ import UserInfo from "@/components/dashboard/dashboard-user-info";
 import { useParams } from "next/navigation";
 
 function UserDetails() {
-  const { id } = useParams() as { id: string };
+  const { id } = useParams() as { id: string }; // Get the user ID from the URL params
 
   const router = useRouter();
 
+  // Define button styles to avoid crowded jsx
   const buttonStyles = {
     blacklist: {
       color: "rgba(228, 3, 59, 1)",
@@ -29,6 +30,7 @@ function UserDetails() {
 
   return (
     <div className="main">
+      {/* BACK BUTTON TO USER LIST PAGE */}
       <div className="main__backbutton">
         <button onClick={() => router.push("/dashboard/users/")}>
           <Image
@@ -41,9 +43,11 @@ function UserDetails() {
           Back to Users
         </button>
       </div>
+      {/* USER DETAILS HEADER */}
       <div className="main__head">
         <h2 className="main__head-title">Users Details</h2>
         <div className="main__head-action">
+          {/* BLACKLIST USER BUTTON */}
           <Button
             variant="outline"
             type="button"
@@ -52,6 +56,8 @@ function UserDetails() {
           >
             BLACKLIST USER
           </Button>
+
+          {/* ACTIVATE USER BUTTON */}
           <Button
             variant="outline"
             type="button"
@@ -62,6 +68,7 @@ function UserDetails() {
           </Button>
         </div>
       </div>
+      {/* USER DETAILS COMPONENTS */}
       <UserInfo currentUserID={id} />
     </div>
   );

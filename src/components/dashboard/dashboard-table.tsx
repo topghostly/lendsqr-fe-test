@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import "../../styles/components/dashboard/_dashboard-table.scss";
 import Image from "next/image";
 import { useUsers } from "@/hooks/users";
 import { UserDetailsProp } from "@/types/user";
@@ -11,23 +10,26 @@ import FilterForm from "./filter-dropdown";
 import { formatDateTime } from "@/lib/util";
 import Dropdown from "../ui/dropdown";
 
+import "../../styles/components/dashboard/_dashboard-table.scss";
+
 const DashboardTable: React.FC = () => {
   const router = useRouter();
   const [showFilter, setShowFilter] = useState<boolean>(false);
 
+  // Function to move to the user details page
   const LinkToDetails = (user: string) => {
     router.push(`/dashboard/users/details/${user}`);
   };
 
-  const { pageItems } = useUsers() || {};
+  const { pageItems } = useUsers() || {}; // Get users in "pages" array from context
 
-  const toggleFilter = () => setShowFilter((prev) => !prev);
+  const toggleFilter = () => setShowFilter((prev) => !prev); // Toggle filter visibility
 
   return (
     <div>
       <div className="table-container">
         <table className="user-table">
-          {/* Table Header */}
+          {/* TABLE HEADER */}
           <thead>
             <tr>
               <th className="none-3">
@@ -117,7 +119,7 @@ const DashboardTable: React.FC = () => {
             </tr>
           </thead>
 
-          {/* Table Body */}
+          {/* TABLE BODY */}
           <tbody>
             {pageItems!.map((user: UserDetailsProp) => (
               <tr key={user.id}>
@@ -197,9 +199,10 @@ const DashboardTable: React.FC = () => {
             ))}
           </tbody>
         </table>
-
+        {/* FILTER COMPONENT CONDITIONALLY */}
         {showFilter && <FilterForm setShowFilter={setShowFilter} />}
       </div>
+      {/* PAGINATION COMPONENT */}
       <Pagination />
     </div>
   );
