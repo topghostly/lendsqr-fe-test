@@ -77,7 +77,7 @@ The application uses a mock API with 500 records. You can generate mock data usi
 Run unit tests:
 
 ```sh
-$ npm run test
+$ npm test
 ```
 
 ### Deployment
