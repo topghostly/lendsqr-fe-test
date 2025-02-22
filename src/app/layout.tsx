@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/style.scss";
 import { UserProvider } from "@/context/users";
 import Head from "next/head";
+import { AuthProvider } from "@/context/auth";
 
 export const metadata: Metadata = {
   title:
@@ -25,7 +26,9 @@ export default function RootLayout({
       <body>
         {/* USER CONTEXT PROVIDER */}
         {/* PROLLY MAKE PAGINATION CONTEXT PROVIDER */}
-        <UserProvider>{children}</UserProvider>
+        <UserProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </UserProvider>
       </body>
     </html>
   );

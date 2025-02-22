@@ -7,6 +7,7 @@ import styles from "@/styles/modules/auth.module.scss";
 import Button from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { SignInData } from "@/types/layout";
+import { useAuth } from "@/hooks/auth";
 
 const Auth: React.FC = () => {
   const router = useRouter();
@@ -15,6 +16,8 @@ const Auth: React.FC = () => {
     password: "",
   });
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const { login } = useAuth();
 
   // Switch password input type
   const togglePassword = useCallback(() => {
@@ -44,6 +47,9 @@ const Auth: React.FC = () => {
       alert("Password must be at least 4 characters.");
       return;
     }
+
+    // Log in admin
+    login();
 
     // Redirect to the dashboard after successful login
     router.push("/dashboard/users/");

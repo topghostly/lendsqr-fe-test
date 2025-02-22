@@ -1,16 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/ui/button";
 import UserInfo from "@/components/dashboard/dashboard-user-info";
 import { useParams } from "next/navigation";
+import { useAuth } from "@/hooks/auth";
 
 function UserDetails() {
   const { id } = useParams() as { id: string }; // Get the user ID from the URL params
 
   const router = useRouter();
+
+  const { logout } = useAuth(); // Get logout function from auth hook
+
+  useEffect(() => {
+    if (typeof window === "undefined") return; // Prevents running on the server for Hydration Errors
+
+    const storedAuth: string | null = localStorage.getItem("auth_data");
+
+    if (storedAuth) {
+      const { isLoggedIn } = JSON.parse(storedAuth || "");
+      if (!isLoggedIn) logout();
+    } else {
+      logout();
+    }
+  }, []);
 
   // Define button styles to avoid crowded jsx
   const buttonStyles = {
