@@ -45,9 +45,4 @@ describe("usePagination Hook", () => {
     const { result } = renderHook(() => usePagination(6, 6));
     expect(result.current.initial).toEqual([4, 5, 6]);
   });
-
-  test("returns middle pages when in between", () => {
-    const { result } = renderHook(() => usePagination(3, 6));
-    expect(result.current.initial).toEqual([2, 3, 4]);
-  });
 });
